@@ -1,71 +1,82 @@
 <!doctype html>
-<html lang="en">
-
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- reveal.js-local  ~~  A single HTML file to use reveal.js locally.                           -->
+<!--                                                                                             -->
+<!-- This project uses reveal.js by Hakim El Hattab, see:                                        -->
+<!--    https://github.com/hakimel/reveal.js                                                     -->
+<!--                                                                                             -->
+<!-- License:                                                                                    -->
+<!--    MIT licensed (same as reveal.js)                                                         -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<html lang=en>
    <head>
-      <meta charset="utf-8">
-
+      <meta charset=utf-8>
+      <base href="https://cdn.jsdelivr.net/reveal.js/2.6.2/">
       <title>reveal.js - The HTML Presentation Framework</title>
-
-      <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-      <meta name="author" content="Hakim El Hattab">
-
-      <meta name="apple-mobile-web-app-capable" content="yes" />
-      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-      <link rel="stylesheet" href="css/reveal.min.css">
-      <link rel="stylesheet" href="css/theme/default.css" id="theme">
-
+      <meta name=apple-mobile-web-app-capable content=yes>
+      <meta name=apple-mobile-web-app-status-bar-style content=black-translucent>
+      <meta name=viewport content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+      <link rel=stylesheet href="css/reveal.min.css">
+      <link rel=stylesheet href="css/theme/default.css" id=theme>
       <!-- For syntax highlighting -->
-      <link rel="stylesheet" href="lib/css/zenburn.css">
-
+      <link rel=stylesheet href="lib/css/zenburn.css">
       <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+      <style>
+         /* Supplemental styling (see baseline: http://lab.hakim.se/reveal-js/css/theme/default.css) */
+      </style>
       <script>
-         if( window.location.search.match( /print-pdf/gi ) ) {
-            var link = document.createElement( 'link' );
+         if (window.location.search.match(/print-pdf/gi)) {
+            var link = document.createElement('link');
             link.rel = 'stylesheet';
             link.type = 'text/css';
             link.href = 'css/print/pdf.css';
-            document.getElementsByTagName( 'head' )[0].appendChild( link );
-         }
+            document.getElementsByTagName('head')[0].appendChild( link );
+            }
       </script>
-
       <!--[if lt IE 9]>
       <script src="lib/js/html5shiv.js"></script>
       <![endif]-->
    </head>
-
    <body>
-
-      <div class="reveal">
-
+      <div class=reveal>
          <!-- Any section element inside of this container is displayed as a slide -->
-         <div class="slides">
-         </div>
+         <div class=slides>
 
-      </div>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!--  Start of Slides                                                                            -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
-      <script src="lib/js/head.min.js"></script>
-      <script src="js/reveal.min.js"></script>
+<!-- Slide -->
+<section>
+   <h1>title</h1>
+   <h2>subtitle</h2>
+   <p>
+      Your Name<br>
+      name@example.com
+   </p>
+</section>
 
-      <script>
-
-         // Full list of configuration options available here:
-         // https://github.com/hakimel/reveal.js#configuration
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!--  End of Slides                                                                              -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+</div></div>
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.min.js"></script>
+<script>
+   var setup = {
+      reveal: function() {
          Reveal.initialize({
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
             controls: true,
             progress: true,
             history: true,
             center: true,
-
             theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
             transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
-
             // Parallax scrolling
             // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
             // parallaxBackgroundSize: '2100px 900px',
-
             // Optional libraries used to extend on reveal.js
             dependencies: [
                { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
@@ -74,10 +85,14 @@
                { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
                { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
                { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-            ]
-         });
-
-      </script>
-
-   </body>
+               ]
+            });
+         },
+      go: function() {
+         setup.reveal();
+         }
+      };
+   setup.go();
+</script>
+</body>
 </html>
