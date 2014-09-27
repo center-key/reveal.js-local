@@ -301,6 +301,19 @@ app.help = {
          $('.presentation-title').html(presentationTitle);
          $('.presentation-subtitle').html(presentationSubtitle);
          },
+      images: function() {
+         var path = document.location.pathname;
+         var absoluteFolder = document.location.origin + path.substring(0, path.lastIndexOf('/') + 1);
+         console.log('Local images:', absoluteFolder);
+         function configureImage() {
+            var img = $(this);
+            var src = img.attr('src');
+            img.attr('src', src.indexOf('//') == -1 ? absoluteFolder + src : src);
+            if (img.data().width)
+               img.width(img.data().width);
+            };
+         $('.reveal img').each(configureImage);
+         },
       highlighting: function() {
          function trimNodeText() { $(this).text($.trim($(this).text())); }
          $('pre code').each(trimNodeText);
@@ -324,6 +337,7 @@ app.help = {
       go: function() {
          setup.reveal();
          setup.titles();
+         setup.images();
          setup.highlighting();
          setup.toggler();
          }
