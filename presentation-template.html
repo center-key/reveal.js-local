@@ -1,6 +1,6 @@
 <!doctype html>
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<!-- reveal.js-local  ~~  A single HTML file to use reveal.js locally.                           -->
+<!-- reveal.js-local  ~~  A single HTML file for showing a reveal.js presentation locally.       -->
 <!--                                                                                             -->
 <!-- This project uses reveal.js by Hakim El Hattab, see:                                        -->
 <!--    https://github.com/hakimel/reveal.js                                                     -->
@@ -17,13 +17,18 @@
       <meta name=apple-mobile-web-app-status-bar-style content=black-translucent>
       <meta name=viewport content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
       <link rel=stylesheet href="css/reveal.min.css">
-      <link rel=stylesheet href="css/theme/default.css" id=theme>
+
+      <!-- - - - - - - - - -->
+      <!--  Theme Setting  -->
+      <link id=theme rel=stylesheet href="css/theme/night.css">
+      <!--  Options: default.css, sky.css, beige.css, simple.css, serif.css, night.css, solarized.css  -->
+      <!-- - - - - - - - - -->
 
       <!-- - - - - - - - - - - - -->
       <!--  Syntax Highlighting  -->
       <link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/zenburn.min.css">
       <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
-      <!--  For CSS options, see:                                             -->
+      <!--  For highlight.js style themes, see:                               -->
       <!--     https://highlightjs.org/static/test.html                       -->
       <!--  Examples ("Atelier Dun - Dark" ==> "atelier-dune.dark.min.css"):  -->
       <!--     default.min.css, dark.min.css, obsidian.min.css                -->
@@ -35,6 +40,23 @@
 
       <style>
          /* Supplemental styling (see baseline: http://lab.hakim.se/reveal-js/css/theme/default.css) */
+         body { background-color: teal; }
+         .reveal pre code { font-size: 1.3rem; line-height: 1.4rem; padding: 20px 0px 20px 20px; }
+         .reveal pre code >span { transition: outline 0.3s ease; }
+         .reveal pre code >span:hover { outline: 3px solid white; }
+         .reveal table { margin: auto; border-collapse: collapse; border-spacing: 0; }
+         .reveal table th { font-weight: bold; }
+         .reveal table th, .reveal table td { text-align: left; padding: 0.2em 0.5em 0.2em 0.5em; }
+         .reveal table thead tr { border-bottom: 3px solid; }
+         .reveal table tbody tr { border-top: 1px solid; transition: background-color 0.5s ease; }
+         .reveal table tbody tr:hover { background-color: lightseagreen; }
+         .reveal img.prime { background: none; border: none; box-shadow: none; }
+         .reveal img.full, .reveal img.framed { background-color: rgba(255, 255, 255, 0.7); }
+         .reveal img.full { border: none; box-shadow: none; padding: 3% 5%; }
+         .reveal img.framed { border: 30px solid dimgray; padding: 5px; }
+         .reveal .down-arrow:before { content: "\21E7"; }
+         .reveal .down-arrow { -webkit-transform: rotate(180deg); transform: rotate(180deg); font-size: 5.0rem; font-weight: bold; margin: 30px 0px 35px 0px; }
+         .reveal .space-above { margin-top: 10%; }
       </style>
       <script>
          if (window.location.search.match(/print-pdf/gi)) {
@@ -79,7 +101,7 @@
       This paragraph is for authentic pug Thundercats, lomo distillery
       PBR literally kitsch you probably haven't seen.
    </p>
-<pre><code class=language-html>
+   <pre><code class=language-html>
 &lt;!-- Slide --&gt;
 &lt;section&gt;
    &lt;h1&gt;Header 1&lt;/h1&gt;
@@ -91,7 +113,7 @@
       distillery PBR literally kitsch you probably haven't seen.
    &lt;/p&gt;
 &lt;/section&gt;
-</code></pre>
+   </code></pre>
 </section>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
