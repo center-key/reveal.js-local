@@ -36,6 +36,7 @@
       <!--[if lt IE 9]>
       <script src="lib/js/html5shiv.js"></script>
       <![endif]-->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
    </head>
    <body>
       <div class=reveal>
@@ -62,6 +63,7 @@
 </div></div>
 <script src="lib/js/head.min.js"></script>
 <script src="js/reveal.min.js"></script>
+<script src="http://dnajs.org/dna.js"></script>
 <script>
    var setup = {
       reveal: function() {
@@ -92,7 +94,7 @@
          setup.reveal();
          }
       };
-   setup.go();
+   $(setup.go);
 </script>
 </body>
 </html>
