@@ -150,15 +150,21 @@
                { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
                ]
             });
-         hljs.initHighlightingOnLoad();
          },
       titles: function() {
          $('.presentation-title').html(presentationTitle);
          $('.presentation-subtitle').html(presentationSubtitle);
          },
+         },
+      highlighting: function() {
+         function trimNodeText() { $(this).text($.trim($(this).text())); }
+         $('pre code').each(trimNodeText);
+         hljs.initHighlightingOnLoad();
+         },
       go: function() {
          setup.reveal();
          setup.titles();
+         setup.highlighting();
          }
       };
    $(setup.go);
