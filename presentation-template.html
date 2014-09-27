@@ -18,9 +18,21 @@
       <meta name=viewport content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
       <link rel=stylesheet href="css/reveal.min.css">
       <link rel=stylesheet href="css/theme/default.css" id=theme>
-      <!-- For syntax highlighting -->
-      <link rel=stylesheet href="lib/css/zenburn.css">
-      <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+
+      <!-- - - - - - - - - - - - -->
+      <!--  Syntax Highlighting  -->
+      <link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/zenburn.min.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
+      <!--  For CSS options, see:                                             -->
+      <!--     https://highlightjs.org/static/test.html                       -->
+      <!--  Examples ("Atelier Dun - Dark" ==> "atelier-dune.dark.min.css"):  -->
+      <!--     default.min.css, dark.min.css, obsidian.min.css                -->
+      <!--  Usage (languages: "javascript", "html", "css", "less", etc.):     -->
+      <!--     <pre><code class=language-javascript>                          -->
+      <!--  For showing HTML code, first encode at:                           -->
+      <!--     http://www.convertstring.com/EncodeDecode/HtmlEncode           -->
+      <!-- - - - - - - - - - - - -->
+
       <style>
          /* Supplemental styling (see baseline: http://lab.hakim.se/reveal-js/css/theme/default.css) */
       </style>
@@ -57,6 +69,31 @@
    </p>
 </section>
 
+<!-- Slide -->
+<section class=toggle-on-backtick>
+   <h1>Header 1</h1>
+   <h2>Header 2</h2>
+   <h3>Header 3</h3>
+   <h4>Header 4</h4>
+   <p>
+      This paragraph is for authentic pug Thundercats, lomo distillery
+      PBR literally kitsch you probably haven't seen.
+   </p>
+<pre><code class=language-html>
+&lt;!-- Slide --&gt;
+&lt;section&gt;
+   &lt;h1&gt;Header 1&lt;/h1&gt;
+   &lt;h2&gt;Header 2&lt;/h2&gt;
+   &lt;h3&gt;Header 3&lt;/h3&gt;
+   &lt;h4&gt;Header 4&lt;/h4&gt;
+   &lt;p&gt;
+      This paragraph is for authentic pug Thundercats, lomo
+      distillery PBR literally kitsch you probably haven't seen.
+   &lt;/p&gt;
+&lt;/section&gt;
+</code></pre>
+</section>
+
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <!--  End of Slides                                                                              -->
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -84,11 +121,12 @@
                { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
                { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
                { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-               { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+               //{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
                { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
                { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
                ]
             });
+         hljs.initHighlightingOnLoad();
          },
       go: function() {
          setup.reveal();
