@@ -12,7 +12,7 @@
    <head>
       <meta charset=utf-8>
       <base href="https://cdn.jsdelivr.net/reveal.js/2.6.2/">
-      <title>reveal.js - The HTML Presentation Framework</title>
+      <title class=presentation-title></title>
       <meta name=apple-mobile-web-app-capable content=yes>
       <meta name=apple-mobile-web-app-status-bar-style content=black-translucent>
       <meta name=viewport content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -59,6 +59,7 @@
          .reveal .space-above { margin-top: 10%; }
       </style>
       <script>
+         // If the query includes 'print-pdf', include the PDF print sheet
          if (window.location.search.match(/print-pdf/gi)) {
             var link = document.createElement('link');
             link.rel = 'stylesheet';
@@ -67,9 +68,6 @@
             document.getElementsByTagName('head')[0].appendChild( link );
             }
       </script>
-      <!--[if lt IE 9]>
-      <script src="lib/js/html5shiv.js"></script>
-      <![endif]-->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
    </head>
    <body>
@@ -80,11 +78,15 @@
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <!--  Start of Slides                                                                            -->
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<script>
+   var presentationTitle =    'The Presentation';
+   var presentationSubtitle = 'Show your code';
+</script>
 
 <!-- Slide -->
 <section>
-   <h1>title</h1>
-   <h2>subtitle</h2>
+   <h1 class=presentation-title></h1>
+   <h2 class=presentation-subtitle></h2>
    <p>
       Your Name<br>
       name@example.com
@@ -150,8 +152,13 @@
             });
          hljs.initHighlightingOnLoad();
          },
+      titles: function() {
+         $('.presentation-title').html(presentationTitle);
+         $('.presentation-subtitle').html(presentationSubtitle);
+         },
       go: function() {
          setup.reveal();
+         setup.titles();
          }
       };
    $(setup.go);
