@@ -16,6 +16,7 @@
 <!--    * Adds some sample slides to show formatting - display by hitting the backtick (`) key   -->
 <!--    * Replaces the old broken syntax highlighter with a newer version from a CDN             -->
 <!--    * Includes hover effects for tables and source code to help speaker point to items       -->
+<!--    * Normalizes code whitespace to render properly even when aligned with surounding HTML   -->
 <!--                                                                                             -->
 <!-- To get started:                                                                             -->
 <!--    Just save "presentation-template.html" locally and then view and edit it locally.        -->
@@ -57,8 +58,8 @@
          /* Supplemental styling (see baseline: http://lab.hakim.se/reveal-js/css/theme/default.css) */
          body { background-color: teal; }
          .reveal pre code { font-size: 1.3rem; line-height: 1.3em; font-family: menlo, consolas, monospace; padding: 20px 0px 20px 20px; margin-bottom: 20px; }
-         .reveal pre code >span { transition: outline 0.3s ease; }
-         .reveal pre code >span:hover { outline: 3px solid white; }
+         .reveal pre code >span, .reveal li { transition: outline 0.5s ease; }
+         .reveal pre code >span:hover, .reveal li:hover { outline: 3px solid white; }
          .reveal table { margin: auto; border-collapse: collapse; border-spacing: 0; }
          .reveal table th { font-weight: bold; }
          .reveal table th, .reveal table td { text-align: left; padding: 0.2em 0.5em 0.2em 0.5em; }
@@ -134,17 +135,17 @@
       PBR literally kitsch you probably haven't seen.
    </p>
    <pre><code class=language-html>
-&lt;!-- Slide --&gt;
-&lt;section&gt;
-   &lt;h1&gt;Header 1&lt;/h1&gt;
-   &lt;h2&gt;Header 2&lt;/h2&gt;
-   &lt;h3&gt;Header 3&lt;/h3&gt;
-   &lt;h4&gt;Header 4&lt;/h4&gt;
-   &lt;p&gt;
-      This paragraph is for authentic pug Thundercats, lomo
-      distillery PBR literally kitsch you probably haven't seen.
-   &lt;/p&gt;
-&lt;/section&gt;
+      &lt;!-- Slide --&gt;
+      &lt;section&gt;
+         &lt;h1&gt;Header 1&lt;/h1&gt;
+         &lt;h2&gt;Header 2&lt;/h2&gt;
+         &lt;h3&gt;Header 3&lt;/h3&gt;
+         &lt;h4&gt;Header 4&lt;/h4&gt;
+         &lt;p&gt;
+            This paragraph is for authentic pug Thundercats, lomo
+            distillery PBR literally kitsch you probably haven't seen.
+         &lt;/p&gt;
+      &lt;/section&gt;
    </code></pre>
 </section>
 
@@ -160,18 +161,18 @@
    </p>
    <p>Hover over the HTML to highlight tags.</p>
    <pre><code class=language-html>
-&lt;!-- Slide --&gt;
-&lt;section&gt;
-   &lt;h1&gt;Bullet List&lt;/h1&gt;
-   &lt;p&gt;
-      &lt;ul&gt;
-         &lt;li&gt;HTML5&lt;/li&gt;
-         &lt;li&gt;CSS3&lt;/li&gt;
-         &lt;li&gt;JavaScript&lt;/li&gt;
-      &lt;/ul&gt;
-   &lt;/p&gt;
-   &lt;p&gt;Hover over the HTML to highlight tags.&lt;/p&gt;
-&lt;/section&gt;
+      &lt;!-- Slide --&gt;
+      &lt;section&gt;
+         &lt;h1&gt;Bullet List&lt;/h1&gt;
+         &lt;p&gt;
+            &lt;ul&gt;
+               &lt;li&gt;HTML5&lt;/li&gt;
+               &lt;li&gt;CSS3&lt;/li&gt;
+               &lt;li&gt;JavaScript&lt;/li&gt;
+            &lt;/ul&gt;
+         &lt;/p&gt;
+         &lt;p&gt;Hover over the HTML to highlight tags.&lt;/p&gt;
+      &lt;/section&gt;
    </code></pre>
    <small>
       To display HTML, <a href="http://www.convertstring.com/EncodeDecode/HtmlEncode">encoded</a>
@@ -184,12 +185,7 @@
    <h1>Data Table</h1>
    <p>Hover over the table to highlight rows.</p>
    <table>
-      <thead>
-         <tr>
-            <th>Type</th>
-            <th>Example</th>
-         </tr>
-      </thead>
+      <thead><tr><th>Type</th><th>Example</th></tr></thead>
       <tbody>
          <tr>
             <td>Boolean</td>
@@ -206,21 +202,19 @@
       </tbody>
    </table>
    <pre><code class=language-html>
-&lt;!-- Slide --&gt;
-&lt;section&gt;
-   &lt;h1&gt;Data Table&lt;/h1&gt;
-   &lt;p&gt;Hover over the table to highlight rows.&lt;/p&gt;
-   &lt;table&gt;
-      &lt;thead&gt;
-         &lt;tr&gt;&lt;th&gt;Type&lt;/th&gt;&lt;th&gt;Example&lt;/th&gt;&lt;/tr&gt;
-      &lt;/thead&gt;
-      &lt;tbody&gt;
-         &lt;tr&gt;&lt;td&gt;Boolean&lt;/td&gt; &lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;&lt;/tr&gt;
-         &lt;tr&gt;&lt;td&gt;String&lt;/td&gt;  &lt;td&gt;&lt;code&gt;'Hello'&lt;/code&gt;&lt;/td&gt;&lt;/tr&gt;
-         &lt;tr&gt;&lt;td&gt;&amp;pi;&lt;/td&gt;    &lt;td&gt;&lt;code&gt;3.14159265&lt;/code&gt;&lt;/td&gt;&lt;/tr&gt;
-      &lt;/tbody&gt;
-   &lt;/table&gt;
-&lt;/section&gt;
+      &lt;!-- Slide --&gt;
+      &lt;section&gt;
+         &lt;h1&gt;Data Table&lt;/h1&gt;
+         &lt;p&gt;Hover over the table to highlight rows.&lt;/p&gt;
+         &lt;table&gt;
+            &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Type&lt;/th&gt;&lt;th&gt;Example&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+            &lt;tbody&gt;
+               &lt;tr&gt;&lt;td&gt;Boolean&lt;/td&gt; &lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;&lt;/tr&gt;
+               &lt;tr&gt;&lt;td&gt;String&lt;/td&gt;  &lt;td&gt;&lt;code&gt;'Hello'&lt;/code&gt;&lt;/td&gt;&lt;/tr&gt;
+               &lt;tr&gt;&lt;td&gt;&amp;pi;&lt;/td&gt;    &lt;td&gt;&lt;code&gt;3.14159265&lt;/code&gt;&lt;/td&gt;&lt;/tr&gt;
+            &lt;/tbody&gt;
+         &lt;/table&gt;
+      &lt;/section&gt;
    </code></pre>
 </section>
 
@@ -230,19 +224,19 @@
    Look below
    <div class=down-arrow></div>
    <pre><code class=language-javascript>
-if (!app)
-   var app = {};
+      if (!app)
+         var app = {};
 
-app.help = {
-   selector: '.help-me',
-   show: function(event) {
-      var msg = $(event.target).data('msg');
-      $('#msg').text(msg).show().fadeOut(2000);
-      },
-   setup: function() {
-      $(app.help.selector).click(app.help.show);
-      }
-   };
+      app.help = {
+         selector: '.help-me',
+         show: function(event) {
+            var msg = $(event.target).data('msg');
+            $('#msg').text(msg).show().fadeOut(2000);
+            },
+         setup: function() {
+            $(app.help.selector).click(app.help.show);
+            }
+         };
    </code></pre>
 </section>
 
@@ -254,14 +248,14 @@ app.help = {
    <img class=prime data-width=20% alt="Logo"
       src="http://dnajs.org/graphics/dnajs-logo.png">
    <pre><code class=language-html>
-&lt;!-- Slide --&gt;
-&lt;section&gt;
-   &lt;h3&gt;Images and Arrows&lt;/h3&gt;
-   &lt;img class=prime data-width=5% alt=&quot;Logo&quot; src=&quot;logo.png&quot;&gt;
-   &lt;div class=down-arrow&gt;&lt;/div&gt;
-   &lt;img class=prime data-width=20% alt=&quot;Logo&quot;
-      src=&quot;http://dnajs.org/graphics/dnajs-logo.png&quot;&gt;
-&lt;/section&gt;
+      &lt;!-- Slide --&gt;
+      &lt;section&gt;
+         &lt;h3&gt;Images and Arrows&lt;/h3&gt;
+         &lt;img class=prime data-width=5% alt=&quot;Logo&quot; src=&quot;logo.png&quot;&gt;
+         &lt;div class=down-arrow&gt;&lt;/div&gt;
+         &lt;img class=prime data-width=20% alt=&quot;Logo&quot;
+            src=&quot;http://dnajs.org/graphics/dnajs-logo.png&quot;&gt;
+      &lt;/section&gt;
    </code></pre>
 </section>
 
@@ -271,12 +265,12 @@ app.help = {
    <img class=framed alt="Framed picture"
       src="https://i.chzbgr.com/maxW500/2087774976/hA08D8914/">
    <pre><code class=language-html>
-&lt;!-- Slide --&gt;
-&lt;section&gt;
-   &lt;h3&gt;Framed&lt;/h3&gt;
-   &lt;img class=framed alt=&quot;Framed picture&quot;
-      src=&quot;https://i.chzbgr.com/maxW500/2087774976/hA08D8914/&quot;&gt;
-&lt;/section&gt;
+      &lt;!-- Slide --&gt;
+      &lt;section&gt;
+         &lt;h3&gt;Framed&lt;/h3&gt;
+         &lt;img class=framed alt=&quot;Framed picture&quot;
+            src=&quot;https://i.chzbgr.com/maxW500/2087774976/hA08D8914/&quot;&gt;
+      &lt;/section&gt;
    </code></pre>
 </section>
 
@@ -288,15 +282,14 @@ app.help = {
    <img class=full alt="Diagram"
       src="https://docs.google.com/drawings/d/1-XjQ6DRUSHj8bHf2XUIrolfufSQmntGjEsv2Ry1cx38/pub?w=2000">
    <pre><code class=language-html>
-&lt;!-- Slide --&gt;
-&lt;section&gt;
-   &lt;h3&gt;Google Drawing&lt;/h3&gt;
-   Choose &lt;b&gt;Publish to the web...&lt;/b&gt;
-   and change URL parameters to: &lt;code>w=2000&lt;/code&gt;
-   &lt;img class=full alt=&quot;Diagram&quot;
-      src=&quot;https://docs.google.com/drawings/d/1-XjQ6DRUS
-      Hj8bHf2XUIrolfufSQmntGjEsv2Ry1cx38/pub?w=2000&quot;&gt;
-&lt;/section&gt;
+      &lt;!-- Slide --&gt;
+      &lt;section&gt;
+         &lt;h3&gt;Google Drawing&lt;/h3&gt;
+         Choose &lt;b&gt;Publish to the web...&lt;/b&gt;
+         and change URL parameters to: &lt;code>w=2000&lt;/code&gt;
+         &lt;img class=full alt=&quot;Diagram&quot;
+            src=&quot;https://docs.google.com/drawings/d/1-X...cx38/pub?w=2000&quot;&gt;
+      &lt;/section&gt;
    </code></pre>
 </section>
 
@@ -351,8 +344,13 @@ app.help = {
          $('.reveal img').each(configureImage);
          },
       highlighting: function() {
-         function trimNodeText() { $(this).text($.trim($(this).text())); }
-         $('pre code').each(trimNodeText);
+         function init() {
+            var indent = '   ';
+            var elem = $(this);
+            var padding = new RegExp(elem.text().match(/\n[ \t]+/), 'g');
+            elem.text($.trim(elem.text().replace(padding, '\n').replace(/\t/g, indent)));
+            }
+         $('pre code').each(init);
          hljs.initHighlightingOnLoad();
          },
       hiddenSlides: null,
