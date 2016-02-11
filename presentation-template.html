@@ -1,6 +1,6 @@
 <!doctype html>
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<!-- reveal.js-local v0.1                                                                        -->
+<!-- reveal.js-local v0.2                                                                        -->
 <!-- ====================                                                                        -->
 <!-- A single HTML file for showing a reveal.js presentation locally.                            -->
 <!-- github.com/center-key/reveal.js-local                                                       -->
@@ -27,35 +27,37 @@
 <html lang=en>
    <head>
       <meta charset=utf-8>
-      <base href="https://cdn.jsdelivr.net/reveal.js/2.6.2/">
-      <title class=presentation-title></title>
-      <meta name=apple-mobile-web-app-capable content=yes>
+      <meta name=apple-mobile-web-app-capable          content=yes>
       <meta name=apple-mobile-web-app-status-bar-style content=black-translucent>
-      <meta name=viewport content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-      <link rel=stylesheet href="css/reveal.min.css">
+      <meta name=viewport                              content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+      <title class=presentation-title>[see variable: presentationTitle]</title>
+      <link rel=stylesheet href=https://cdn.jsdelivr.net/fontawesome/4/css/font-awesome.min.css>
+      <link rel=stylesheet href=https://cdn.jsdelivr.net/dna.js/0/dna.css>
+      <link rel=stylesheet href=https://cdn.jsdelivr.net/reveal.js/3.0/css/reveal.min.css>
 
-      <!-- - - - - - - - - -->
-      <!--  Theme Setting  -->
-      <link id=theme rel=stylesheet href="css/theme/night.css">
-      <!--  Options: default.css, sky.css, beige.css, simple.css, serif.css, night.css, solarized.css  -->
-      <!-- - - - - - - - - -->
+      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+      <!--  Theme Setting                                                                        -->
+      <link id=theme rel=stylesheet href=https://cdn.jsdelivr.net/reveal.js/3.0/css/theme/night.css>
+      <!--  Options:                                                                             -->
+      <!--     default.css, sky.css, beige.css, simple.css, serif.css, night.css, solarized.css  -->
+      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
       <!-- - - - - - - - - - - - -->
       <!--  Syntax Highlighting  -->
-      <link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/zenburn.min.css">
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
+      <link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/zenburn.min.css>
+      <script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js></script>
       <!--  For highlight.js style themes, see:                               -->
-      <!--     https://highlightjs.org/static/test.html                       -->
+      <!--     highlightjs.org/static/test.html                               -->
       <!--  Examples ("Atelier Dun - Dark" ==> "atelier-dune.dark.min.css"):  -->
       <!--     default.min.css, dark.min.css, obsidian.min.css                -->
       <!--  Usage (languages: "javascript", "html", "css", "less", etc.):     -->
       <!--     <pre><code class=language-javascript>                          -->
       <!--  For showing HTML code, first encode at:                           -->
-      <!--     http://www.convertstring.com/EncodeDecode/HtmlEncode           -->
+      <!--     www.convertstring.com/EncodeDecode/HtmlEncode                  -->
       <!-- - - - - - - - - - - - -->
 
       <style>
-         /* Supplemental styling (see baseline: http://lab.hakim.se/reveal-js/css/theme/default.css) */
+         /* Supplemental styling, see baseline: lab.hakim.se/reveal-js/css/theme/default.css */
          body { background-color: teal; }
          .reveal pre code { font-size: 1.3rem; line-height: 1.3em; font-family: menlo, consolas, monospace; padding: 20px 0px 20px 20px; margin-bottom: 20px; }
          .reveal pre code >span, .reveal li { transition: outline 0.5s ease; }
@@ -71,20 +73,21 @@
          .reveal img.full { border: none; box-shadow: none; padding: 3% 5%; }
          .reveal img.framed { border: 30px solid dimgray; padding: 5px; }
          .reveal .down-arrow:before { content: "\21E7"; }
-         .reveal .down-arrow { -webkit-transform: rotate(180deg); transform: rotate(180deg); font-size: 5.0rem; font-weight: bold; margin: 30px 0px 35px 0px; }
+         .reveal .down-arrow { transform: rotate(180deg); font-size: 5.0rem; font-weight: bold; margin: 30px 0px 35px 0px; }
          .reveal .space-above { margin-top: 10%; }
       </style>
       <script>
-         // If the query includes 'print-pdf', include the PDF print sheet
+         // If the query includes "print-pdf", include the PDF print sheet
          if (window.location.search.match(/print-pdf/gi)) {
             var link = document.createElement('link');
-            link.rel = 'stylesheet';
+            link.rel =  'stylesheet';
             link.type = 'text/css';
             link.href = 'css/print/pdf.css';
-            document.getElementsByTagName('head')[0].appendChild( link );
+            document.getElementsByTagName('head')[0].appendChild(link);
             }
       </script>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+      <script src=https://cdn.jsdelivr.net/jquery/2/jquery.min.js></script>
+      <script src=https://cdn.jsdelivr.net/dna.js/0/dna.min.js></script>
    </head>
    <body>
       <div class=reveal>
@@ -101,8 +104,8 @@
 
 <!-- Slide -->
 <section>
-   <h1 class=presentation-title></h1>
-   <h2 class=presentation-subtitle></h2>
+   <h1 class=presentation-title>[see variable: presentationTitle]</h1>
+   <h2 class=presentation-subtitle>[see variable: presentationSubtitle]</h2>
    <p>
       Your Name<br>
       name@example.com
@@ -117,10 +120,10 @@
    </p>
    <p class=space-above>
       <small>Get latest template:
-         <a href="http://centerkey.com/files/reveal.js-local/">reveal.js-local</a></small>
+         <a href=http://centerkey.com/files/reveal.js-local/>reveal.js-local</a></small>
    </p>
    <p>
-      <small>Main documentation: <a href="http://lab.hakim.se/reveal-js/">reveal.js</a></small>
+      <small>Main documentation: <a href=http://lab.hakim.se/reveal-js/>reveal.js</a></small>
    </p>
 </section>
 
@@ -152,30 +155,26 @@
 <!-- Slide -->
 <section class=toggle-on-backtick>
    <h1>Bullet List</h1>
-   <p>
-      <ul>
-         <li>HTML5</li>
-         <li>CSS3</li>
-         <li>JavaScript</li>
-      </ul>
-   </p>
+   <ul>
+      <li>HTML5</li>
+      <li>CSS3</li>
+      <li>JavaScript</li>
+   </ul>
    <p>Hover over the HTML to highlight tags.</p>
    <pre><code class=language-html>
       &lt;!-- Slide --&gt;
       &lt;section&gt;
          &lt;h1&gt;Bullet List&lt;/h1&gt;
-         &lt;p&gt;
-            &lt;ul&gt;
-               &lt;li&gt;HTML5&lt;/li&gt;
-               &lt;li&gt;CSS3&lt;/li&gt;
-               &lt;li&gt;JavaScript&lt;/li&gt;
-            &lt;/ul&gt;
-         &lt;/p&gt;
+         &lt;ul&gt;
+            &lt;li&gt;HTML5&lt;/li&gt;
+            &lt;li&gt;CSS3&lt;/li&gt;
+            &lt;li&gt;JavaScript&lt;/li&gt;
+         &lt;/ul&gt;
          &lt;p&gt;Hover over the HTML to highlight tags.&lt;/p&gt;
       &lt;/section&gt;
    </code></pre>
    <small>
-      To display HTML, <a href="http://www.convertstring.com/EncodeDecode/HtmlEncode">encoded</a>
+      To display HTML, <a href=http://www.convertstring.com/EncodeDecode/HtmlEncode>encoded</a>
       and place into: <b>&lt;pre&gt;&lt;code class=language-html&gt;</b>
    </small>
 </section>
@@ -209,9 +208,9 @@
          &lt;table&gt;
             &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Type&lt;/th&gt;&lt;th&gt;Example&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
             &lt;tbody&gt;
-               &lt;tr&gt;&lt;td&gt;Boolean&lt;/td&gt; &lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;&lt;/tr&gt;
-               &lt;tr&gt;&lt;td&gt;String&lt;/td&gt;  &lt;td&gt;&lt;code&gt;'Hello'&lt;/code&gt;&lt;/td&gt;&lt;/tr&gt;
-               &lt;tr&gt;&lt;td&gt;&amp;pi;&lt;/td&gt;    &lt;td&gt;&lt;code&gt;3.14159265&lt;/code&gt;&lt;/td&gt;&lt;/tr&gt;
+               &lt;tr&gt;&lt;td&gt;Boolean&lt;/td&gt;&lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;&lt;/tr&gt;
+               &lt;tr&gt;&lt;td&gt;String&lt;/td&gt; &lt;td&gt;&lt;code&gt;'Hello'&lt;/code&gt;&lt;/td&gt;&lt;/tr&gt;
+               &lt;tr&gt;&lt;td&gt;&amp;pi;&lt;/td&gt;   &lt;td&gt;&lt;code&gt;3.14159265&lt;/code&gt;&lt;/td&gt;&lt;/tr&gt;
             &lt;/tbody&gt;
          &lt;/table&gt;
       &lt;/section&gt;
@@ -224,8 +223,7 @@
    Look below
    <div class=down-arrow></div>
    <pre><code class=language-javascript>
-      if (!app)
-         var app = {};
+      var app = {};
 
       app.help = {
          selector: '.help-me',
@@ -243,17 +241,16 @@
 <!-- Slide -->
 <section class=toggle-on-backtick>
    <h3>Images and Arrows</h3>
-   <img class=prime data-width=5% alt="Logo" src="logo.png">
+   <img class=prime data-width=5% alt=Logo src=logo.png>
    <div class=down-arrow></div>
-   <img class=prime data-width=20% alt="Logo"
-      src="http://dnajs.org/graphics/dnajs-logo.png">
+   <img class=prime data-width=20% alt=Logo src=http://dnajs.org/graphics/dnajs-logo.png>
    <pre><code class=language-html>
       &lt;!-- Slide --&gt;
       &lt;section&gt;
          &lt;h3&gt;Images and Arrows&lt;/h3&gt;
-         &lt;img class=prime data-width=5% alt=&quot;Logo&quot; src=&quot;logo.png&quot;&gt;
+         &lt;img class=prime data-width=5% alt=Logo src=logo.png&gt;
          &lt;div class=down-arrow&gt;&lt;/div&gt;
-         &lt;img class=prime data-width=20% alt=&quot;Logo&quot;
+         &lt;img class=prime data-width=20% alt=Logo
             src=&quot;http://dnajs.org/graphics/dnajs-logo.png&quot;&gt;
       &lt;/section&gt;
    </code></pre>
@@ -262,13 +259,13 @@
 <!-- Slide -->
 <section class=toggle-on-backtick>
    <h3>Framed</h3>
-   <img class=framed alt="Framed picture"
-      src="https://i.chzbgr.com/maxW500/2087774976/hA08D8914/">
+   <img class=framed alt=Framed
+      src=https://i.chzbgr.com/maxW500/2087774976/hA08D8914/>
    <pre><code class=language-html>
       &lt;!-- Slide --&gt;
       &lt;section&gt;
          &lt;h3&gt;Framed&lt;/h3&gt;
-         &lt;img class=framed alt=&quot;Framed picture&quot;
+         &lt;img class=framed alt=Framed
             src=&quot;https://i.chzbgr.com/maxW500/2087774976/hA08D8914/&quot;&gt;
       &lt;/section&gt;
    </code></pre>
@@ -279,7 +276,7 @@
    <h3>Google Drawing</h3>
    Choose <b>Publish to the web...</b>
    and change URL parameters to: <code>w=2000</code>
-   <img class=full alt="Diagram"
+   <img class=full alt=Diagram
       src="https://docs.google.com/drawings/d/1-XjQ6DRUSHj8bHf2XUIrolfufSQmntGjEsv2Ry1cx38/pub?w=2000">
    <pre><code class=language-html>
       &lt;!-- Slide --&gt;
@@ -287,7 +284,7 @@
          &lt;h3&gt;Google Drawing&lt;/h3&gt;
          Choose &lt;b&gt;Publish to the web...&lt;/b&gt;
          and change URL parameters to: &lt;code>w=2000&lt;/code&gt;
-         &lt;img class=full alt=&quot;Diagram&quot;
+         &lt;img class=full alt=Diagram
             src=&quot;https://docs.google.com/drawings/d/1-X...cx38/pub?w=2000&quot;&gt;
       &lt;/section&gt;
    </code></pre>
@@ -297,15 +294,15 @@
 <!--  End of Slides                                                                              -->
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 </div></div>
-<script src="lib/js/head.min.js"></script>
-<script src="js/reveal.min.js"></script>
-<script src="http://dnajs.org/dna.js"></script>
+<script src=https://cdn.jsdelivr.net/reveal.js/3.0/lib/js/head.min.js></script>
+<script src=https://cdn.jsdelivr.net/reveal.js/3.0/js/reveal.min.js></script>
+<script src=http://dnajs.org/dna.js></script>
 <script>
    var setup = {
       reveal: function() {
          Reveal.initialize({
             // Full list of configuration options available here:
-            // https://github.com/hakimel/reveal.js#configuration
+            //    github.com/hakimel/reveal.js#configuration
             controls: true,
             progress: true,
             history: true,
@@ -321,8 +318,8 @@
                { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
                { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
                //{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-               { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-               { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+               //{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+               //{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
                ]
             });
          },
