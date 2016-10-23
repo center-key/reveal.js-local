@@ -3,7 +3,7 @@
 *A single HTML file for showing a reveal.js presentation locally*
 
 ---
-<img align=right src=logo.png?raw=true>
+<img align=right src=logo.png>
 
 View the sample `presentation-template.html` file online at:<br>
 [centerkey.com/files/reveal.js-local](http://centerkey.com/files/reveal.js-local)

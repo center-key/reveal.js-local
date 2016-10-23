@@ -62,13 +62,13 @@
          /* Supplemental styling, see baseline: lab.hakim.se/reveal-js/css/theme/default.css */
          body { background-color: teal; }
          .reveal pre code { font-size: 1.3rem; line-height: 1.3em; font-family: menlo, consolas, monospace; padding: 20px 0px 20px 20px; margin-bottom: 20px; }
-         .reveal pre code >span, .reveal li { transition: outline 0.5s ease; }
+         .reveal pre code >span, .reveal li { transition: outline 0.4s; }
          .reveal pre code >span:hover, .reveal li:hover { outline: 3px solid white; }
          .reveal table { margin: auto; border-collapse: collapse; border-spacing: 0; }
          .reveal table th { font-weight: bold; }
          .reveal table th, .reveal table td { text-align: left; padding: 0.2em 0.5em 0.2em 0.5em; }
          .reveal table thead tr { border-bottom: 3px solid; }
-         .reveal table tbody tr { border-top: 1px solid; transition: background-color 0.5s ease; }
+         .reveal table tbody tr { border-top: 1px solid; transition: background-color 0.4s; }
          .reveal table tbody tr:hover { background-color: lightseagreen; }
          .reveal img.prime { background: none; border: none; box-shadow: none; }
          .reveal img.full, .reveal img.framed { background-color: rgba(255, 255, 255, 0.7); }
@@ -253,7 +253,7 @@
          &lt;img class=prime data-width=5% alt=Logo src=logo.png&gt;
          &lt;div class=down-arrow&gt;&lt;/div&gt;
          &lt;img class=prime data-width=20% alt=Logo
-            src=&quot;http://dnajs.org/graphics/dnajs-logo.png&quot;&gt;
+            src=http://dnajs.org/graphics/dnajs-logo.png&gt;
       &lt;/section&gt;
    </code></pre>
 </section>
@@ -262,13 +262,13 @@
 <section class=toggle-on-backtick>
    <h3>Framed</h3>
    <img class=framed alt=Framed
-      src=https://i.chzbgr.com/maxW500/2087774976/hA08D8914/>
+      src=https://i.chzbgr.com/maxW500/2087774976/hA08D8914>
    <pre><code class=language-html>
       &lt;!-- Slide --&gt;
       &lt;section&gt;
          &lt;h3&gt;Framed&lt;/h3&gt;
          &lt;img class=framed alt=Framed
-            src=&quot;https://i.chzbgr.com/maxW500/2087774976/hA08D8914/&quot;&gt;
+            src=https://i.chzbgr.com/maxW500/2087774976/hA08D8914&gt;
       &lt;/section&gt;
    </code></pre>
 </section>
@@ -307,19 +307,19 @@
          Reveal.initialize({
             // Full list of configuration options available here:
             //    github.com/hakimel/reveal.js#configuration
-            controls: true,
-            progress: true,
-            history: true,
-            center: true,
-            theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            controls:   true,
+            progress:   true,
+            history:    true,
+            center:     true,
+            theme:      Reveal.getQueryHash().theme, // available themes are in /css/theme
             transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
             // Parallax scrolling
             // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
             // parallaxBackgroundSize: '2100px 900px',
             // Optional libraries used to extend on reveal.js
             dependencies: [
-               { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-               { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+               { src: 'lib/js/classList.js',         condition: function() { return !document.body.classList; } },
+               { src: 'plugin/markdown/marked.js',   condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
                { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
                //{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
                //{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
