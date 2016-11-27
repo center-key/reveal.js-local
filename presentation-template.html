@@ -33,8 +33,8 @@
       <meta name=apple-mobile-web-app-status-bar-style content=black-translucent>
       <meta name=viewport                              content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
       <title class=presentation-title>[see variable: presentationTitle]</title>
-      <link rel=stylesheet href=https://cdn.jsdelivr.net/fontawesome/4/css/font-awesome.min.css>
-      <link rel=stylesheet href=https://cdn.jsdelivr.net/dna.js/0/dna.css>
+      <link rel=stylesheet href=https://cdn.jsdelivr.net/fontawesome/4.7/css/font-awesome.min.css>
+      <link rel=stylesheet href=https://cdn.jsdelivr.net/dna.js/1.1/dna.css>
       <link rel=stylesheet href=https://cdn.jsdelivr.net/reveal.js/3.0/css/reveal.min.css>
 
       <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -88,8 +88,8 @@
             document.getElementsByTagName('head')[0].appendChild(link);
             }
       </script>
-      <script src=https://cdn.jsdelivr.net/jquery/3/jquery.min.js></script>
-      <script src=https://cdn.jsdelivr.net/dna.js/0/dna.min.js></script>
+      <script src=https://cdn.jsdelivr.net/jquery/3.1/jquery.min.js></script>
+      <script src=https://cdn.jsdelivr.net/dna.js/1.1/dna.min.js></script>
    </head>
    <body>
       <div class=reveal>
@@ -341,7 +341,7 @@
          function configureImage() {
             var img = $(this);
             var src = img.attr('src');
-            img.attr('src', src.indexOf('//') == -1 ? absoluteFolder + src : src);
+            img.attr({ src: src.indexOf('//') == -1 ? absoluteFolder + src : src });
             if (img.data().width)
                img.width(img.data().width);
             };
@@ -370,7 +370,7 @@
                }
             };
          window.setTimeout(toggleSlides, 500);  //delay to allow syntax highlighting to finish
-         $(document).keypress(handleKeyPress);
+         $(window.document).keypress(handleKeyPress);
          },
       go: function() {
          setup.reveal();
