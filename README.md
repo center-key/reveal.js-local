@@ -11,5 +11,5 @@ View the sample `presentation-template.html` file online at:<br>
 To get started:<br>
 Just save `presentation-template.html` locally and then view and edit it locally.
 
-===
-License: MIT licensed (same as [reveal.js](https://github.com/hakimel/reveal.js))
+---
+License: [MIT](LICENSE.txt) (same as [reveal.js](https://github.com/hakimel/reveal.js))
