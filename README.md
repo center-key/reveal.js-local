@@ -1,5 +1,5 @@
-<img src=js-logo.png align=right alt=logo>
 ### reveal.js-local
+<img src=js-logo.png align=right alt=logo>
 
 *A single HTML file for showing a reveal.js presentation locally*
 
