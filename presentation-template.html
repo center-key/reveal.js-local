@@ -338,8 +338,8 @@
          var path = document.location.pathname;
          var absoluteFolder = document.location.origin + path.substring(0, path.lastIndexOf('/') + 1);
          console.log('Local images:', absoluteFolder);
-         function configureImage() {
-            var img = $(this);
+         function configureImage(i, elem) {
+            var img = $(elem);
             var src = img.attr('src');
             img.attr({ src: src.indexOf('//') == -1 ? absoluteFolder + src : src });
             if (img.data().width)
@@ -348,9 +348,9 @@
          $('.reveal img').each(configureImage);
          },
       highlighting: function() {
-         function init() {
+         function init(i, elem) {
+            elem = $(elem);
             var indent = '   ';
-            var elem = $(this);
             var padding = new RegExp(elem.text().match(/\n[ \t]+/), 'g');
             elem.text($.trim(elem.text().replace(padding, '\n').replace(/\t/g, indent)));
             }
