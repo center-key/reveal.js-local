@@ -6,7 +6,7 @@
 ---
 
 View the sample `presentation-template.html` file online at:<br>
-[centerkey.com/files/reveal.js-local](http://centerkey.com/files/reveal.js-local)
+[centerkey.com/files/reveal.js-local](https://centerkey.com/files/reveal.js-local)
 
 To get started:<br>
 Just save `presentation-template.html` locally and then view and edit it locally.
