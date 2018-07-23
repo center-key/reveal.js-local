@@ -32,5 +32,22 @@ copyFilesToWebServer() {
    echo
    }
 
+publish() {  #WIP...
+   cd $projectHome/website/httpdocs
+   publishWebRoot=$(grep ^DocumentRoot /private/etc/apache2/httpd.conf | awk -F\" '{ print $2 }')
+   publishFolder=$publishWebRoot/centerkey.com/www.dnajs.org
+   copyWebFiles() {
+      echo "Publishing:"
+      echo $publishFolder
+      cp -R * $publishFolder
+      mkdir -p $publishFolder/../www.dnajs.com/
+      mv placeholder.html $publishFolder/../www.dnajs.com/index.html
+      echo
+      }
+   [ -w $publishFolder ] && copyWebFiles
+   }
+
+echo "reveal.js-local"
+echo "==============="
 makeReadMe
 copyFilesToWebServer
