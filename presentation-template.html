@@ -1,6 +1,6 @@
 <!doctype html>
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<!-- reveal.js-local v0.6.1                                                                      -->
+<!-- reveal.js-local v0.6.2                                                                      -->
 <!-- ======================                                                                      -->
 <!-- A single HTML file for showing a reveal.js presentation locally.                            -->
 <!--                                                                                             -->
@@ -243,14 +243,14 @@
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <section class=toggle-on-backtick>
    <h2>Images and Arrows</h2>
-   <img class=prime data-width=5% src=js-logo.png alt=logo>
+   <img class=prime data-width=5% src=assets/js-logo.png alt=logo>
    <div class=down-arrow></div>
    <img class=prime data-width=20% src=https://dnajs.org/graphics/dnajs-logo.png alt=logo>
    <pre><code class=language-html>
       &lt;!-- Slide --&gt;
       &lt;section&gt;
          &lt;h3&gt;Images and Arrows&lt;/h3&gt;
-         &lt;img class=prime data-width=5% src=js-logo.png alt=logo&gt;
+         &lt;img class=prime data-width=5% src=assets/js-logo.png alt=logo&gt;
          &lt;div class=down-arrow&gt;&lt;/div&gt;
          &lt;img class=prime data-width=20% alt=logo
             src=https://dnajs.org/graphics/dnajs-logo.png&gt;
@@ -335,7 +335,7 @@
       images: function() {
          const path = document.location.pathname;
          const absoluteFolder = document.location.origin + path.substring(0, path.lastIndexOf('/') + 1);
-         console.log('Local images:', absoluteFolder);
+         console.log('Images folder', absoluteFolder + 'assets/');
          function configureImage(i, elem) {
             const img = $(elem);
             const src = img.attr('src');
@@ -361,6 +361,7 @@
          $(window.document).on({ keypress: handleKeyPress });
          },
       go: function() {
+         console.log('=== reveal.js-local ===');
          setup.reveal();
          setup.titles();
          setup.images();
