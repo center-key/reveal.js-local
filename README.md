@@ -1,14 +1,13 @@
 # reveal.js-local
-<img src=http://centerkey.com/files/reveal.js-local/js-logo.png align=right alt=logo>
+<img src=http://centerkey.com/reveal.js-local/js-logo.png align=right alt=logo>
 
 _A single HTML file for showing a reveal.js presentation locally_
 
 ### Try it
-View the sample `presentation-template.html` file online at:<br>
-[centerkey.com/files/reveal.js-local](https://centerkey.com/files/reveal.js-local)
+View the
+[sample presentation](https://centerkey.com/reveal.js-local/presentation-template.html).
 
 ### Use it
-To get started:<br>
 Just save [`presentation-template.html`](presentation-template.html) locally and then view and edit
 it locally.
 
