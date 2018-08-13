@@ -24,6 +24,9 @@ publishWebFiles() {
    test -w $publishSite && publish
    }
 
+echo
 echo "reveal.js-local"
 echo "==============="
+echo $projectHome
+echo
 publishWebFiles
