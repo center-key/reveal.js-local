@@ -1,6 +1,6 @@
 <!doctype html>
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<!-- reveal.js-local v0.6.0                                                                      -->
+<!-- reveal.js-local v0.6.1                                                                      -->
 <!-- ======================                                                                      -->
 <!-- A single HTML file for showing a reveal.js presentation locally.                            -->
 <!--                                                                                             -->
@@ -40,14 +40,14 @@
 
       <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
       <!--  reveal.js Theme Setting                                                              -->
-      <link id=theme rel=stylesheet href=https://cdn.jsdelivr.net/npm/reveal.js@3.7/css/theme/night.css>
+      <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/reveal.js@3.7/css/theme/night.css>
       <!--  Options:                                                                             -->
       <!--     default.css, sky.css, beige.css, simple.css, serif.css, night.css, solarized.css  -->
       <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
       <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
       <!--  Syntax Highlighting                                                                -->
-      <link  href=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.12/build/styles/zenburn.min.css rel=stylesheet>
+      <link href=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.12/build/styles/zenburn.min.css rel=stylesheet>
       <!--  For highlight.js style themes, see:                                                -->
       <!--     highlightjs.org/static/test.html                                                -->
       <!--  Examples ("Atelier Dun - Dark" ==> "atelier-dune.dark.min.css"):                   -->
@@ -59,10 +59,16 @@
       <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
       <style>
-         /* Supplemental styling, see baseline: lab.hakim.se/reveal-js/css/theme/default.css */
-         body { background-color: teal; }
-         .reveal { font-size: 180%; }
-         .reveal pre code { font-size: 1.3rem; line-height: 1.3em; font-family: menlo, consolas, monospace; padding: 20px 0px 20px 20px; }
+         /*****************************/
+         /* Customize background here */
+         body { background-image: url(https://apod.nasa.gov/apod/image/1808/NGC6744_HaLRGB_MP.jpg); }
+         /* body { background-image: linear-gradient(to right, darkslategray, teal 15%, teal 85%, darkslategray); } */
+         /* body { background-color: teal; } */
+         /*****************************/
+         body { background-size: cover; background-position: center center; }
+         .reveal .slides { top: -200px; font-size: 70%; }
+         .reveal pre { width: auto; }
+         .reveal pre code { max-height: none; font-size: 1.3rem; line-height: 1.3em; font-family: menlo, consolas, monospace; padding: 20px 0px 20px 20px; }
          .reveal pre code >span, .reveal li { transition: outline 0.4s; }
          .reveal pre code >span:hover, .reveal li:hover { outline: 3px solid white; }
          .reveal table { margin: auto; border-collapse: collapse; border-spacing: 0; }
@@ -71,6 +77,7 @@
          .reveal table thead tr { border-bottom: 3px solid; }
          .reveal table tbody tr { border-top: 1px solid; transition: background-color 0.4s; }
          .reveal table tbody tr:hover { background-color: lightseagreen; }
+         .reveal img { max-width: 90%; }
          .reveal img.prime { background: none; border: none; box-shadow: none; }
          .reveal img.full, .reveal img.framed { background-color: rgba(255, 255, 255, 0.7); }
          .reveal img.full { border: none; box-shadow: none; padding: 3% 5%; }
@@ -79,16 +86,6 @@
          .reveal .down-arrow { transform: rotate(180deg); font-size: 5.0rem; font-weight: bold; margin: 30px 0px 35px 0px; }
          .reveal .space-above { margin-top: 10%; }
       </style>
-      <script>
-         // If the query includes "print-pdf", include the PDF print sheet
-         if (window.location.search.match(/print-pdf/gi)) {
-            var link = document.createElement('link');
-            link.rel =  'stylesheet';
-            link.type = 'text/css';
-            link.href = 'css/print/pdf.css';
-            document.getElementsByTagName('head')[0].appendChild(link);
-            }
-      </script>
    </head>
    <body>
       <div class=reveal>
@@ -99,8 +96,8 @@
 <!-- Start of Slides                                                                             -->
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <script>
-   var presentationTitle =    'The Presentation';
-   var presentationSubtitle = 'Show your code';
+   const presentationTitle =    'The Presentation';
+   const presentationSubtitle = 'Show your code';
 </script>
 
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -228,24 +225,24 @@
    Look below
    <div class=down-arrow></div>
    <pre><code class=language-javascript>
-      var app = {};
-
-      app.help = {
+      const help = {
          selector: '.help-me',
          show: function(event) {
-            var msg = $(event.target).data('msg');
+            const msg = $(event.target).data('msg');
             $('#msg').text(msg).show().fadeOut(2000);
             },
          setup: function() {
-            $(app.help.selector).click(app.help.show);
+            $(document).on({ click: help.show }, help.selector);
             }
          };
+
+      $(help.setup);
    </code></pre>
 </section>
 
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <section class=toggle-on-backtick>
-   <h3>Images and Arrows</h3>
+   <h2>Images and Arrows</h2>
    <img class=prime data-width=5% src=js-logo.png alt=logo>
    <div class=down-arrow></div>
    <img class=prime data-width=20% src=https://dnajs.org/graphics/dnajs-logo.png alt=logo>
@@ -263,7 +260,7 @@
 
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <section class=toggle-on-backtick>
-   <h3>Framed</h3>
+   <h2>Framed</h2>
    <img class=framed
       src=https://i.chzbgr.com/maxW500/2087774976/hA08D8914 alt=framed>
    <pre><code class=language-html>
@@ -278,7 +275,7 @@
 
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <section class=toggle-on-backtick>
-   <h3>Google Drawing</h3>
+   <h2>Google Drawing</h2>
    Choose <b>Publish to the web...</b>
    and change URL parameters to: <code>w=2000</code>
    <img class=full alt=diagram
@@ -306,7 +303,7 @@
 <script src=https://cdn.jsdelivr.net/npm/dna.js@1.4/dna.min.js></script>
 <script src=https://centerkey.com/files/hljs-enhance/hljs-enhance.js></script>
 <script>
-   var setup = {
+   const setup = {
       reveal: function() {
          Reveal.initialize({
             // Full list of configuration options available here:
@@ -336,12 +333,12 @@
          $('.presentation-subtitle').html(presentationSubtitle);
          },
       images: function() {
-         var path = document.location.pathname;
-         var absoluteFolder = document.location.origin + path.substring(0, path.lastIndexOf('/') + 1);
+         const path = document.location.pathname;
+         const absoluteFolder = document.location.origin + path.substring(0, path.lastIndexOf('/') + 1);
          console.log('Local images:', absoluteFolder);
          function configureImage(i, elem) {
-            var img = $(elem);
-            var src = img.attr('src');
+            const img = $(elem);
+            const src = img.attr('src');
             img.attr({ src: src.indexOf('//') === -1 ? absoluteFolder + src : src });
             if (img.data().width)
                img.width(img.data().width);
