@@ -6,7 +6,17 @@
 # To make this file runnable:
 #     $ chmod +x *.sh.command
 
+banner="reveal.js-local"
 projectHome=$(cd $(dirname $0); pwd)
+
+displayIntro() {
+   cd $projectHome
+   echo
+   echo $banner
+   echo $(echo $banner | sed -e "s/./=/g")
+   pwd
+   echo
+   }
 
 publishWebFiles() {
    cd $projectHome
@@ -15,6 +25,7 @@ publishWebFiles() {
    publishFolder=$publishSite/reveal.js-local
    publish() {
       echo "Publishing:"
+      echo $publishFolder
       mkdir -p $publishFolder/assets
       cp -v presentation-template.html $publishFolder
       cp -v assets/*                   $publishFolder/assets
@@ -24,9 +35,5 @@ publishWebFiles() {
    test -w $publishSite && publish
    }
 
-echo
-echo "reveal.js-local"
-echo "==============="
-echo $projectHome
-echo
+displayIntro
 publishWebFiles
