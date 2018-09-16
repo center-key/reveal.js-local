@@ -1,5 +1,5 @@
 # reveal.js-local
-<img src=http://centerkey.com/reveal.js-local/assets/js-logo.png align=right alt=logo>
+<img src=https://centerkey.com/reveal.js-local/assets/js-logo.png align=right alt=logo>
 
 _A single HTML file for showing a reveal.js presentation locally_
 
