@@ -29,7 +29,7 @@ publishWebFiles() {
       mkdir -p $publishFolder/assets
       cp -v presentation-template.html $publishFolder
       cp -v assets/*                   $publishFolder/assets
-      echo "\n<!-- Published: $(date) -->" >> $publishFolder/presentation-template.html
+      echo -e "\n<!-- Published: $(date) -->" >> $publishFolder/presentation-template.html
       echo
       }
    test -w $publishSite && publish
