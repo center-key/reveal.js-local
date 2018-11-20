@@ -37,7 +37,7 @@
       <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.3/css/all.min.css>
       <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/dna.js@1.4/dna.css>
       <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/reveal.js@3.7/css/reveal.css>
-      <link rel=stylesheet href=https://centerkey.com/hljs-enhance/hljs-enhance.css>
+      <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/hljs-enhance@0.0/hljs-enhance.css>
 
       <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
       <!--  reveal.js Theme Setting                                                              -->
@@ -48,7 +48,7 @@
 
       <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
       <!--  Syntax Highlighting                                                                -->
-      <link href=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.12/build/styles/zenburn.min.css rel=stylesheet>
+      <link href=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.13/build/styles/zenburn.min.css rel=stylesheet>
       <!--  For highlight.js style themes, see:                                                -->
       <!--     highlightjs.org/static/test.html                                                -->
       <!--  Examples ("Atelier Dun - Dark" ==> "atelier-dune.dark.min.css"):                   -->
@@ -306,9 +306,9 @@
 <script src=https://cdn.jsdelivr.net/npm/jquery@3.3/dist/jquery.min.js></script>
 <script src=https://cdn.jsdelivr.net/npm/reveal.js@3.7/lib/js/head.min.js></script>
 <script src=https://cdn.jsdelivr.net/npm/reveal.js@3.7/js/reveal.js></script>
-<script src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.12/build/highlight.min.js></script>
+<script src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.13/build/highlight.min.js></script>
 <script src=https://cdn.jsdelivr.net/npm/dna.js@1.4/dna.min.js></script>
-<script src=https://centerkey.com/hljs-enhance/hljs-enhance.js></script>
+<script src=https://cdn.jsdelivr.net/npm/hljs-enhance@0.0/hljs-enhance.js></script>
 <script>
    const setup = {
       reveal: function() {
@@ -346,7 +346,7 @@
          function configureImage(i, elem) {
             const img = $(elem);
             const src = img.attr('src');
-            img.attr({ src: src.indexOf('//') === -1 ? absoluteFolder + src : src });
+            img.attr({ src: src.includes('//') ? src : absoluteFolder + src });
             if (img.data().width)
                img.width(img.data().width);
             };
