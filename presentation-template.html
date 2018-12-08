@@ -1,6 +1,6 @@
 <!doctype html>
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<!-- reveal.js-local v0.6.3                                                                      -->
+<!-- reveal.js-local v0.7.0                                                                      -->
 <!-- ======================                                                                      -->
 <!-- A single HTML file for showing a reveal.js presentation locally.                            -->
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -9,7 +9,7 @@
       <meta charset=utf-8>
       <meta name=apple-mobile-web-app-capable          content=yes>
       <meta name=apple-mobile-web-app-status-bar-style content=black-translucent>
-      <meta name=viewport                              content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+      <meta name=viewport                              content="width=device-width, initial-scale=1">
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <!-- View sample "presentation-template.html" online at:                                         -->
 <!--    https://centerkey.com/reveal.js-local                                                    -->
@@ -34,8 +34,8 @@
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
       <title class=presentation-title>[see variable: presentationTitle]</title>
       <link rel=icon       href=https://centerkey.com/graphics/bookmark.png>
-      <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.3/css/all.min.css>
-      <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/dna.js@1.4/dna.css>
+      <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.6/css/all.min.css>
+      <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/dna.js@1.5/dist/dna.css>
       <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/reveal.js@3.7/css/reveal.css>
       <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/hljs-enhance@0.0/hljs-enhance.css>
 
@@ -74,7 +74,8 @@
          body { background-size: cover; background-position: center center; }
          .reveal .slides { font-size: 70%; }
          .reveal .slides >section { padding-bottom: 50px; }
-         .reveal pre { width: auto; }
+         .reveal figure figcaption { font-size: 1.5rem; }
+         .reveal pre { width: auto; box-shadow: none; }
          .reveal pre code { max-height: none; font-size: 1.3rem; line-height: 1.3em; font-family: menlo, consolas, monospace; padding: 20px 0px 20px 20px; }
          .reveal pre code >span, .reveal li { transition: outline 0.4s; }
          .reveal pre code >span:hover, .reveal li:hover { outline: 3px solid white; }
@@ -92,6 +93,12 @@
          .reveal .down-arrow:before { content: "\21E7"; }
          .reveal .down-arrow { transform: rotate(180deg); font-size: 5.0rem; font-weight: bold; margin: 30px 0px 35px 0px; }
          .reveal .space-above { margin-top: 10%; }
+
+         /* Customize hljs-enhance frame colors */
+         figure.hljs-enhance >figcaption             { color:            black; }      /* title */
+         figure.hljs-enhance >figcaption:first-child { background-color: mintcream; }  /* trim */
+         pre.hljs-enhance, figure.hljs-enhance >div  { border-color:     mintcream; }  /* trim */
+         pre.hljs-enhance >code                      { background-color: black; }      /* background */
       </style>
    </head>
    <body>
@@ -147,18 +154,21 @@
       This paragraph is for authentic pug Thundercats, lomo distillery
       PBR literally kitsch you probably haven't seen.
    </p>
-   <pre><code class=language-html>
-      &lt;!-- Slide --&gt;
-      &lt;section&gt;
-         &lt;h2&gt;Header 2&lt;/h2&gt;
-         &lt;h3&gt;Header 3&lt;/h3&gt;
-         &lt;h4&gt;Header 4&lt;/h4&gt;
-         &lt;p&gt;
-            This paragraph is for authentic pug Thundercats, lomo
-            distillery PBR literally kitsch you probably haven't seen.
-         &lt;/p&gt;
-      &lt;/section&gt;
-   </code></pre>
+   <figure>
+      <figcaption>HTML for this Slide</figcaption>
+      <pre><code class=language-html>
+         &lt;!-- Slide --&gt;
+         &lt;section&gt;
+            &lt;h2&gt;Header 2&lt;/h2&gt;
+            &lt;h3&gt;Header 3&lt;/h3&gt;
+            &lt;h4&gt;Header 4&lt;/h4&gt;
+            &lt;p&gt;
+               This paragraph is for authentic pug Thundercats, lomo
+               distillery PBR literally kitsch you probably haven't seen.
+            &lt;/p&gt;
+         &lt;/section&gt;
+      </code></pre>
+   </figure>
 </section>
 
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -170,20 +180,22 @@
       <li>JavaScript</li>
    </ul>
    <p>Hover over the HTML to highlight tags.</p>
-   <pre><code class=language-html>
-      &lt;!-- Slide --&gt;
-      &lt;section&gt;
-         &lt;h2&gt;Bullet List&lt;/h2&gt;
-         &lt;ul&gt;
-            &lt;li&gt;HTML5&lt;/li&gt;
-            &lt;li&gt;CSS3&lt;/li&gt;
-            &lt;li&gt;JavaScript&lt;/li&gt;
-         &lt;/ul&gt;
-         &lt;p&gt;Hover over the HTML to highlight tags.&lt;/p&gt;
-      &lt;/section&gt;
-   </code></pre>
+   <figure>
+      <pre><code class=language-html>
+         &lt;!-- Slide --&gt;
+         &lt;section&gt;
+            &lt;h2&gt;Bullet List&lt;/h2&gt;
+            &lt;ul&gt;
+               &lt;li&gt;HTML5&lt;/li&gt;
+               &lt;li&gt;CSS3&lt;/li&gt;
+               &lt;li&gt;JavaScript&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;p&gt;Hover over the HTML to highlight tags.&lt;/p&gt;
+         &lt;/section&gt;
+      </code></pre>
+   </figure>
    <small>
-      To display HTML, <a href=https://www.convertstring.com/EncodeDecode/HtmlEncode>encoded</a>
+      To display HTML, <a href=https://www.convertstring.com/EncodeDecode/HtmlEncode>encode</a>
       and place into: <b>&lt;pre&gt;&lt;code class=language-html&gt;</b>
    </small>
 </section>
@@ -209,21 +221,23 @@
          </tr>
       </tbody>
    </table>
-   <pre><code class=language-html>
-      &lt;!-- Slide --&gt;
-      &lt;section&gt;
-         &lt;h2&gt;Data Table&lt;/h2&gt;
-         &lt;p&gt;Hover over the table to highlight rows.&lt;/p&gt;
-         &lt;table&gt;
-            &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Type&lt;/th&gt;&lt;th&gt;Example&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-            &lt;tbody&gt;
-               &lt;tr&gt;&lt;td&gt;Boolean&lt;/td&gt;&lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;&lt;/tr&gt;
-               &lt;tr&gt;&lt;td&gt;String&lt;/td&gt; &lt;td&gt;&lt;code&gt;'Hello'&lt;/code&gt;&lt;/td&gt;&lt;/tr&gt;
-               &lt;tr&gt;&lt;td&gt;&amp;pi;&lt;/td&gt;   &lt;td&gt;&lt;code&gt;3.14159265&lt;/code&gt;&lt;/td&gt;&lt;/tr&gt;
-            &lt;/tbody&gt;
-         &lt;/table&gt;
-      &lt;/section&gt;
-   </code></pre>
+   <figure>
+      <pre><code class=language-html>
+         &lt;!-- Slide --&gt;
+         &lt;section&gt;
+            &lt;h2&gt;Data Table&lt;/h2&gt;
+            &lt;p&gt;Hover over the table to highlight rows.&lt;/p&gt;
+            &lt;table&gt;
+               &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Type&lt;/th&gt;&lt;th&gt;Example&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+               &lt;tbody&gt;
+                  &lt;tr&gt;&lt;td&gt;Boolean&lt;/td&gt;&lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;&lt;/tr&gt;
+                  &lt;tr&gt;&lt;td&gt;String&lt;/td&gt; &lt;td&gt;&lt;code&gt;'Hello'&lt;/code&gt;&lt;/td&gt;&lt;/tr&gt;
+                  &lt;tr&gt;&lt;td&gt;&amp;pi;&lt;/td&gt;   &lt;td&gt;&lt;code&gt;3.14159265&lt;/code&gt;&lt;/td&gt;&lt;/tr&gt;
+               &lt;/tbody&gt;
+            &lt;/table&gt;
+         &lt;/section&gt;
+      </code></pre>
+   </figure>
 </section>
 
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -231,20 +245,22 @@
    <h2>JavaScript</h2>
    Look below
    <div class=down-arrow></div>
-   <pre><code class=language-javascript>
-      const help = {
-         selector: '.help-me',
-         show: function(event) {
-            const msg = $(event.target).data('msg');
-            $('#msg').text(msg).show().fadeOut(2000);
-            },
-         setup: function() {
-            $(document).on({ click: help.show }, help.selector);
-            }
-         };
+   <figure>
+      <pre><code class=language-javascript>
+         const help = {
+            selector: '.help-me',
+            show: (event) =&gt; {
+               const msg = $(event.target).data('msg');
+               $('#msg').text(msg).show().fadeOut(2000);
+               },
+            setup: () =&gt; {
+               $(document).on({ click: help.show }, help.selector);
+               }
+            };
 
-      $(help.setup);
-   </code></pre>
+         $(help.setup);
+      </code></pre>
+   </figure>
 </section>
 
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -253,31 +269,34 @@
    <img class=prime data-width=5% src=assets/js-logo.png alt=logo>
    <div class=down-arrow></div>
    <img class=prime data-width=20% src=https://dnajs.org/graphics/dnajs-logo.png alt=logo>
-   <pre><code class=language-html>
-      &lt;!-- Slide --&gt;
-      &lt;section&gt;
-         &lt;h3&gt;Images and Arrows&lt;/h3&gt;
-         &lt;img class=prime data-width=5% src=assets/js-logo.png alt=logo&gt;
-         &lt;div class=down-arrow&gt;&lt;/div&gt;
-         &lt;img class=prime data-width=20% alt=logo
-            src=https://dnajs.org/graphics/dnajs-logo.png&gt;
-      &lt;/section&gt;
-   </code></pre>
+   <figure>
+      <pre><code class=language-html>
+         &lt;!-- Slide --&gt;
+         &lt;section&gt;
+            &lt;h3&gt;Images and Arrows&lt;/h3&gt;
+            &lt;img class=prime data-width=5% src=assets/js-logo.png alt=logo&gt;
+            &lt;div class=down-arrow&gt;&lt;/div&gt;
+            &lt;img class=prime data-width=20% alt=logo
+               src=https://dnajs.org/graphics/dnajs-logo.png&gt;
+         &lt;/section&gt;
+      </code></pre>
+   </figure>
 </section>
 
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <section class=toggle-on-backtick>
    <h2>Framed</h2>
-   <img class=framed
-      src=https://i.chzbgr.com/maxW500/2087774976/hA08D8914 alt=framed>
-   <pre><code class=language-html>
-      &lt;!-- Slide --&gt;
-      &lt;section&gt;
-         &lt;h3&gt;Framed&lt;/h3&gt;
-         &lt;img class=framed
-            src=https://i.chzbgr.com/maxW500/2087774976/hA08D8914 alt=framed&gt;
-      &lt;/section&gt;
-   </code></pre>
+   <img class=framed src=https://i.chzbgr.com/maxW500/2087774976/hA08D8914 alt=framed>
+   <figure>
+      <pre><code class=language-html>
+         &lt;!-- Slide --&gt;
+         &lt;section&gt;
+            &lt;h3&gt;Framed&lt;/h3&gt;
+            &lt;img class=framed
+               src=https://i.chzbgr.com/maxW500/2087774976/hA08D8914 alt=framed&gt;
+         &lt;/section&gt;
+      </code></pre>
+   </figure>
 </section>
 
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -287,16 +306,18 @@
    and change URL parameters to: <b><code>w=2000</code></b>
    <img class=full alt=diagram
       src="https://docs.google.com/drawings/d/1-XjQ6DRUSHj8bHf2XUIrolfufSQmntGjEsv2Ry1cx38/pub?w=2000">
-   <pre><code class=language-html>
-      &lt;!-- Slide --&gt;
-      &lt;section&gt;
-         &lt;h3&gt;Google Drawing&lt;/h3&gt;
-         Choose &lt;b&gt;Publish to the web...&lt;/b&gt;
-         and change URL parameters to: &lt;b&gt;&lt;code&gt;w=2000&lt;/code&gt;&lt;/b&gt;
-         &lt;img class=full alt=diagram
-            src=&quot;https://docs.google.com/drawings/d/1-X...cx38/pub?w=2000&quot;&gt;
-      &lt;/section&gt;
-   </code></pre>
+   <figure>
+      <pre><code class=language-html>
+         &lt;!-- Slide --&gt;
+         &lt;section&gt;
+            &lt;h3&gt;Google Drawing&lt;/h3&gt;
+            Choose &lt;b&gt;Publish to the web...&lt;/b&gt;
+            and change URL parameters to: &lt;b&gt;&lt;code&gt;w=2000&lt;/code&gt;&lt;/b&gt;
+            &lt;img class=full alt=diagram
+               src=&quot;https://docs.google.com/drawings/d/1-X...cx38/pub?w=2000&quot;&gt;
+         &lt;/section&gt;
+      </code></pre>
+   </figure>
 </section>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -307,11 +328,11 @@
 <script src=https://cdn.jsdelivr.net/npm/reveal.js@3.7/lib/js/head.min.js></script>
 <script src=https://cdn.jsdelivr.net/npm/reveal.js@3.7/js/reveal.js></script>
 <script src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.13/build/highlight.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/dna.js@1.4/dna.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/dna.js@1.5/dist/dna.min.js></script>
 <script src=https://cdn.jsdelivr.net/npm/hljs-enhance@0.0/hljs-enhance.js></script>
 <script>
    const setup = {
-      reveal: function() {
+      reveal: () => {
          Reveal.initialize({
             // Full list of configuration options available here:
             //    github.com/hakimel/reveal.js#configuration
@@ -326,24 +347,24 @@
             // parallaxBackgroundSize: '2100px 900px',
             // Optional libraries used to extend on reveal.js
             dependencies: [
-               { src: 'lib/js/classList.js',         condition: function() { return !document.body.classList; } },
-               { src: 'plugin/markdown/marked.js',   condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-               { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-               //{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-               //{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-               //{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+               { src: 'lib/js/classList.js',         condition: () => !document.body.classList },
+               { src: 'plugin/markdown/marked.js',   condition: () => !!document.querySelector( '[data-markdown]' ) },
+               { src: 'plugin/markdown/markdown.js', condition: () => !!document.querySelector( '[data-markdown]' ) },
+               //{ src: 'plugin/highlight/highlight.js', async: true, callback: () => hljs.initHighlightingOnLoad() },
+               //{ src: 'plugin/zoom-js/zoom.js', async: true, condition: () => !!document.body.classList },
+               //{ src: 'plugin/notes/notes.js', async: true, condition: () => !!document.body.classList }
                ]
             });
          },
-      titles: function() {
+      titles: () => {
          $('.presentation-title').html(presentationTitle);
          $('.presentation-subtitle').html(presentationSubtitle);
          },
-      images: function() {
+      images: () => {
          const path = document.location.pathname;
          const absoluteFolder = document.location.origin + path.substring(0, path.lastIndexOf('/') + 1);
          console.log('Images folder', absoluteFolder + 'assets/');
-         function configureImage(i, elem) {
+         const configureImage = (i, elem) => {
             const img = $(elem);
             const src = img.attr('src');
             img.attr({ src: src.includes('//') ? src : absoluteFolder + src });
@@ -353,21 +374,19 @@
          $('.reveal img').each(configureImage);
          },
       hiddenSlides: null,
-      toggler: function() {
-         function toggleSlides(show) {
-            return show ? setup.hiddenSlides.appendTo($('.slides')) :
-               setup.hiddenSlides = $('.toggle-on-backtick').detach();
-            }
-         function handleKeyPress(event) {
-            if (event.key === '`') {  //backtick
-               toggleSlides(setup.hiddenSlides.is(':hidden'));
-               Reveal.navigateTo();  //refresh progress bar and control arrows
-               }
+      toggler: () => {
+         const toggleSlides = (show) => show ? setup.hiddenSlides.appendTo($('.slides')) :
+            setup.hiddenSlides = $('.toggle-on-backtick').detach();
+         const backtick = '`';
+         const revealHiddenSlides = () => {
+            toggleSlides(setup.hiddenSlides.is(':hidden'));
+            Reveal.navigateTo();  //refresh progress bar and control arrows
             };
+         const handleKeyPress = (event) => event.key === backtick && revealHiddenSlides();
          toggleSlides();
          $(window.document).on({ keypress: handleKeyPress });
          },
-      go: function() {
+      go: () => {
          console.log('=== reveal.js-local ===');
          setup.reveal();
          setup.titles();
