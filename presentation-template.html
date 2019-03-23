@@ -34,7 +34,7 @@
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
       <title class=presentation-title>[see variable: presentationTitle]</title>
       <link rel=icon       href=https://centerkey.com/graphics/bookmark.png>
-      <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.7/css/all.min.css>
+      <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.8/css/all.min.css>
       <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/dna.js@1.5/dist/dna.css>
       <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/reveal.js@3.7/css/reveal.css>
       <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/hljs-enhance@0.0/hljs-enhance.css>
@@ -62,24 +62,29 @@
       <style>
          /*****************************/
          /* Customize background here */
+         /* body { background-color: teal; } */
          /* body { background-image: linear-gradient(to right, darkslategray, teal 15%, teal 85%, darkslategray); } */
-         /* body { background-image: url(https://center-key.github.io/reveal.js-local/assets/nasa-pluto-crescent.jpg); } */
+         body { background-image: url(https://center-key.github.io/reveal.js-local/assets/nasa-pluto-crescent.jpg); }
          /* body { background-image: url(https://center-key.github.io/reveal.js-local/assets/nasa-pluto-dark.jpg); } */
          /* body { background-image: url(https://center-key.github.io/reveal.js-local/assets/nasa-reflection-nebula.jpg); } */
          /* body { background-image: url(https://center-key.github.io/reveal.js-local/assets/nasa-space-nebula.jpg); } */
-         body { background-image: url(https://center-key.github.io/reveal.js-local/assets/nasa-wise-orion.jpg); }
+         /* body { background-image: url(https://center-key.github.io/reveal.js-local/assets/nasa-wise-orion.jpg); } */
          /* body { background-image: url(https://center-key.github.io/reveal.js-local/assets/nasa-wise-red-galaxy.jpg); } */
-         body { background-color: teal; }
          /*****************************/
+
          body { background-size: cover; background-position: center center; }
          .reveal .slides { font-size: 70%; }
          .reveal .slides >section { padding-bottom: 50px; }
+         .reveal .slides >section h1 { font-size: 4.0em; }
+         .reveal .slides >section h1+h2 { font-family: system-ui, sans-serif; font-weight: lighter; letter-spacing: 0.1em; }
+         .reveal .slides >section >p { padding: 0px 10px; outline: 3px solid transparent; transition: outline 0.4s; }
+         .reveal .slides >section >p:hover { outline: 3px solid gold; }
          .reveal figure figcaption { font-size: 1.5rem; }
          .reveal pre { width: auto; box-shadow: none; }
          .reveal pre code { max-height: none; font-size: 1.3rem; line-height: 1.3em; font-family: menlo, consolas, monospace; padding: 20px 0px 20px 20px; }
          .reveal pre code >span, .reveal li { transition: outline 0.4s; }
          .reveal pre code >span:hover, .reveal li:hover { outline: 3px solid white; }
-         .reveal table { margin: auto; border-collapse: collapse; border-spacing: 0; }
+         .reveal table { margin: 0px auto 40px auto; border-collapse: collapse; border-spacing: 0; }
          .reveal table th { font-weight: bold; }
          .reveal table th, .reveal table td { text-align: left; padding: 0.2em 0.5em 0.2em 0.5em; }
          .reveal table thead tr { border-bottom: 3px solid; }
@@ -90,9 +95,13 @@
          .reveal img.full, .reveal img.framed { background-color: rgba(255, 255, 255, 0.7); }
          .reveal img.full { border: none; box-shadow: none; padding: 3% 5%; }
          .reveal img.framed { border: 30px solid dimgray; padding: 5px; }
-         .reveal .down-arrow:before { content: "\21E7"; }
+         .reveal a { border-bottom: 1px dotted; }
+         .reveal a:hover { color: gold; border-bottom: 1px dotted; }
+         .reveal big { font-size: 3em; }
+         .reveal .down-arrow:before { content: "\21E7"; }  /* usage: <div class=down-arrow></div> */
          .reveal .down-arrow { transform: rotate(180deg); font-size: 5.0rem; font-weight: bold; margin: 30px 0px 35px 0px; }
          .reveal .space-above { margin-top: 10%; }
+         .reveal .push-right { text-align: right; }
 
          /* Customize hljs-enhance frame colors */
          figure.hljs-enhance >figcaption             { color:            black; }      /* title */
@@ -130,23 +139,21 @@
    <p>
       Press the "F" key to enter full screen mode.
    </p>
-   <p>
-      Press the backtick (`) key to reveal additional sample slides.
-   </p>
-   <p class=space-above>
-      <small>
-         Get latest template: <a href=https://github.com/center-key/reveal.js-local>reveal.js-local</a>
-      </small>
-   </p>
-   <p>
-      <small>
-         Main documentation: <a href=https://github.com/hakimel/reveal.js>reveal.js</a>
-      </small>
-   </p>
+   <br><hr><br>
+   <div>
+      <p>
+         Get latest template:<br>
+         <a href=https://github.com/center-key/reveal.js-local>reveal.js-local</a>
+      </p>
+      <p>
+         Main documentation:<br>
+         <a href=https://github.com/hakimel/reveal.js>reveal.js</a>
+      </p>
+   </div>
 </section>
 
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<section class=toggle-on-backtick>
+<section>
    <h2>Header 2</h2>
    <h3>Header 3</h3>
    <h4>Header 4</h4>
@@ -172,7 +179,7 @@
 </section>
 
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<section class=toggle-on-backtick>
+<section>
    <h2>Bullet List</h2>
    <ul>
       <li>HTML5</li>
@@ -201,9 +208,8 @@
 </section>
 
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<section class=toggle-on-backtick>
+<section>
    <h2>Data Table</h2>
-   <p>Hover over the table to highlight rows.</p>
    <table>
       <thead><tr><th>Type</th><th>Example</th></tr></thead>
       <tbody>
@@ -213,7 +219,7 @@
          </tr>
          <tr>
             <td>String</td>
-            <td><code>'Hello'</code></td>
+            <td><code>'Hover over me!'</code></td>
          </tr>
          <tr>
             <td>&pi;</td>
@@ -226,12 +232,11 @@
          &lt;!-- Slide --&gt;
          &lt;section&gt;
             &lt;h2&gt;Data Table&lt;/h2&gt;
-            &lt;p&gt;Hover over the table to highlight rows.&lt;/p&gt;
             &lt;table&gt;
                &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Type&lt;/th&gt;&lt;th&gt;Example&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
                &lt;tbody&gt;
                   &lt;tr&gt;&lt;td&gt;Boolean&lt;/td&gt;&lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;&lt;/tr&gt;
-                  &lt;tr&gt;&lt;td&gt;String&lt;/td&gt; &lt;td&gt;&lt;code&gt;'Hello'&lt;/code&gt;&lt;/td&gt;&lt;/tr&gt;
+                  &lt;tr&gt;&lt;td&gt;String&lt;/td&gt; &lt;td&gt;&lt;code&gt;'Hover over me!'&lt;/code&gt;&lt;/td&gt;&lt;/tr&gt;
                   &lt;tr&gt;&lt;td&gt;&amp;pi;&lt;/td&gt;   &lt;td&gt;&lt;code&gt;3.14159265&lt;/code&gt;&lt;/td&gt;&lt;/tr&gt;
                &lt;/tbody&gt;
             &lt;/table&gt;
@@ -241,7 +246,7 @@
 </section>
 
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<section class=toggle-on-backtick>
+<section>
    <h2>JavaScript</h2>
    Look below
    <div class=down-arrow></div>
@@ -264,57 +269,83 @@
 </section>
 
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<section class=toggle-on-backtick>
-   <h2>Images and Arrows</h2>
-   <img class=prime data-width=5% src=assets/js-logo.png alt=logo>
+<section>
+   <h2>Down Arrow &amp; Unicode Emojis</h2>
    <div class=down-arrow></div>
-   <img class=prime data-width=20% src=https://dnajs.org/graphics/dnajs-logo.png alt=logo>
+   <p><big>🚀 🔥 🍖 🍄 🦋 🚁 🌊 🦄</big></p>
    <figure>
       <pre><code class=language-html>
          &lt;!-- Slide --&gt;
          &lt;section&gt;
-            &lt;h3&gt;Images and Arrows&lt;/h3&gt;
-            &lt;img class=prime data-width=5% src=assets/js-logo.png alt=logo&gt;
+            &lt;h2&gt;Down Arrow &amp;amp; Unicode Emojis&lt;/h2&gt;
             &lt;div class=down-arrow&gt;&lt;/div&gt;
-            &lt;img class=prime data-width=20% alt=logo
-               src=https://dnajs.org/graphics/dnajs-logo.png&gt;
+            &lt;p&gt;
+               &lt;big&gt;🚀 🔥 🍖 🍄 🦋 🚁 🌊 🦄&lt;/big&gt;
+            &lt;/p&gt;
          &lt;/section&gt;
       </code></pre>
    </figure>
+</section>
+
+<!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<section>
+   <h2>Images</h2>
+   <p>
+      <img class=prime data-width=30% src=https://center-key.github.io/reveal.js-local/assets/js-logo.png alt=logo>
+   </p>
+   <figure>
+      <pre><code class=language-html>
+         &lt;!-- Slide --&gt;
+         &lt;section&gt;
+            &lt;h2&gt;Images and Arrows&lt;/h2&gt;
+            &lt;p&gt;
+               &lt;img class=prime data-width=30% src=assets/js-logo.png alt=logo&gt;
+            &lt;/p&gt;
+         &lt;/section&gt;
+      </code></pre>
+   </figure>
+</section>
+
+<!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<section>
+   <h2>Google Drawing</h2>
+   <img class=full alt=diagram
+      src="https://docs.google.com/drawings/d/1-XjQ6DRUSHj8bHf2XUIrolfufSQmntGjEsv2Ry1cx38/pub?w=2000">
+   Choose <b>Publish to the web...</b>
+   and change URL parameters to: <b><code>w=2000</code></b>
+   <figure>
+      <pre><code class=language-html>
+         &lt;!-- Slide --&gt;
+         &lt;section&gt;
+            &lt;h2&gt;Google Drawing&lt;/h2&gt;
+            &lt;img class=full alt=diagram
+               src=&quot;https://docs.google.com/drawings/d/1-X...cx38/pub?w=2000&quot;&gt;
+            Choose &lt;b&gt;Publish to the web...&lt;/b&gt;
+            and change URL parameters to: &lt;b&gt;&lt;code&gt;w=2000&lt;/code&gt;&lt;/b&gt;
+         &lt;/section&gt;
+      </code></pre>
+   </figure>
+</section>
+
+<!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<section>
+   <h2>Hidden Slides</h2>
+   <p>
+      Press the backtick (`) key to reveal additional sample slides.
+   </p>
 </section>
 
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <section class=toggle-on-backtick>
    <h2>Framed</h2>
-   <img class=framed src=https://i.chzbgr.com/maxW500/2087774976/hA08D8914 alt=framed>
+   <img class=framed src=https://i.chzbgr.com/full/5248955648/hA52D8A65 data-width=35% alt=framed>
    <figure>
       <pre><code class=language-html>
          &lt;!-- Slide --&gt;
          &lt;section&gt;
-            &lt;h3&gt;Framed&lt;/h3&gt;
-            &lt;img class=framed
-               src=https://i.chzbgr.com/maxW500/2087774976/hA08D8914 alt=framed&gt;
-         &lt;/section&gt;
-      </code></pre>
-   </figure>
-</section>
-
-<!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<section class=toggle-on-backtick>
-   <h2>Google Drawing</h2>
-   Choose <b>Publish to the web...</b>
-   and change URL parameters to: <b><code>w=2000</code></b>
-   <img class=full alt=diagram
-      src="https://docs.google.com/drawings/d/1-XjQ6DRUSHj8bHf2XUIrolfufSQmntGjEsv2Ry1cx38/pub?w=2000">
-   <figure>
-      <pre><code class=language-html>
-         &lt;!-- Slide --&gt;
-         &lt;section&gt;
-            &lt;h3&gt;Google Drawing&lt;/h3&gt;
-            Choose &lt;b&gt;Publish to the web...&lt;/b&gt;
-            and change URL parameters to: &lt;b&gt;&lt;code&gt;w=2000&lt;/code&gt;&lt;/b&gt;
-            &lt;img class=full alt=diagram
-               src=&quot;https://docs.google.com/drawings/d/1-X...cx38/pub?w=2000&quot;&gt;
+            &lt;h2&gt;Framed&lt;/h2&gt;
+            &lt;img class=framed data-width=35%
+               src=https://i.chzbgr.com/full/5248955648/hA52D8A65 alt=framed&gt;
          &lt;/section&gt;
       </code></pre>
    </figure>
@@ -363,7 +394,8 @@
       images: () => {
          const path = document.location.pathname;
          const absoluteFolder = document.location.origin + path.substring(0, path.lastIndexOf('/') + 1);
-         console.log('Images folder', absoluteFolder + 'assets/');
+         console.log('Images folder:');
+         console.log('%c' + absoluteFolder + 'assets', 'font-family: monospace;');
          const configureImage = (i, elem) => {
             const img = $(elem);
             const src = img.attr('src');
@@ -387,7 +419,7 @@
          $(window.document).on({ keypress: handleKeyPress });
          },
       go: () => {
-         console.log('=== reveal.js-local ===');
+         console.log('%creveal.js-local', 'font-size: 2rem; font-weight: bold; color: teal;');
          setup.reveal();
          setup.titles();
          setup.images();
