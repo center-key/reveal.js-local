@@ -34,8 +34,9 @@
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
       <title class=presentation-title>[see variable: presentationTitle]</title>
       <link rel=icon       href=https://centerkey.com/graphics/bookmark.png>
-      <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.8/css/all.min.css>
-      <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/dna.js@1.5/dist/dna.css>
+      <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12/css/all.min.css>
+      <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/dna.js@1.6/dist/dna.css>
+      <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/dna.js@1.6/website/static/panel-nav.css>
       <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/reveal.js@3.7/css/reveal.css>
       <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/hljs-enhance@0.0/hljs-enhance.css>
 
@@ -73,6 +74,7 @@
          /*****************************/
 
          body { background-size: cover; background-position: center center; }
+         .reveal * { box-sizing: border-box; }
          .reveal .slides { font-size: 70%; }
          .reveal .slides >section { padding-bottom: 50px; }
          .reveal .slides >section h1 { font-size: 4.0em; }
@@ -80,7 +82,7 @@
          .reveal .slides >section >p { padding: 0px 10px; outline: 3px solid transparent; transition: outline 0.4s; }
          .reveal .slides >section >p:hover { outline: 3px solid gold; }
          .reveal figure figcaption { font-size: 1.5rem; }
-         .reveal pre { width: auto; box-shadow: none; }
+         .reveal pre { width: auto; margin: 0px; box-shadow: none; }
          .reveal pre code { max-height: none; font-size: 1.3rem; line-height: 1.3em; font-family: menlo, consolas, monospace; padding: 20px 0px 20px 20px; }
          .reveal pre code >span, .reveal li { transition: outline 0.4s; }
          .reveal pre code >span:hover, .reveal li:hover { outline: 3px solid white; }
@@ -98,6 +100,10 @@
          .reveal a { border-bottom: 1px dotted; }
          .reveal a:hover { color: gold; border-bottom: 1px dotted; }
          .reveal big { font-size: 3em; }
+         .reveal nav.dna-menu[data-style=flat-tabs]+.dna-panels { background-color: black; }
+         .reveal textarea { display: block; width: 100%; font-size: 1.8rem; font-family: menlo, consolas, monospace; white-space: pre; padding: 20px; overflow: auto; }
+         .reveal .dna-panels { padding: 0px !important; }
+         .reveal .dna-panels >.panel { padding: 0px; margin: 0px; }
          .reveal .down-arrow:before { content: "\21E7"; }  /* usage: <div class=down-arrow></div> */
          .reveal .down-arrow { transform: rotate(180deg); font-size: 5.0rem; font-weight: bold; margin: 30px 0px 35px 0px; }
          .reveal .space-above { margin-top: 10%; }
@@ -329,6 +335,53 @@
 
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <section>
+   <h2>Book format</h2>
+   <nav class=dna-menu data-nav=book-format data-style=flat-tabs>
+      <span>Hardcover</span>
+      <span>Paperback</span>
+      <span>eBook</span>
+   </nav>
+   <div class=dna-panels data-nav=book-format>
+      <div>
+         <pre><code class=language-javascript>
+            const help = {
+               selector: '.help-me',
+               show(event) {
+                  const msg = $(event.target).data('msg');
+                  $('#msg').text(msg).show().fadeOut(2000);
+                  },
+               setup() {
+                  $(document).on({ click: help.show }, help.selector);
+                  },
+               };
+
+            $(help.setup);
+         </code></pre>
+      </div>
+      <div>
+         <textarea>
+            const help = {
+               selector: '.help-me',
+               show(event) {
+                  const msg = $(event.target).data('msg');
+                  $('#msg').text(msg).show().fadeOut(2000);
+                  },
+               setup() {
+                  $(document).on({ click: help.show }, help.selector);
+                  }
+               };
+
+            $(help.setup);
+         </textarea>
+      </div>
+      <div>
+         <p>Books are the future.</p>
+      </div>
+   </div>
+</section>
+
+<!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<section>
    <h2>Hidden Slides</h2>
    <p>
       Press the backtick (`) key to reveal additional sample slides.
@@ -355,15 +408,15 @@
 <!-- End of Slides                                                                               -->
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 </div></div>
-<script src=https://cdn.jsdelivr.net/npm/jquery@3.3/dist/jquery.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js></script>
 <script src=https://cdn.jsdelivr.net/npm/reveal.js@3.7/lib/js/head.min.js></script>
 <script src=https://cdn.jsdelivr.net/npm/reveal.js@3.7/js/reveal.js></script>
 <script src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15/build/highlight.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/dna.js@1.5/dist/dna.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/dna.js@1.6/dist/dna.min.js></script>
 <script src=https://cdn.jsdelivr.net/npm/hljs-enhance@0.0/hljs-enhance.js></script>
 <script>
    const setup = {
-      reveal: () => {
+      reveal() {
          Reveal.initialize({
             // Full list of configuration options available here:
             //    github.com/hakimel/reveal.js#configuration
@@ -383,15 +436,15 @@
                { src: 'plugin/markdown/markdown.js', condition: () => !!document.querySelector( '[data-markdown]' ) },
                //{ src: 'plugin/highlight/highlight.js', async: true, callback: () => hljs.initHighlightingOnLoad() },
                //{ src: 'plugin/zoom-js/zoom.js', async: true, condition: () => !!document.body.classList },
-               //{ src: 'plugin/notes/notes.js', async: true, condition: () => !!document.body.classList }
-               ]
+               //{ src: 'plugin/notes/notes.js', async: true, condition: () => !!document.body.classList },
+               ],
             });
          },
-      titles: () => {
+      titles() {
          $('.presentation-title').html(presentationTitle);
          $('.presentation-subtitle').html(presentationSubtitle);
          },
-      images: () => {
+      images() {
          const path = document.location.pathname;
          const absoluteFolder = document.location.origin + path.substring(0, path.lastIndexOf('/') + 1);
          console.log('Images folder:');
@@ -405,8 +458,17 @@
             };
          $('.reveal img').each(configureImage);
          },
+      textarea() {
+         const trim = (i, node) => {
+            const elem = $(node);
+            const leadingSpaces = new RegExp('^' + elem.val().match(/\s*/)[0], 'mg');
+            const text = elem.val().replace(leadingSpaces, '').trim();
+            elem.val(text).css({ height: (text.split('\n').length - 1) * 1.4 + 'em' });
+            };
+         $('textarea').each(trim);
+         },
       hiddenSlides: null,
-      toggler: () => {
+      toggler() {
          const toggleSlides = (show) => show ? setup.hiddenSlides.appendTo($('.slides')) :
             setup.hiddenSlides = $('.toggle-on-backtick').detach();
          const backtick = '`';
@@ -418,13 +480,14 @@
          toggleSlides();
          $(window.document).on({ keypress: handleKeyPress });
          },
-      go: () => {
+      go() {
          console.log('%creveal.js-local', 'font-size: 2rem; font-weight: bold; color: teal;');
          setup.reveal();
          setup.titles();
          setup.images();
+         setup.textarea();
          setup.toggler();
-         }
+         },
       };
    $(setup.go);
 </script>

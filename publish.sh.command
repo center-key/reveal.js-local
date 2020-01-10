@@ -25,5 +25,15 @@ publishWebFiles() {
    echo
    }
 
+openPresentation() {
+   cd $projectHome
+   echo "Opening:"
+   echo presentation-template.html
+   sleep 2
+   open presentation-template.html
+   echo
+   }
+
 displayIntro
 publishWebFiles
+openPresentation
