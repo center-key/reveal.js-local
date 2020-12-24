@@ -1,6 +1,6 @@
 <!doctype html>
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<!-- reveal.js-local v0.7.1                                                                      -->
+<!-- reveal.js-local v0.8.0                                                                      -->
 <!-- ======================                                                                      -->
 <!-- A single HTML file for showing a reveal.js presentation locally.                            -->
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -34,24 +34,24 @@
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
       <title class=presentation-title>[see variable: presentationTitle]</title>
       <link rel=icon       href=https://centerkey.com/graphics/bookmark.png>
-      <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css>
+      <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15/css/all.min.css>
       <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/dna.js@1.6/dist/dna.css>
       <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/dna.js@1.6/website/static/panel-nav.css>
-      <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/reveal.js@3.7/css/reveal.css>
+      <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/reveal.js@4.1/dist/reveal.css>
       <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/hljs-enhance@0.0/hljs-enhance.css>
 
       <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
       <!--  reveal.js Theme Setting                                                              -->
-      <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/reveal.js@3.7/css/theme/night.css>
+      <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/reveal.js@4.1/dist/theme/night.css>
       <!--  Options:                                                                             -->
       <!--     default.css, sky.css, beige.css, simple.css, serif.css, night.css, solarized.css  -->
       <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
       <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
       <!--  Syntax Highlighting                                                                -->
-      <link href=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1/build/styles/zenburn.min.css rel=stylesheet>
+      <link rel=stylesheet href=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.5/build/styles/zenburn.min.css>
       <!--  For highlight.js style themes, see:                                                -->
-      <!--     highlightjs.org/static/test.html                                                -->
+      <!--     https://highlightjs.org/static/demo                                             -->
       <!--  Examples ("Atelier Dun - Dark" ==> "atelier-dune.dark.min.css"):                   -->
       <!--     default.min.css, dark.min.css, obsidian.min.css                                 -->
       <!--  Usage (languages: "javascript", "html", "css", "less", etc.):                      -->
@@ -65,7 +65,7 @@
          /* Customize background here */
          /* body { background-color: teal; } */
          /* body { background-image: linear-gradient(to right, darkslategray, teal 15%, teal 85%, darkslategray); } */
-         body { background-image: url(https://center-key.github.io/reveal.js-local/assets/nasa-pluto-crescent.jpg); }
+         body.reveal-viewport { background-image: url(https://center-key.github.io/reveal.js-local/assets/nasa-pluto-crescent.jpg); }
          /* body { background-image: url(https://center-key.github.io/reveal.js-local/assets/nasa-pluto-dark.jpg); } */
          /* body { background-image: url(https://center-key.github.io/reveal.js-local/assets/nasa-reflection-nebula.jpg); } */
          /* body { background-image: url(https://center-key.github.io/reveal.js-local/assets/nasa-space-nebula.jpg); } */
@@ -73,7 +73,7 @@
          /* body { background-image: url(https://center-key.github.io/reveal.js-local/assets/nasa-wise-red-galaxy.jpg); } */
          /*****************************/
 
-         body { background-size: cover; background-position: center center; }
+         body.reveal-viewport { background-size: cover; background-position: center center; }
          .reveal * { box-sizing: border-box; }
          .reveal .slides { font-size: 70%; }
          .reveal .slides >section { padding-bottom: 50px; }
@@ -95,7 +95,7 @@
          .reveal img { max-width: 90%; }
          .reveal img.prime { background: none; border: none; box-shadow: none; }
          .reveal img.full, .reveal img.framed { background-color: rgba(255, 255, 255, 0.7); }
-         .reveal img.full { border: none; box-shadow: none; padding: 3% 5%; }
+         .reveal img.full { display: block; border: none; box-shadow: none; padding: 3% 5%; margin: 20px auto; }
          .reveal img.framed { border: 30px solid dimgray; padding: 5px; }
          .reveal a { border-bottom: 1px dotted; }
          .reveal a:hover { color: gold; border-bottom: 1px dotted; }
@@ -104,8 +104,10 @@
          .reveal textarea { display: block; width: 100%; font-size: 1.8rem; font-family: menlo, consolas, monospace; white-space: pre; padding: 20px; overflow: auto; }
          .reveal .dna-panels { padding: 0px !important; }
          .reveal .dna-panels >.panel { padding: 0px; margin: 0px; }
-         .reveal .down-arrow:before { content: "\21E7"; }  /* usage: <div class=down-arrow></div> */
+         .reveal .dna-panels >.panel >p { padding: 20px; }
+         .reveal .down-arrow { color: deepskyblue; }
          .reveal .down-arrow { transform: rotate(180deg); font-size: 5.0rem; font-weight: bold; margin: 30px 0px 35px 0px; }
+         .reveal .down-arrow:before { content: "\21E7"; }  /* usage: <div class=down-arrow></div> */
          .reveal .space-above { margin-top: 10%; }
          .reveal .push-right { text-align: right; }
 
@@ -153,7 +155,7 @@
       </p>
       <p>
          Main documentation:<br>
-         <a href=https://github.com/hakimel/reveal.js>reveal.js</a>
+         <a href=https://revealjs.com>reveal.js</a>
       </p>
    </div>
 </section>
@@ -262,7 +264,7 @@
             selector: '.help-me',
             show: (event) =&gt; {
                const msg = $(event.target).data('msg');
-               $('#msg').text(msg).show().fadeOut(2000);
+               $('#msg').text(msg).show().fadeOut(2500);
                },
             setup: () =&gt; {
                $(document).on({ click: help.show }, help.selector);
@@ -297,7 +299,8 @@
 <section>
    <h2>Images</h2>
    <p>
-      <img class=prime data-width=30% src=https://center-key.github.io/reveal.js-local/assets/js-logo.png alt=logo>
+      <img class=prime data-width=30%
+         src=https://center-key.github.io/reveal.js-local/assets/js-logo.png alt=logo>
    </p>
    <figure>
       <pre><code class=language-html>
@@ -315,7 +318,7 @@
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <section>
    <h2>Google Drawing</h2>
-   <img class=full alt=diagram
+   <img class=full alt=diagram data-width=80%
       src="https://docs.google.com/drawings/d/1-XjQ6DRUSHj8bHf2XUIrolfufSQmntGjEsv2Ry1cx38/pub?w=2000">
    Choose <b>Publish to the web...</b>
    and change URL parameters to: <b><code>w=2000</code></b>
@@ -348,7 +351,7 @@
                selector: '.help-me',
                show(event) {
                   const msg = $(event.target).data('msg');
-                  $('#msg').text(msg).show().fadeOut(2000);
+                  $('#msg').text(msg).show().fadeOut(2500);
                   },
                setup() {
                   $(document).on({ click: help.show }, help.selector);
@@ -364,7 +367,7 @@
                selector: '.help-me',
                show(event) {
                   const msg = $(event.target).data('msg');
-                  $('#msg').text(msg).show().fadeOut(2000);
+                  $('#msg').text(msg).show().fadeOut(2500);
                   },
                setup() {
                   $(document).on({ click: help.show }, help.selector);
@@ -391,14 +394,14 @@
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <section class=toggle-on-backtick>
    <h2>Framed</h2>
-   <img class=framed src=https://i.chzbgr.com/full/5248955648/hA52D8A65 data-width=35% alt=framed>
+   <img src=https://i.chzbgr.com/full/5248955648/hA52D8A65 class=framed data-width=45% alt=cat>
    <figure>
       <pre><code class=language-html>
          &lt;!-- Slide --&gt;
          &lt;section&gt;
             &lt;h2&gt;Framed&lt;/h2&gt;
-            &lt;img class=framed data-width=35%
-               src=https://i.chzbgr.com/full/5248955648/hA52D8A65 alt=framed&gt;
+            &lt;img src=https://i.chzbgr.com/full/5248955648/hA52D8A65
+               class=framed data-width=45% alt=cat&gt;
          &lt;/section&gt;
       </code></pre>
    </figure>
@@ -409,52 +412,37 @@
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 </div></div>
 <script src=https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/reveal.js@3.7/lib/js/head.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/reveal.js@3.7/js/reveal.js></script>
-<script src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1/build/highlight.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/reveal.js@4.1/dist/reveal.js></script>
+<script src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.5/build/highlight.min.js></script>
 <script src=https://cdn.jsdelivr.net/npm/dna.js@1.6/dist/dna.min.js></script>
 <script src=https://cdn.jsdelivr.net/npm/hljs-enhance@0.0/hljs-enhance.js></script>
 <script>
    const setup = {
       reveal() {
-         Reveal.initialize({
-            // Full list of configuration options available here:
-            //    github.com/hakimel/reveal.js#configuration
-            controls:   true,
-            progress:   true,
-            history:    true,
-            center:     true,
-            theme:      Reveal.getQueryHash().theme, // available themes are in /css/theme
-            transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
-            // Parallax scrolling
-            // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
-            // parallaxBackgroundSize: '2100px 900px',
-            // Optional libraries used to extend on reveal.js
-            dependencies: [
-               { src: 'lib/js/classList.js',         condition: () => !document.body.classList },
-               { src: 'plugin/markdown/marked.js',   condition: () => !!document.querySelector( '[data-markdown]' ) },
-               { src: 'plugin/markdown/markdown.js', condition: () => !!document.querySelector( '[data-markdown]' ) },
-               //{ src: 'plugin/highlight/highlight.js', async: true, callback: () => hljs.initHighlightingOnLoad() },
-               //{ src: 'plugin/zoom-js/zoom.js', async: true, condition: () => !!document.body.classList },
-               //{ src: 'plugin/notes/notes.js', async: true, condition: () => !!document.body.classList },
-               ],
-            });
+         const config = {  //see:  https://revealjs.com/config
+            autoSlide:        0,  //milliseconds to automatically advance slide (0 = disable)
+            controls:         true,
+            controlsTutorial: true,
+            hash:             false,
+            loop:             false,
+            progress:         true,
+            };
+         Reveal.initialize(config);
          },
       titles() {
          $('.presentation-title').html(presentationTitle);
          $('.presentation-subtitle').html(presentationSubtitle);
          },
       images() {
-         const path = document.location.pathname;
-         const absoluteFolder = document.location.origin + path.substring(0, path.lastIndexOf('/') + 1);
+         const folder = document.location.href.split('/').slice(0, -1).join('/');
          console.log('Images folder:');
-         console.log('%c' + absoluteFolder + 'assets', 'font-family: monospace;');
+         console.log('%c' + folder + '/assets', 'font-family: monospace;');
          const configureImage = (i, elem) => {
             const img = $(elem);
             const src = img.attr('src');
-            img.attr({ src: src.includes('//') ? src : absoluteFolder + src });
+            img.attr({ src: src.includes('//') ? src : folder + src });
             if (img.data().width)
-               img.width(img.data().width);
+               img.css({ width: img.data().width });
             };
          $('.reveal img').each(configureImage);
          },
@@ -474,7 +462,7 @@
          const backtick = '`';
          const revealHiddenSlides = () => {
             toggleSlides(setup.hiddenSlides.is(':hidden'));
-            Reveal.navigateTo();  //refresh progress bar and control arrows
+            Reveal.slide();  //refresh progress bar and control arrows
             };
          const handleKeyPress = (event) => event.key === backtick && revealHiddenSlides();
          toggleSlides();
