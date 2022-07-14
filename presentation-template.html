@@ -52,7 +52,7 @@
 
       <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
       <!--  Syntax Highlighting                                                                -->
-      <link rel=stylesheet href=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5/build/styles/atom-one-dark.min.css>
+      <link rel=stylesheet href=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.6/build/styles/atom-one-dark.min.css>
       <!--  For highlight.js style themes, see:                                                -->
       <!--     https://highlightjs.org/static/demo                                             -->
       <!--  Examples (convert to kabab-case, "Atom One Dark" ===> atom-one-dark.min.css):      -->
@@ -120,15 +120,87 @@
          pre.hljs-enhance, figure.hljs-enhance >div  { border-color:     mintcream; }  /* trim */
          pre.hljs-enhance >code                      { background-color: black; }      /* background */
       </style>
+      <script defer src=https://cdn.jsdelivr.net/npm/jquery@3.6/dist/jquery.min.js></script>
+      <script defer src=https://cdn.jsdelivr.net/npm/reveal.js@4.1/dist/reveal.js></script>
+      <script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.6/build/highlight.min.js></script>
+      <script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.6/build/languages/http.min.js></script>
+      <script defer src=https://cdn.jsdelivr.net/npm/dna.js@2.0/dist/dna.min.js></script>
+      <script defer src=https://cdn.jsdelivr.net/npm/hljs-enhance@1.0/hljs-enhance.js></script>
+      <script data-on-load=setup.go>
+         const setup = {
+            reveal() {
+               const config = {  //see:  https://revealjs.com/config
+                  autoSlide:        0,  //milliseconds to automatically advance slide (0 = disable)
+                  controls:         true,
+                  controlsTutorial: true,
+                  hash:             false,
+                  loop:             false,
+                  progress:         true,
+                  };
+               Reveal.initialize(config);
+               },
+            titles() {
+               $('.presentation-title').html(presentationTitle);
+               $('.presentation-subtitle').html(presentationSubtitle);
+               },
+            images() {
+               const folder = document.location.href.split('/').slice(0, -1).join('/');
+               console.log('Images folder:');
+               console.log('%c' + folder + '/assets', 'font-family: monospace;');
+               const configureImage = (i, elem) => {
+                  const img = $(elem);
+                  const src = img.attr('src');
+                  img.attr({ src: src.includes('//') ? src : folder + src });
+                  if (img.data().width)
+                     img.css({ width: img.data().width });
+                  };
+               $('.reveal img').each(configureImage);
+               },
+            textarea() {
+               const trim = (i, node) => {
+                  const elem = $(node);
+                  const leadingSpaces = new RegExp('^' + elem.val().match(/\s*/)[0], 'mg');
+                  const text = elem.val().replace(leadingSpaces, '').trim();
+                  elem.val(text).css({ height: (text.split('\n').length - 1) * 1.4 + 'em' });
+                  };
+               $('textarea').each(trim);
+               },
+            hiddenSlides: null,
+            toggler() {
+               const toggleSlides = (show) => show ? setup.hiddenSlides.appendTo($('.slides')) :
+                  setup.hiddenSlides = $('.toggle-on-backtick').detach();
+               const backtick = '`';
+               const revealHiddenSlides = () => {
+                  toggleSlides(setup.hiddenSlides.is(':hidden'));
+                  Reveal.slide();  //refresh progress bar and control arrows
+                  };
+               const handleKeyPress = (event) => event.key === backtick && revealHiddenSlides();
+               toggleSlides();
+               $(window.document).on({ keypress: handleKeyPress });
+               },
+            go() {
+               console.log('%creveal.js-local', 'font-size: 2rem; font-weight: bold; color: teal;');
+               setup.reveal();
+               setup.titles();
+               setup.images();
+               setup.textarea();
+               setup.toggler();
+               },
+            };
+      </script>
    </head>
    <body>
       <div class=reveal>
          <!-- Any section element inside of this container is displayed as a slide -->
          <div class=slides>
 
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- =========================================================================================== -->
+<!-- =========================================================================================== -->
+<!-- =========================================================================================== -->
 <!-- Start of Slides                                                                             -->
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- =========================================================================================== -->
+<!-- =========================================================================================== -->
+<!-- =========================================================================================== -->
 <script>
    const presentationTitle =    'The Presentation';
    const presentationSubtitle = 'Show your code';
@@ -414,74 +486,5 @@
 <!-- End of Slides                                                                               -->
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 </div></div>
-<script src=https://cdn.jsdelivr.net/npm/jquery@3.6/dist/jquery.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/reveal.js@4.1/dist/reveal.js></script>
-<script src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5/build/highlight.min.js></script>
-<script src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5/build/languages/http.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/dna.js@2.0/dist/dna.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/hljs-enhance@1.0/hljs-enhance.js></script>
-<script>
-   const setup = {
-      reveal() {
-         const config = {  //see:  https://revealjs.com/config
-            autoSlide:        0,  //milliseconds to automatically advance slide (0 = disable)
-            controls:         true,
-            controlsTutorial: true,
-            hash:             false,
-            loop:             false,
-            progress:         true,
-            };
-         Reveal.initialize(config);
-         },
-      titles() {
-         $('.presentation-title').html(presentationTitle);
-         $('.presentation-subtitle').html(presentationSubtitle);
-         },
-      images() {
-         const folder = document.location.href.split('/').slice(0, -1).join('/');
-         console.log('Images folder:');
-         console.log('%c' + folder + '/assets', 'font-family: monospace;');
-         const configureImage = (i, elem) => {
-            const img = $(elem);
-            const src = img.attr('src');
-            img.attr({ src: src.includes('//') ? src : folder + src });
-            if (img.data().width)
-               img.css({ width: img.data().width });
-            };
-         $('.reveal img').each(configureImage);
-         },
-      textarea() {
-         const trim = (i, node) => {
-            const elem = $(node);
-            const leadingSpaces = new RegExp('^' + elem.val().match(/\s*/)[0], 'mg');
-            const text = elem.val().replace(leadingSpaces, '').trim();
-            elem.val(text).css({ height: (text.split('\n').length - 1) * 1.4 + 'em' });
-            };
-         $('textarea').each(trim);
-         },
-      hiddenSlides: null,
-      toggler() {
-         const toggleSlides = (show) => show ? setup.hiddenSlides.appendTo($('.slides')) :
-            setup.hiddenSlides = $('.toggle-on-backtick').detach();
-         const backtick = '`';
-         const revealHiddenSlides = () => {
-            toggleSlides(setup.hiddenSlides.is(':hidden'));
-            Reveal.slide();  //refresh progress bar and control arrows
-            };
-         const handleKeyPress = (event) => event.key === backtick && revealHiddenSlides();
-         toggleSlides();
-         $(window.document).on({ keypress: handleKeyPress });
-         },
-      go() {
-         console.log('%creveal.js-local', 'font-size: 2rem; font-weight: bold; color: teal;');
-         setup.reveal();
-         setup.titles();
-         setup.images();
-         setup.textarea();
-         setup.toggler();
-         },
-      };
-   $(setup.go);
-</script>
 </body>
 </html>
