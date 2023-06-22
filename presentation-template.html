@@ -38,10 +38,10 @@
       <title class=presentation-title>[see variable: presentationTitle]</title>
       <link rel=icon       href=https://centerkey.com/graphics/bookmark.png>
       <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4/css/all.min.css>
-      <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/dna-engine@2.3/dist/dna-engine.css>
-      <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/dna-engine@2.3/dist/panel-nav.css>
+      <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/dna-engine@3.0/dist/dna-engine.css>
+      <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/dna-engine@3.0/dist/panel-nav.css>
       <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/reveal.js@4.1/dist/reveal.css>
-      <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/hljs-enhance@1.1/hljs-enhance.css>
+      <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/hljs-enhance@2.0/hljs-enhance.css>
 
       <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
       <!--  reveal.js Theme Setting                                                              -->
@@ -52,7 +52,7 @@
 
       <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
       <!--  Syntax Highlighting                                                                -->
-      <link rel=stylesheet href=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7/build/styles/atom-one-dark.min.css>
+      <link rel=stylesheet href=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8/build/styles/atom-one-dark.min.css>
       <!--  For highlight.js style themes, see:                                                -->
       <!--     https://highlightjs.org/static/demo                                             -->
       <!--  Examples (convert to kebab-case, "Atom One Dark" ===> atom-one-dark.min.css):      -->
@@ -120,12 +120,11 @@
          pre.hljs-enhance, figure.hljs-enhance >div  { border-color:     mintcream; }  /* trim */
          pre.hljs-enhance >code                      { background-color: black; }      /* background */
       </style>
-      <script defer src=https://cdn.jsdelivr.net/npm/jquery@3.6/dist/jquery.min.js></script>
       <script defer src=https://cdn.jsdelivr.net/npm/reveal.js@4.1/dist/reveal.js></script>
-      <script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7/build/highlight.min.js></script>
-      <script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7/build/languages/http.min.js></script>
-      <script defer src=https://cdn.jsdelivr.net/npm/dna-engine@2.3/dist/dna-engine.min.js></script>
-      <script defer src=https://cdn.jsdelivr.net/npm/hljs-enhance@1.1/hljs-enhance.js></script>
+      <script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8/build/highlight.min.js></script>
+      <script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8/build/languages/http.min.js></script>
+      <script defer src=https://cdn.jsdelivr.net/npm/dna-engine@3.0/dist/dna-engine.min.js></script>
+      <script defer src=https://cdn.jsdelivr.net/npm/hljs-enhance@2.0/hljs-enhance.js></script>
       <script data-on-load=setup.go>
          const setup = {
             reveal() {
@@ -140,43 +139,45 @@
                Reveal.initialize(config);
                },
             titles() {
-               $('.presentation-title').html(presentationTitle);
-               $('.presentation-subtitle').html(presentationSubtitle);
+               globalThis.document.getElementById('presentation-title').innerHTML =    presentationTitle;
+               globalThis.document.getElementById('presentation-subtitle').innerHTML = presentationSubtitle;
                },
             images() {
                const folder = document.location.href.split('/').slice(0, -1).join('/');
                console.log('Images folder:');
                console.log('%c' + folder + '/assets', 'font-family: monospace;');
-               const configureImage = (i, elem) => {
-                  const img = $(elem);
-                  const src = img.attr('src');
-                  img.attr({ src: src.includes('//') ? src : folder + src });
-                  if (img.data().width)
-                     img.css({ width: img.data().width });
+               const configureImage = (img) => {
+                  if (!img.src.includes('//'))
+                     img.src = folder + img.src;
+                  if (img.dataset.width)
+                     img.style.width = img.dataset.width;
                   };
-               $('.reveal img').each(configureImage);
+               globalThis.document.querySelectorAll('.reveal img').forEach(configureImage);
                },
             textarea() {
-               const trim = (i, node) => {
-                  const elem = $(node);
-                  const leadingSpaces = new RegExp('^' + elem.val().match(/\s*/)[0], 'mg');
-                  const text = elem.val().replace(leadingSpaces, '').trim();
-                  elem.val(text).css({ height: (text.split('\n').length - 1) * 1.4 + 'em' });
+               const trim = (elem) => {
+                  const leadingSpaces = new RegExp('^' + elem.value.match(/\s*/)[0], 'mg');
+                  const text =          elem.value.replace(leadingSpaces, '').trim();
+                  elem.value =          text;
+                  elem.style.height =   (text.split('\n').length - 1) * 1.4 + 'em';
                   };
-               $('textarea').each(trim);
+               globalThis.document.querySelectorAll('textarea').forEach(trim);
                },
-            hiddenSlides: null,
-            toggler() {
-               const toggleSlides = (show) => show ? setup.hiddenSlides.appendTo($('.slides')) :
-                  setup.hiddenSlides = $('.toggle-on-backtick').detach();
-               const backtick = '`';
-               const revealHiddenSlides = () => {
-                  toggleSlides(setup.hiddenSlides.is(':hidden'));
+            hiddenSlidesStorage: [],
+            hiddenSlides() {
+               const handleBacktick = () => {
+                  const container =     globalThis.document.querySelector('.slides');
+                  const hidableSlides = dna.dom.filterByClass(container.children, 'toggle-on-backtick');
+                  const stash =         (slide) => setup.hiddenSlidesStorage.push(slide) && slide.remove();
+                  if (hidableSlides.length)
+                     hidableSlides.forEach(stash);
+                  else
+                     while (setup.hiddenSlidesStorage.length)
+                        container.appendChild(setup.hiddenSlidesStorage.pop())
                   Reveal.slide();  //refresh progress bar and control arrows
                   };
-               const handleKeyPress = (event) => event.key === backtick && revealHiddenSlides();
-               toggleSlides();
-               $(globalThis.document).on({ keypress: handleKeyPress });
+               globalThis.setTimeout(handleBacktick, 500);  //allow time to highlight code before hidding.
+               dna.dom.on('keyup', handleBacktick, { keyFilter: '`' });
                },
             go() {
                console.log('%creveal.js-local', 'font-size: 2rem; font-weight: bold; color: teal;');
@@ -184,7 +185,7 @@
                setup.titles();
                setup.images();
                setup.textarea();
-               setup.toggler();
+               setup.hiddenSlides();
                },
             };
       </script>
@@ -208,8 +209,8 @@
 
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <section>
-   <h1 class=presentation-title>[see variable: presentationTitle]</h1>
-   <h2 class=presentation-subtitle>[see variable: presentationSubtitle]</h2>
+   <h1 id=presentation-title>[see variable: presentationTitle]</h1>
+   <h2 id=presentation-subtitle>[see variable: presentationSubtitle]</h2>
    <p>
       Your Name<br>
       name@example.com
@@ -337,16 +338,17 @@
       <pre><code class=language-javascript>
          const help = {
             selector: '.help-me',
-            show: (event) =&gt; {
-               const msg = $(event.target).data('msg');
-               $('#msg').text(msg).show().fadeOut(2500);
+            show(elem) {
+               const statusBox = document.getElementById('status-box');
+               statusBox.textContent = elem.dataset.message;
+               dna.ui.pulse(statusBox);  //fade in
                },
-            setup: () =&gt; {
-               $(document).on({ click: help.show }, help.selector);
-               }
+            setup() {
+               dna.dom.onClick(help.show, help.selector);
+               },
             };
 
-         $(help.setup);
+         dna.dom.onReady(help.setup);
       </code></pre>
    </figure>
 </section>
@@ -373,83 +375,88 @@
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <section>
    <h2>Images</h2>
+   <img class=prime data-width=25%
+      src=https://center-key.github.io/reveal.js-local/assets/js-logo.png alt=logo>
+   <p>Use the <b><code>data-width</code></b>
+      attribute to adjust the image size.</p>
+   <figure>
+      <pre><code class=language-html>
+         &lt;!-- Slide --&gt;
+         &lt;section&gt;
+            &lt;h2&gt;Images&lt;/h2&gt;
+            &lt;img class=prime data-width=25% src=assets/js-logo.png alt=logo&gt;
+            &lt;p&gt;Use the &lt;b&gt;&lt;code&gt;data-width&lt;/code&gt;&lt;/b&gt;
+               attribute to adjust the image size.&lt;/p&gt;
+         &lt;/section&gt;
+      </code></pre>
+   </figure>
+</section>
+
+<!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<section>
+   <h2>Google Drawings</h2>
+   <img class=full alt=diagram data-width=80%
+      src="https://docs.google.com/drawings/d/e/2PACX-1vRoq91lrZcm51whaXE6ot3e4tnOstxsD4XcMd-L-WkqZEGBd28g0rPeNpwmZIS16mUjAxJvRcMwA4-m/pub?w=1971&h=641">
    <p>
-      <img class=prime data-width=30%
-         src=https://center-key.github.io/reveal.js-local/assets/js-logo.png alt=logo>
+      Choose <b>File &rArr; Share &rArr;
+      Publish to the web &rArr; Link...</b>
    </p>
    <figure>
       <pre><code class=language-html>
          &lt;!-- Slide --&gt;
          &lt;section&gt;
-            &lt;h2&gt;Images and Arrows&lt;/h2&gt;
-            &lt;p&gt;
-               &lt;img class=prime data-width=30% src=assets/js-logo.png alt=logo&gt;
-            &lt;/p&gt;
+            &lt;h2&gt;Google Drawings&lt;/h2&gt;
+            &lt;img class=full alt=diagram
+               src=&quot;https://docs.google.com/drawings/d/e/.../pub?w=1971&h=641&quot;&gt;
+            Choose &lt;b&gt;File &amp;rArr; Share &amp;rArr;
+            Publish to the web &amp;rArr; Link...&lt;/b&gt;
          &lt;/section&gt;
       </code></pre>
    </figure>
 </section>
 
-<!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<section>
-   <h2>Google Drawing</h2>
-   <img class=full alt=diagram data-width=80%
-      src="https://docs.google.com/drawings/d/1-XjQ6DRUSHj8bHf2XUIrolfufSQmntGjEsv2Ry1cx38/pub?w=2000">
-   Choose <b>Publish to the web...</b>
-   and change URL parameters to: <b><code>w=2000</code></b>
-   <figure>
-      <pre><code class=language-html>
-         &lt;!-- Slide --&gt;
-         &lt;section&gt;
-            &lt;h2&gt;Google Drawing&lt;/h2&gt;
-            &lt;img class=full alt=diagram
-               src=&quot;https://docs.google.com/drawings/d/1-X...cx38/pub?w=2000&quot;&gt;
-            Choose &lt;b&gt;Publish to the web...&lt;/b&gt;
-            and change URL parameters to: &lt;b&gt;&lt;code&gt;w=2000&lt;/code&gt;&lt;/b&gt;
-         &lt;/section&gt;
-      </code></pre>
-   </figure>
-</section>
 
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <section>
    <h2>Book format</h2>
-   <nav class=dna-menu data-nav=book-format data-style=flat-tabs>
+   <nav class=dna-menu data-menu-nav=book-format data-style=flat-tabs>
       <span>Hardcover</span>
       <span>Paperback</span>
       <span>eBook</span>
    </nav>
-   <div class=dna-panels data-nav=book-format>
+   <div class=dna-panels data-menu-nav=book-format>
       <div>
          <pre><code class=language-javascript>
             const help = {
                selector: '.help-me',
-               show(event) {
-                  const msg = $(event.target).data('msg');
-                  $('#msg').text(msg).show().fadeOut(2500);
+               show(elem) {
+                  const statusBox = document.getElementById('status-box');
+                  statusBox.textContent = elem.dataset.message;
+                  dna.ui.pulse(statusBox);  //fade in
                   },
                setup() {
-                  $(document).on({ click: help.show }, help.selector);
+                  dna.dom.onClick(help.show, help.selector);
                   },
                };
 
-            $(help.setup);
+            dna.dom.onReady(help.setup);
          </code></pre>
       </div>
       <div>
-         <textarea>
+         <textarea spellcheck=false>
             const help = {
                selector: '.help-me',
-               show(event) {
-                  const msg = $(event.target).data('msg');
-                  $('#msg').text(msg).show().fadeOut(2500);
+               show(elem) {
+                  const statusBox = document.getElementById('status-box');
+                  statusBox.textContent = elem.dataset.message;
+                  dna.ui.pulse(statusBox);  //fade in
                   },
                setup() {
-                  $(document).on({ click: help.show }, help.selector);
-                  }
+                  dna.dom.onClick(help.show, help.selector);
+                  },
                };
 
-            $(help.setup);
+            dna.dom.onReady(help.setup);
          </textarea>
       </div>
       <div>
