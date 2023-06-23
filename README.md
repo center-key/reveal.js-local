@@ -1,7 +1,11 @@
 # reveal.js-local
-<img src=https://center-key.github.io/reveal.js-local/assets/js-logo.png align=right alt=logo>
+<img src=https://center-key.github.io/reveal.js-local/assets/js-logo.png align=right width=200 alt=logo>
 
 _A single HTML file for showing a reveal.js presentation locally_
+
+[![License:MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/center-key/reveal.js-local/blob/main/LICENSE.txt)
+[![Vulnerabilities](https://snyk.io/test/github/center-key/reveal.js-local/badge.svg)](https://snyk.io/test/github/center-key/reveal.js-local)
+[![Build](https://github.com/center-key/reveal.js-local/workflows/build/badge.svg)](https://github.com/center-key/reveal.js-local/actions/workflows/run-spec-on-push.yaml)
 
 ## Try Tt
 View the
