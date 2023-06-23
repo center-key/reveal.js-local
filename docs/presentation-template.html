@@ -1,9 +1,5 @@
+<!-- reveal.js-local v0.0.0 ~~ https://github.com/center-key/reveal.js-local ~~ MIT License -->
 <!doctype html>
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<!--  reveal.js-local v0.8.1                                                                   -->
-<!--  ======================                                                                   -->
-<!--  A single HTML file for showing a reveal.js presentation locally.                         -->
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <html lang=en>
    <head>
       <meta charset=utf-8>
@@ -13,7 +9,26 @@
       <meta name=apple-mobile-web-app-title            content="Presentation">
       <meta name=apple-mobile-web-app-capable          content=yes>
       <meta name=apple-mobile-web-app-status-bar-style content=black-translucent>
+      <title>[see variable in presentation settings: title]</title>
+      <link rel=icon       href=https://centerkey.com/graphics/bookmark.png>
+      <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4/css/all.min.css>
+      <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/dna-engine@3.0/dist/dna-engine.css>
+      <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/dna-engine@3.0/dist/panel-nav.css>
+      <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/reveal.js@4.5/dist/reveal.css>
+      <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/hljs-enhance@2.0/hljs-enhance.css>
+      <link rel=stylesheet href=https://centerkey.com/reveal.js-local/reveal.js-local.css>
+      <script defer src=https://cdn.jsdelivr.net/npm/reveal.js@4.5/dist/reveal.js></script>
+      <script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8/build/highlight.min.js></script>
+      <script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8/build/languages/http.min.js></script>
+      <script defer src=https://cdn.jsdelivr.net/npm/dna-engine@3.0/dist/dna-engine.min.js></script>
+      <script defer src=https://cdn.jsdelivr.net/npm/hljs-enhance@2.0/hljs-enhance.js></script>
+      <script defer src=https://centerkey.com/reveal.js-local/reveal.js-local.js></script>
+
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!--  reveal.js-local v0.0.0                                                                   -->
+<!--  ======================                                                                   -->
+<!--  A single HTML file for showing a reveal.js presentation locally.                         -->
+<!--                                                                                           -->
 <!--  View sample "presentation-template.html" online at:                                      -->
 <!--     https://centerkey.com/reveal.js-local                                                 -->
 <!--                                                                                           -->
@@ -27,195 +42,55 @@
 <!--     * References a CDN copy of reveal.js so each presentation doesn't start off over 1MB  -->
 <!--     * Adds some sample slides to show formatting                                          -->
 <!--     * Toggles hidden slides by pressng the backtick (`) key                               -->
-<!--     * Replaces the old broken syntax highlighter with a newer version from a CDN          -->
 <!--     * Includes hover effects for tables and source code to help speaker point to items    -->
 <!--     * Trims code whitespace to render properly even when aligned with surrounding HTML    -->
 <!--                                                                                           -->
 <!--  To get started:                                                                          -->
-<!--     Just save "presentation-template.html" locally and then view and edit it locally.     -->
+<!--     Save "docs/presentation-template.html" locally and then view and edit it locally.     -->
 <!--                                                                                           -->
 <!--  MIT License                                                                              -->
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-      <title>[see variable in presentation settings: title]</title>
-      <link rel=icon       href=https://centerkey.com/graphics/bookmark.png>
-      <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4/css/all.min.css>
-      <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/dna-engine@3.0/dist/dna-engine.css>
-      <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/dna-engine@3.0/dist/panel-nav.css>
-      <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/reveal.js@4.1/dist/reveal.css>
-      <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/hljs-enhance@2.0/hljs-enhance.css>
-      <style>
-         body.reveal-viewport { background-size: cover; background-position: center center; }
-         .reveal .slides * { box-sizing: border-box; }
-         .reveal .slides { font-size: 70%; }
-         .reveal .slides >section { padding-bottom: 50px; }
-         .reveal .slides >section h1 { font-size: 4.0em; }
-         .reveal .slides >section h1+h2 { font-family: system-ui, sans-serif; font-weight: lighter; letter-spacing: 0.1em; }
-         .reveal .slides >section >p { padding: 0px 10px; outline: 3px solid transparent; transition: outline 400ms; }
-         .reveal .slides >section >p:hover { outline: 3px solid gold; }
-         .reveal .slides figure figcaption { font-size: 1.5rem; }
-         .reveal .slides pre { width: auto; margin: 0px; box-shadow: none; }
-         .reveal .slides pre code { max-height: none; font-size: 1.3rem; line-height: 1.3em; font-family: menlo, consolas, monospace; padding: 20px 0px 20px 20px; }
-         .reveal .slides pre code >span, .reveal li { transition: outline 400ms; }
-         .reveal .slides pre code >span:hover, .reveal li:hover { outline: 3px solid white; }
-         .reveal .slides table { margin: 0px auto 40px auto; border-collapse: collapse; border-spacing: 0; }
-         .reveal .slides table th { font-weight: bold; }
-         .reveal .slides table th, .reveal table td { text-align: left; padding: 0.2em 0.5em 0.2em 0.5em; }
-         .reveal .slides table thead tr { border-bottom: 3px solid; }
-         .reveal .slides table tbody tr { border-top: 1px solid; transition: background-color 400ms; }
-         .reveal .slides table tbody tr:hover { background-color: lightseagreen; }
-         .reveal .slides img { max-width: 90%; }
-         .reveal .slides img.prime { background: none; border: none; box-shadow: none; }
-         .reveal .slides img.full, .reveal img.framed { background-color: rgba(255, 255, 255, 0.7); }
-         .reveal .slides img.full { display: block; border: none; box-shadow: none; padding: 3% 5%; margin: 20px auto; }
-         .reveal .slides img.framed { border: 30px solid dimgray; padding: 5px; }
-         .reveal .slides a { border-bottom: 1px dotted; }
-         .reveal .slides a:hover { color: gold; border-bottom: 1px dotted; }
-         .reveal .slides big { font-size: 3em; }
-         .reveal .slides nav.dna-menu[data-style=flat-tabs]+.dna-panels { background-color: black; }
-         .reveal .slides textarea { display: block; width: 100%; font-size: 1.8rem; font-family: menlo, consolas, monospace; white-space: pre; padding: 20px; overflow: auto; }
-         .reveal .slides .dna-panels { padding: 0px !important; }
-         .reveal .slides .dna-panels >.dna-panel { padding: 0px; margin: 0px; }
-         .reveal .slides .dna-panels >.dna-panel >p { padding: 20px; }
-         .reveal .slides .dna-panels >.dna-panel pre.hljs-enhance { border: none; }
-         .reveal .slides .down-arrow { color: deepskyblue; }
-         .reveal .slides .down-arrow { transform: rotate(180deg); font-size: 5.0rem; font-weight: bold; margin: 30px 0px 35px 0px; }
-         .reveal .slides .down-arrow:before { content: "\21E7"; }  /* usage: <div class=down-arrow></div> */
-         .reveal .slides .space-above { margin-top: 10%; }
-         .reveal .slides .push-right { text-align: right; }
 
-         /* Customize hljs-enhance frame colors */
-         figure.hljs-enhance >figcaption             { color:            black; }      /* title */
-         figure.hljs-enhance >figcaption:first-child { background-color: mintcream; }  /* trim */
-         pre.hljs-enhance, figure.hljs-enhance >div  { border-color:     mintcream; }  /* trim */
-         pre.hljs-enhance >code                      { background-color: black; }      /* background */
-      </style>
-      <script defer src=https://cdn.jsdelivr.net/npm/reveal.js@4.1/dist/reveal.js></script>
-      <script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8/build/highlight.min.js></script>
-      <script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8/build/languages/http.min.js></script>
-      <script defer src=https://cdn.jsdelivr.net/npm/dna-engine@3.0/dist/dna-engine.min.js></script>
-      <script defer src=https://cdn.jsdelivr.net/npm/hljs-enhance@2.0/hljs-enhance.js></script>
-      <script data-on-load=setup.go>
-         const setup = {
-            reveal() {
-               const config = {  //see: https://revealjs.com/config
-                  autoSlide:        autoAdvance ? autoAdvanceSeconds * 1000 : 0,  //milliseconds to automatically advance slide (0 = disable)
-                  controls:         true,
-                  controlsTutorial: true,
-                  hash:             false,
-                  loop:             false,
-                  progress:         true,
-                  };
-               Reveal.initialize(config);
-               },
-            themes() {
-               const addCss = (url) => {
-                  const link = dna.dom.create('link', { rel: 'stylesheet', type: 'text/css', href: url });
-                  link.rel =   'stylesheet';
-                  globalThis.document.head.appendChild(link);
-                  };
-               const theme =          themes[selectedTheme];
-               const highlightTheme = dna.util.toKebab(syntaxHighlightingTheme);
-               addCss(`https://cdn.jsdelivr.net/npm/reveal.js@4.1/dist/theme/${theme}.css`);
-               addCss(`https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8/build/styles/${highlightTheme}.min.css`);
-               },
-            background() {
-               if (backgroundUse.color)
-                  globalThis.document.body.style.backgroundColor = backgroundColor;
-               else if (backgroundUse.gradient)
-                  globalThis.document.body.style.backgroundImage = backgroundGradient;
-               else
-                  globalThis.document.body.style.backgroundImage = 'url(' + backgroundImages[selectedBackgroundImage] + ')';
-               },
-            titles() {
-               globalThis.document.head.querySelector('title').textContent =           title;
-               globalThis.document.getElementById('presentation-title').innerHTML =    title;
-               globalThis.document.getElementById('presentation-subtitle').innerHTML = subtitle;
-               },
-            images() {
-               const folder = document.location.href.split('/').slice(0, -1).join('/');
-               console.log('Images folder:');
-               console.log('%c' + folder + '/assets', 'font-family: monospace;');
-               const configureImage = (img) => {
-                  if (!img.src.includes('//'))
-                     img.src = folder + img.src;
-                  if (img.dataset.width)
-                     img.style.width = img.dataset.width;
-                  };
-               globalThis.document.querySelectorAll('.reveal img').forEach(configureImage);
-               },
-            textarea() {
-               const trim = (elem) => {
-                  const leadingSpaces = new RegExp('^' + elem.value.match(/\s*/)[0], 'mg');
-                  const text =          elem.value.replace(leadingSpaces, '').trim();
-                  elem.value =          text;
-                  elem.style.height =   (text.split('\n').length + 1) * 1.4 + 'em';
-                  };
-               globalThis.document.querySelectorAll('textarea').forEach(trim);
-               },
-            hiddenSlidesStorage: [],
-            hiddenSlides() {
-               const handleBacktick = () => {
-                  const container =     globalThis.document.querySelector('.slides');
-                  const hidableSlides = dna.dom.filterByClass(container.children, 'toggle-on-backtick');
-                  const stash =         (slide) => setup.hiddenSlidesStorage.push(slide) && slide.remove();
-                  if (hidableSlides.length)
-                     hidableSlides.forEach(stash);
-                  else
-                     while (setup.hiddenSlidesStorage.length)
-                        container.appendChild(setup.hiddenSlidesStorage.pop())
-                  Reveal.slide();  //refresh progress bar and control arrows
-                  };
-               globalThis.setTimeout(handleBacktick, 1000);  //allow time for slides to process before hiding
-               dna.dom.on('keyup', handleBacktick, { keyFilter: '`' });
-               },
-            go() {
-               console.log('%creveal.js-local', 'font-size: 2rem; font-weight: bold; color: teal;');
-               setup.themes();
-               setup.background();
-               setup.titles();
-               setup.images();
-               setup.textarea();
-               setup.hiddenSlides();
-               setup.reveal();
-               },
-            };
-      </script>
-      <script id=presentation-settings>
-         const title =                   'The Presentation';
-         const subtitle =                'Show your code';
-         const themes = {                //see: https://revealjs.com/themes
-            1: 'black', 2: 'blood', 3: 'dracula', 4: 'league', 5: 'night', 6: 'simple', 7: 'sky',
-            8: 'solarized', 9: 'white' };
-         const selectedTheme =           5;  //set to desired image from above list
-         const backgroundUse =           { color: false, gradient: false, image: true };  //set just one type of background to true
-         const backgroundColor =         'teal';
-         const backgroundGradient =      'linear-gradient(to right, darkslategray, teal 15%, teal 85%, darkslategray)';
-         const backgroundImages = {
-            1: 'https://center-key.github.io/reveal.js-local/assets/nasa-pluto-crescent.jpg',
-            2: 'https://center-key.github.io/reveal.js-local/assets/nasa-pluto-dark.jpg',
-            3: 'https://center-key.github.io/reveal.js-local/assets/nasa-reflection-nebula.jpg',
-            4: 'https://center-key.github.io/reveal.js-local/assets/nasa-space-nebula.jpg',
-            5: 'https://center-key.github.io/reveal.js-local/assets/nasa-wise-orion.jpg',
-            6: 'https://center-key.github.io/reveal.js-local/assets/nasa-wise-red-galaxy.jpg',
-            };
-         const selectedBackgroundImage = 1;  //set to desired image from above list
-         const syntaxHighlightingTheme = 'Atom One Dark';  //see list of themes at: https://highlightjs.org/static/demo
-         const autoAdvance =             false;
-         const autoAdvanceSeconds =      10;
-      </script>
+<!-- Presentation Settings -->
+<script id=presentation-settings>
+   const title =                   'The Presentation';
+   const subtitle =                'Show your code';
+   const themes =                  { 1: 'black', 2: 'blood', 3: 'dracula', 4: 'league', 5: 'night', 6: 'simple', 7: 'sky', 8: 'solarized', 9: 'white' };
+   const selectedTheme =           5;  //set to desired image from above list, see: https://revealjs.com/themes
+   const baseFontSizePercent =     70;
+   const backgroundTypeToUse =     { color: false, gradient: false, image: true };  //set just one type of background to true
+   const backgroundColor =         'teal';
+   const backgroundGradient =      'linear-gradient(to right, darkslategray, teal 15%, teal 85%, darkslategray)';
+   const backgroundImages = {
+      1: 'https://center-key.github.io/reveal.js-local/assets/nasa-pluto-crescent.jpg',
+      2: 'https://center-key.github.io/reveal.js-local/assets/nasa-pluto-dark.jpg',
+      3: 'https://center-key.github.io/reveal.js-local/assets/nasa-reflection-nebula.jpg',
+      4: 'https://center-key.github.io/reveal.js-local/assets/nasa-space-nebula.jpg',
+      5: 'https://center-key.github.io/reveal.js-local/assets/nasa-wise-orion.jpg',
+      6: 'https://center-key.github.io/reveal.js-local/assets/nasa-wise-red-galaxy.jpg',
+      };
+   const selectedBackgroundImage = 1;  //set to desired image from above list
+   const syntaxHighlightingTheme = 'Atom One Dark';  //see list of themes at: https://highlightjs.org/static/demo
+   const autoAdvance =             false;
+   const autoAdvanceSeconds =      10;
+</script>
 
-   </head>
-   <body>
-      <div class=reveal>
-         <!-- Any section element inside of this container is displayed as a slide -->
-         <div class=slides>
+<!-- Custom JavaScript -->
+<script id=presentation-custom-js data-on-load=presentationCustomSetup>
+   const presentationCustomSetup = () => {
+      console.log('Presentation is ready.');
+      };
+</script>
+
+<!-- Custom Style -->
+<style id=presentation-custom-css>
+</style>
+
+</head><body><div class=reveal><div class=slides>
 
 <!-- =========================================================================================== -->
-<!-- =========================================================================================== -->
-<!-- =========================================================================================== -->
-<!-- Start of Slides                                                                             -->
-<!-- =========================================================================================== -->
-<!-- =========================================================================================== -->
+<!-- === Start of Slides                                                                     === -->
+<!-- === Note: Each <section> tag represents a slide of the presentation.                    === -->
 <!-- =========================================================================================== -->
 
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -416,7 +291,7 @@
 <section>
    <h2>Down Arrow &amp; Unicode Emojis</h2>
    <div class=down-arrow></div>
-   <p><big>🚀 🔥 🍖 🍄 🦋 🚁 🌊 🦄</big></p>
+   <p><em>🚀 🔥 🍖 🍄 🦋 🚁 🌊 🦄</em></p>
    <figure>
       <pre><code class=language-html>
          &lt;!-- Slide --&gt;
@@ -424,7 +299,7 @@
             &lt;h2&gt;Down Arrow &amp;amp; Unicode Emojis&lt;/h2&gt;
             &lt;div class=down-arrow&gt;&lt;/div&gt;
             &lt;p&gt;
-               &lt;big&gt;🚀 🔥 🍖 🍄 🦋 🚁 🌊 🦄&lt;/big&gt;
+               &lt;em&gt;🚀 🔥 🍖 🍄 🦋 🚁 🌊 🦄&lt;/em&gt;
             &lt;/p&gt;
          &lt;/section&gt;
       </code></pre>
@@ -480,19 +355,27 @@
    <h2>Panels</h2>
    <nav class=dna-menu data-style=flat-tabs>
       <span>Turtle</span>
+      <span>Bison</span>
       <span>Owl</span>
+      <span>Llama</span>
       <span>Elephant</span>
       <span>Custom</span>
    </nav>
    <div class=dna-panels>
       <div>
-         <p style="font-size: 5em;">🐢</p>
+         <p><em><em>🐢</em></em></p>
       </div>
       <div>
-         <p style="font-size: 5em;">🦉</p>
+         <p><em><em>🦬</em></em></p>
       </div>
       <div>
-         <p style="font-size: 5em;">🐘</p>
+         <p><em><em>🦉</em></em></p>
+      </div>
+      <div>
+         <p><em><em>🦙</em></em></p>
+      </div>
+      <div>
+         <p><em><em>🐘</em></em></p>
       </div>
       <div>
          <textarea style="font-size: 5em;" spellcheck=false>
@@ -517,7 +400,7 @@
    <figure>
       <pre><code class=language-html>
          &lt;!-- Slide --&gt;
-         &lt;section&gt;
+         &lt;section class=toggle-on-backtick&gt;
             &lt;h2&gt;Framed&lt;/h2&gt;
             &lt;img src=https://i.chzbgr.com/full/5248955648/hA52D8A65
                class=framed data-width=45% alt=cat&gt;
@@ -529,6 +412,4 @@
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <!-- End of Slides                                                                               -->
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-</div></div>
-</body>
-</html>
+</div></div></body></html>

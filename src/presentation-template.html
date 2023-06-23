@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang=en>
+   <head>
+      <meta charset=utf-8>
+      <meta name=viewport                              content="width=device-width, initial-scale=1">
+      <meta name=robots                                content="index, follow">
+      <meta name=description                           content="A single HTML file for showing a reveal.js presentation locally">
+      <meta name=apple-mobile-web-app-title            content="Presentation">
+      <meta name=apple-mobile-web-app-capable          content=yes>
+      <meta name=apple-mobile-web-app-status-bar-style content=black-translucent>
+      <title>[see variable in presentation settings: title]</title>
+      <link rel=icon       href=https://centerkey.com/graphics/bookmark.png>
+      <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4/css/all.min.css>
+      <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/dna-engine@3.0/dist/dna-engine.css>
+      <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/dna-engine@3.0/dist/panel-nav.css>
+      <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/reveal.js@4.5/dist/reveal.css>
+      <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/hljs-enhance@2.0/hljs-enhance.css>
+      <link rel=stylesheet href=./reveal.js-local.css>
+      <script defer src=https://cdn.jsdelivr.net/npm/reveal.js@4.5/dist/reveal.js></script>
+      <script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8/build/highlight.min.js></script>
+      <script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8/build/languages/http.min.js></script>
+      <script defer src=https://cdn.jsdelivr.net/npm/dna-engine@3.0/dist/dna-engine.min.js></script>
+      <script defer src=https://cdn.jsdelivr.net/npm/hljs-enhance@2.0/hljs-enhance.js></script>
+      <script defer src=./reveal.js-local.js></script>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!--  reveal.js-local v{{pkg.version}}                                                                   -->
+<!--  ======================                                                                   -->
+<!--  A single HTML file for showing a reveal.js presentation locally.                         -->
+<!--                                                                                           -->
+<!--  View sample "presentation-template.html" online at:                                      -->
+<!--     https://centerkey.com/reveal.js-local                                                 -->
+<!--                                                                                           -->
+<!--  Project:                                                                                 -->
+<!--     github:center-key/reveal.js-local                                                     -->
+<!--                                                                                           -->
+<!--  This project uses reveal.js by Hakim El Hattab, see:                                     -->
+<!--     github:hakimel/reveal.js                                                              -->
+<!--                                                                                           -->
+<!--  Supplements the original:                                                                -->
+<!--     * References a CDN copy of reveal.js so each presentation doesn't start off over 1MB  -->
+<!--     * Adds some sample slides to show formatting                                          -->
+<!--     * Toggles hidden slides by pressng the backtick (`) key                               -->
+<!--     * Includes hover effects for tables and source code to help speaker point to items    -->
+<!--     * Trims code whitespace to render properly even when aligned with surrounding HTML    -->
+<!--                                                                                           -->
+<!--  To get started:                                                                          -->
+<!--     Save "docs/presentation-template.html" locally and then view and edit it locally.     -->
+<!--                                                                                           -->
+<!--  MIT License                                                                              -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<!-- Presentation Settings -->
+<script id=presentation-settings>
+   const title =                   'The Presentation';
+   const subtitle =                'Show your code';
+   const themes =                  { 1: 'black', 2: 'blood', 3: 'dracula', 4: 'league', 5: 'night', 6: 'simple', 7: 'sky', 8: 'solarized', 9: 'white' };
+   const selectedTheme =           5;  //set to desired image from above list, see: https://revealjs.com/themes
+   const baseFontSizePercent =     70;
+   const backgroundTypeToUse =     { color: false, gradient: false, image: true };  //set just one type of background to true
+   const backgroundColor =         'teal';
+   const backgroundGradient =      'linear-gradient(to right, darkslategray, teal 15%, teal 85%, darkslategray)';
+   const backgroundImages = {
+      1: 'https://center-key.github.io/reveal.js-local/assets/nasa-pluto-crescent.jpg',
+      2: 'https://center-key.github.io/reveal.js-local/assets/nasa-pluto-dark.jpg',
+      3: 'https://center-key.github.io/reveal.js-local/assets/nasa-reflection-nebula.jpg',
+      4: 'https://center-key.github.io/reveal.js-local/assets/nasa-space-nebula.jpg',
+      5: 'https://center-key.github.io/reveal.js-local/assets/nasa-wise-orion.jpg',
+      6: 'https://center-key.github.io/reveal.js-local/assets/nasa-wise-red-galaxy.jpg',
+      };
+   const selectedBackgroundImage = 1;  //set to desired image from above list
+   const syntaxHighlightingTheme = 'Atom One Dark';  //see list of themes at: https://highlightjs.org/static/demo
+   const autoAdvance =             false;
+   const autoAdvanceSeconds =      10;
+</script>
+
+<!-- Custom JavaScript -->
+<script id=presentation-custom-js data-on-load=presentationCustomSetup>
+   const presentationCustomSetup = () => {
+      console.log('Presentation is ready.');
+      };
+</script>
+
+<!-- Custom Style -->
+<style id=presentation-custom-css>
+</style>
+
+</head><body><div class=reveal><div class=slides>
+
+<!-- =========================================================================================== -->
+<!-- === Start of Slides                                                                     === -->
+<!-- === Note: Each <section> tag represents a slide of the presentation.                    === -->
+<!-- =========================================================================================== -->
+
+<!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<section>
+   <h1 id=presentation-title>[see variable in presentation settings: title]</h1>
+   <h2 id=presentation-subtitle>[see variable in presentation-settings: subtitle]</h2>
+   <p>
+      Your Name<br>
+      name@example.com
+   </p>
+</section>
+
+<!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<section>
+   <h2>Content</h2>
+   <p>
+      Press the <b>"F"</b> key to enter <b>F</b>ull screen mode.
+   </p>
+   <p>
+      And <b>"Esc"</b> to exit.
+   </p>
+   <br><hr><br>
+   <div>
+      <p>
+         Get latest template:<br>
+         <a href=https://github.com/center-key/reveal.js-local>reveal.js-local</a>
+      </p>
+      <p>
+         Main documentation:<br>
+         <a href=https://revealjs.com>reveal.js</a>
+      </p>
+   </div>
+</section>
+
+<!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<section>
+   <h2>Header 2</h2>
+   <h3>Header 3</h3>
+   <h4>Header 4</h4>
+   <p>
+      This paragraph is for authentic pug Thundercats, lomo distillery
+      PBR literally kitsch you probably haven't seen.
+   </p>
+   <figure>
+      <figcaption>HTML for this Slide</figcaption>
+      <pre><code class=language-html>
+         &lt;!-- Slide --&gt;
+         &lt;section&gt;
+            &lt;h2&gt;Header 2&lt;/h2&gt;
+            &lt;h3&gt;Header 3&lt;/h3&gt;
+            &lt;h4&gt;Header 4&lt;/h4&gt;
+            &lt;p&gt;
+               This paragraph is for authentic pug Thundercats, lomo
+               distillery PBR literally kitsch you probably haven't seen.
+            &lt;/p&gt;
+         &lt;/section&gt;
+      </code></pre>
+   </figure>
+</section>
+
+<!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<section>
+   <h2>Bullet List</h2>
+   <ul>
+      <li>HTML5</li>
+      <li>CSS3</li>
+      <li>JavaScript</li>
+   </ul>
+   <p>Hover over the HTML to highlight tags.</p>
+   <figure>
+      <pre><code class=language-html>
+         &lt;!-- Slide --&gt;
+         &lt;section&gt;
+            &lt;h2&gt;Bullet List&lt;/h2&gt;
+            &lt;ul&gt;
+               &lt;li&gt;HTML5&lt;/li&gt;
+               &lt;li&gt;CSS3&lt;/li&gt;
+               &lt;li&gt;JavaScript&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;p&gt;Hover over the HTML to highlight tags.&lt;/p&gt;
+         &lt;/section&gt;
+      </code></pre>
+   </figure>
+</section>
+
+<!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<section>
+   <h2>Data Table</h2>
+   <table>
+      <thead><tr><th>Type</th><th>Example</th></tr></thead>
+      <tbody>
+         <tr>
+            <td>Boolean</td>
+            <td><code>true</code></td>
+         </tr>
+         <tr>
+            <td>String</td>
+            <td><code>'Hover over me!'</code></td>
+         </tr>
+         <tr>
+            <td>&pi;</td>
+            <td><code>3.14159265</code></td>
+         </tr>
+      </tbody>
+   </table>
+   <figure>
+      <pre><code class=language-html>
+         &lt;!-- Slide --&gt;
+         &lt;section&gt;
+            &lt;h2&gt;Data Table&lt;/h2&gt;
+            &lt;table&gt;
+               &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Type&lt;/th&gt;&lt;th&gt;Example&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+               &lt;tbody&gt;
+                  &lt;tr&gt;&lt;td&gt;Boolean&lt;/td&gt;&lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;&lt;/tr&gt;
+                  &lt;tr&gt;&lt;td&gt;String&lt;/td&gt; &lt;td&gt;&lt;code&gt;'Hover over me!'&lt;/code&gt;&lt;/td&gt;&lt;/tr&gt;
+                  &lt;tr&gt;&lt;td&gt;&amp;pi;&lt;/td&gt;   &lt;td&gt;&lt;code&gt;3.14159265&lt;/code&gt;&lt;/td&gt;&lt;/tr&gt;
+               &lt;/tbody&gt;
+            &lt;/table&gt;
+         &lt;/section&gt;
+      </code></pre>
+   </figure>
+</section>
+
+<!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<section>
+   <h2>HTML</h2>
+   <p>
+      To display HTML code,
+      <a href=https://www.convertstring.com/EncodeDecode/HtmlEncode>encode</a>
+      the HTML and place into:<br>
+      <b>&lt;pre&gt;&lt;code class=language-html&gt;</b>
+   </p>
+   <nav class=dna-menu data-style=flat-tabs>
+      <span>Encoded HTML</span>
+      <span>Rendered in Presentation</span>
+   </nav>
+   <div class=dna-panels>
+      <div>
+         <pre><code class=language-html>
+            &lt;p&gt;My website:&lt;/p&gt;
+            &lt;pre&gt;&lt;code class=language-html&gt;
+               &amp;lt;!doctype html&amp;gt;
+               &amp;lt;html lang=en&amp;gt;
+                  &amp;lt;head&amp;gt;
+                     &amp;lt;meta charset=utf-8&amp;gt;
+                     &amp;lt;title&amp;gt;Example Website&amp;lt;/title&amp;gt;
+                  &amp;lt;/html&amp;gt;
+                  &amp;lt;body&amp;gt;
+                     &amp;lt;h1&amp;gt;Example Website&amp;lt;/h1&amp;gt;
+                  &amp;lt;/body&amp;gt;
+               &amp;lt;/html&amp;gt;
+            &lt;/code&gt;&lt;/pre&gt;
+         </code></pre>
+      </div>
+      <div>
+         <p>My website:</p>
+         <pre><code class=language-html>
+            &lt;!doctype html&gt;
+            &lt;html lang=en&gt;
+               &lt;head&gt;
+                  &lt;meta charset=utf-8&gt;
+                  &lt;title&gt;Example Website&lt;/title&gt;
+               &lt;/html&gt;
+               &lt;body&gt;
+                  &lt;h1&gt;Example Website&lt;/h1&gt;
+               &lt;/body&gt;
+            &lt;/html&gt;
+         </code></pre>
+      </div>
+   </div>
+</section>
+
+<!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<section>
+   <h2>JavaScript</h2>
+   Look below
+   <div class=down-arrow></div>
+   <figure>
+      <pre><code class=language-javascript>
+         const help = {
+            selector: '.help-me',
+            show(elem) {
+               const statusBox = document.getElementById('status-box');
+               statusBox.textContent = elem.dataset.message;
+               dna.ui.pulse(statusBox);  //fade in
+               },
+            setup() {
+               dna.dom.onClick(help.show, help.selector);
+               },
+            };
+
+         dna.dom.onReady(help.setup);
+      </code></pre>
+   </figure>
+</section>
+
+<!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<section>
+   <h2>Down Arrow &amp; Unicode Emojis</h2>
+   <div class=down-arrow></div>
+   <p><em>🚀 🔥 🍖 🍄 🦋 🚁 🌊 🦄</em></p>
+   <figure>
+      <pre><code class=language-html>
+         &lt;!-- Slide --&gt;
+         &lt;section&gt;
+            &lt;h2&gt;Down Arrow &amp;amp; Unicode Emojis&lt;/h2&gt;
+            &lt;div class=down-arrow&gt;&lt;/div&gt;
+            &lt;p&gt;
+               &lt;em&gt;🚀 🔥 🍖 🍄 🦋 🚁 🌊 🦄&lt;/em&gt;
+            &lt;/p&gt;
+         &lt;/section&gt;
+      </code></pre>
+   </figure>
+</section>
+
+<!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<section>
+   <h2>Images</h2>
+   <img class=prime data-width=25%
+      src=https://center-key.github.io/reveal.js-local/assets/js-logo.png alt=logo>
+   <p>Use the <b><code>data-width</code></b>
+      attribute to adjust the image size.</p>
+   <figure>
+      <pre><code class=language-html>
+         &lt;!-- Slide --&gt;
+         &lt;section&gt;
+            &lt;h2&gt;Images&lt;/h2&gt;
+            &lt;img class=prime data-width=25% src=assets/js-logo.png alt=logo&gt;
+            &lt;p&gt;Use the &lt;b&gt;&lt;code&gt;data-width&lt;/code&gt;&lt;/b&gt;
+               attribute to adjust the image size.&lt;/p&gt;
+         &lt;/section&gt;
+      </code></pre>
+   </figure>
+</section>
+
+<!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<section>
+   <h2>Google Drawings</h2>
+   <img class=full alt=diagram data-width=80%
+      src="https://docs.google.com/drawings/d/e/2PACX-1vRoq91lrZcm51whaXE6ot3e4tnOstxsD4XcMd-L-WkqZEGBd28g0rPeNpwmZIS16mUjAxJvRcMwA4-m/pub?w=1971&h=641">
+   <p>
+      Choose <b>File &rArr; Share &rArr;
+      Publish to the web &rArr; Link...</b>
+   </p>
+   <figure>
+      <pre><code class=language-html>
+         &lt;!-- Slide --&gt;
+         &lt;section&gt;
+            &lt;h2&gt;Google Drawings&lt;/h2&gt;
+            &lt;img class=full alt=diagram
+               src=&quot;https://docs.google.com/drawings/d/e/.../pub?w=1971&h=641&quot;&gt;
+            Choose &lt;b&gt;File &amp;rArr; Share &amp;rArr;
+            Publish to the web &amp;rArr; Link...&lt;/b&gt;
+         &lt;/section&gt;
+      </code></pre>
+   </figure>
+</section>
+
+
+<!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<section>
+   <h2>Panels</h2>
+   <nav class=dna-menu data-style=flat-tabs>
+      <span>Turtle</span>
+      <span>Bison</span>
+      <span>Owl</span>
+      <span>Llama</span>
+      <span>Elephant</span>
+      <span>Custom</span>
+   </nav>
+   <div class=dna-panels>
+      <div>
+         <p><em><em>🐢</em></em></p>
+      </div>
+      <div>
+         <p><em><em>🦬</em></em></p>
+      </div>
+      <div>
+         <p><em><em>🦉</em></em></p>
+      </div>
+      <div>
+         <p><em><em>🦙</em></em></p>
+      </div>
+      <div>
+         <p><em><em>🐘</em></em></p>
+      </div>
+      <div>
+         <textarea style="font-size: 5em;" spellcheck=false>
+            🐢 🦉 🐘
+         </textarea>
+      </div>
+   </div>
+</section>
+
+<!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<section>
+   <h2>Hidden Slides</h2>
+   <p>
+      Press the backtick (`) key to reveal additional sample slides.
+   </p>
+</section>
+
+<!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<section class=toggle-on-backtick>
+   <h2>Framed</h2>
+   <img src=https://i.chzbgr.com/full/5248955648/hA52D8A65 class=framed data-width=45% alt=cat>
+   <figure>
+      <pre><code class=language-html>
+         &lt;!-- Slide --&gt;
+         &lt;section class=toggle-on-backtick&gt;
+            &lt;h2&gt;Framed&lt;/h2&gt;
+            &lt;img src=https://i.chzbgr.com/full/5248955648/hA52D8A65
+               class=framed data-width=45% alt=cat&gt;
+         &lt;/section&gt;
+      </code></pre>
+   </figure>
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- End of Slides                                                                               -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+</div></div></body></html>

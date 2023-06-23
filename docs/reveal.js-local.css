@@ -1,0 +1,44 @@
+/*! reveal.js-local v0.0.0 ~~ https://github.com/center-key/reveal.js-local ~~ MIT License */
+
+.reveal .slides * { box-sizing: border-box; }
+.reveal .slides >section { padding-bottom: 50px; }
+.reveal .slides >section h1 { font-size: 4.0em; }
+.reveal .slides >section h1+h2 { font-family: system-ui, sans-serif; font-weight: lighter; letter-spacing: 0.1em; }
+.reveal .slides >section >p { padding: 0px 10px; outline: 3px solid transparent; transition: outline 400ms; }
+.reveal .slides >section >p:hover { outline: 3px solid gold; }
+.reveal .slides figure figcaption { font-size: 1.5rem; }
+.reveal .slides pre { width: auto; margin: 0px; box-shadow: none; }
+.reveal .slides pre code { max-height: none; font-size: 1.3rem; line-height: 1.3em; font-family: menlo, consolas, monospace; padding: 20px 0px 20px 20px; }
+.reveal .slides pre code >span, .reveal li { transition: outline 400ms; }
+.reveal .slides pre code >span:hover, .reveal li:hover { outline: 3px solid white; }
+.reveal .slides table { margin: 0px auto 40px auto; border-collapse: collapse; border-spacing: 0; }
+.reveal .slides table th { font-weight: bold; }
+.reveal .slides table th, .reveal table td { text-align: left; padding: 0.2em 0.5em 0.2em 0.5em; }
+.reveal .slides table thead tr { border-bottom: 3px solid; }
+.reveal .slides table tbody tr { border-top: 1px solid; transition: background-color 400ms; }
+.reveal .slides table tbody tr:hover { background-color: lightseagreen; }
+.reveal .slides img { max-width: 90%; }
+.reveal .slides img.prime { background: none; border: none; box-shadow: none; }
+.reveal .slides img.full, .reveal img.framed { background-color: rgba(255, 255, 255, 0.7); }
+.reveal .slides img.full { display: block; border: none; box-shadow: none; padding: 3% 5%; margin: 20px auto; }
+.reveal .slides img.framed { border: 30px solid dimgray; padding: 5px; }
+.reveal .slides a { border-bottom: 1px dotted; }
+.reveal .slides a:hover { color: gold; border-bottom: 1px dotted; }
+.reveal .slides em { font-size: 3em; }
+.reveal .slides nav.dna-menu[data-style=flat-tabs]+.dna-panels { background-color: black; }
+.reveal .slides textarea { display: block; width: 100%; font-size: 1.8rem; font-family: menlo, consolas, monospace; white-space: pre; padding: 20px; overflow: auto; }
+.reveal .slides .dna-panels { padding: 0px !important; }
+.reveal .slides .dna-panels >.dna-panel { padding: 0px; margin: 0px; }
+.reveal .slides .dna-panels >.dna-panel >p { padding: 20px; }
+.reveal .slides .dna-panels >.dna-panel pre.hljs-enhance { border: none; }
+.reveal .slides .down-arrow { color: deepskyblue; }
+.reveal .slides .down-arrow { transform: rotate(180deg); font-size: 5.0rem; font-weight: bold; margin: 30px 0px 35px 0px; }
+.reveal .slides .down-arrow:before { content: "\21E7"; }  /* usage: <div class=down-arrow></div> */
+.reveal .slides .space-above { margin-top: 10%; }
+.reveal .slides .push-right { text-align: right; }
+
+/* Customize hljs-enhance frame colors */
+figure.hljs-enhance >figcaption             { color:            black; }      /* title */
+figure.hljs-enhance >figcaption:first-child { background-color: mintcream; }  /* trim */
+pre.hljs-enhance, figure.hljs-enhance >div  { border-color:     mintcream; }  /* trim */
+pre.hljs-enhance >code                      { background-color: black; }      /* background */
