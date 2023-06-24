@@ -53,8 +53,9 @@
       ],
       "build": [
          "jshint src",
-         "replacer src build --pkg --find=./reveal.js-local --replacement=https://center-key.github.io/reveal.js-local/reveal.js-local",
-         "add-dist-header build docs"
+         "replacer src build --pkg",
+         "replacer build --ext=.html docs --pkg --find=./reveal.js-local --replacement=https://cdn.jsdelivr.net/gh/center-key/reveal.js-local@{{pkg.version{{pipe}}minor-version}}/docs/reveal.js-local",
+         "add-dist-header 'build/reveal.js-local.*' docs"
       ]
    },
    "scripts": {
