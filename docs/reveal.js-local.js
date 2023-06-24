@@ -1,7 +1,7 @@
-//! reveal.js-local v0.0.0 ~~ https://github.com/center-key/reveal.js-local ~~ MIT License
+//! reveal.js-local v0.0.1 ~~ https://github.com/center-key/reveal.js-local ~~ MIT License
 
 const revealJsLocal = {
-   version: '0.0.0',
+   version: '0.0.1',
    reveal() {
       const config = {  //see: https://revealjs.com/config
          autoSlide:        autoAdvance ? autoAdvanceSeconds * 1000 : 0,  //milliseconds to automatically advance slide (0 = disable)
