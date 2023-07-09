@@ -41,7 +41,8 @@ const revealJsLocal = {
       globalThis.document.getElementById('presentation-subtitle').innerHTML = subtitle;
       },
    images() {
-      const folder = document.location.href.split('/').slice(0, -1).join('/');
+      const href =   globalThis.document.location.href;
+      const folder = href.split('/').slice(0, -1).join('/');
       console.log('Images folder:');
       console.log('%c' + folder + '/assets', 'font-family: monospace;');
       const configureImage = (img) => {
