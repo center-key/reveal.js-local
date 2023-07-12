@@ -8,7 +8,7 @@
       <meta name=apple-mobile-web-app-title            content="Presentation">
       <meta name=apple-mobile-web-app-capable          content=yes>
       <meta name=apple-mobile-web-app-status-bar-style content=black-translucent>
-      <title>[see variable in presentation settings: title]</title>
+      <title>[See H1 tag in first slide]</title>
       <link rel=icon       href=https://center-key.github.io/reveal.js-local/assets/bookmark.png>
       <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@{{pkg.devDependencies.-fortawesome-fontawesome-free|version}}/css/all.min.css>
       <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/dna-engine@{{pkg.devDependencies.dna-engine|version}}/dist/dna-engine.css>
@@ -52,14 +52,12 @@
 
 <!-- Presentation Settings -->
 <script id=presentation-settings>
-   const title =                   'The Presentation';
-   const subtitle =                'Show your code';
-   const themes =                  { 1: 'black', 2: 'blood', 3: 'dracula', 4: 'league', 5: 'night', 6: 'simple', 7: 'sky', 8: 'solarized', 9: 'white' };
-   const selectedTheme =           5;  //set to desired image from above list, see: https://revealjs.com/themes
-   const baseFontSizePercent =     70;
-   const backgroundTypeToUse =     { color: false, gradient: false, image: true };  //set just one type of background to true
-   const backgroundColor =         'teal';
-   const backgroundGradient =      'linear-gradient(to right, darkslategray, teal 15%, teal 85%, darkslategray)';
+   const themes =              { 1: 'black', 2: 'blood', 3: 'dracula', 4: 'league', 5: 'night', 6: 'simple', 7: 'sky', 8: 'solarized', 9: 'white' };
+   const selectedTheme =       5;  //set to desired image from above list, see: https://revealjs.com/themes
+   const baseFontSizePercent = 70;
+   const backgroundTypeToUse = { color: false, gradient: false, image: true };  //set just one type of background to true
+   const backgroundColor =     'teal';
+   const backgroundGradient =  'linear-gradient(to right, darkslategray, teal 15%, teal 85%, darkslategray)';
    const backgroundImages = {
       1: 'https://center-key.github.io/reveal.js-local/assets/nasa-pluto-crescent.jpg',
       2: 'https://center-key.github.io/reveal.js-local/assets/nasa-pluto-dark.jpg',
@@ -94,8 +92,8 @@
 
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <section>
-   <h1 id=presentation-title>[see variable in presentation settings: title]</h1>
-   <h2 id=presentation-subtitle>[see variable in presentation-settings: subtitle]</h2>
+   <h1 id=presentation-title>The Presentation</h1>
+   <h2>Show your code</h2>
    <p>
       Your Name<br>
       name@example.com
@@ -110,6 +108,9 @@
    </p>
    <p>
       And <b>"Esc"</b> to exit.
+   </p>
+   <p>
+      Press <b>"?"</b> for help.
    </p>
    <br><hr><br>
    <div>

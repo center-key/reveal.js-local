@@ -35,11 +35,6 @@ const revealJsLocal = {
       else
          globalThis.document.body.style.backgroundImage = 'url(' + url + ')';
       },
-   titles() {
-      globalThis.document.head.querySelector('title').textContent =           title;
-      globalThis.document.getElementById('presentation-title').innerHTML =    title;
-      globalThis.document.getElementById('presentation-subtitle').innerHTML = subtitle;
-      },
    images() {
       const href =   globalThis.document.location.href;
       const folder = href.split('/').slice(0, -1).join('/');
@@ -79,13 +74,14 @@ const revealJsLocal = {
       dna.dom.on('keyup', handleBacktick, { keyFilter: '`' });
       },
    setup() {
+      const title = globalThis.document.getElementById('presentation-title').textContent;
+      globalThis.document.head.querySelector('title').textContent = title;
       const logStyle = 'font-size: 2rem; font-weight: bold; color: teal;';
       console.log('%creveal.js-local v' + revealJsLocal.version, logStyle);
       const fontSize = String(baseFontSizePercent) + '%';
       globalThis.document.querySelector('.reveal .slides').style.fontSize = fontSize;
       revealJsLocal.themes();
       revealJsLocal.background();
-      revealJsLocal.titles();
       revealJsLocal.images();
       revealJsLocal.textarea();
       revealJsLocal.hiddenSlides();
