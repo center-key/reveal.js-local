@@ -35,6 +35,17 @@ const revealJsLocal = {
       else
          globalThis.document.body.style.backgroundImage = 'url(' + url + ')';
       },
+   titles() {
+      const title = globalThis.document.getElementById('presentation-title').textContent;
+      globalThis.document.head.querySelector('title').textContent = title;
+      const metaHeader =  (h2) => h2.nextElementSibling?.matches('section');
+      const metaHeaders = dna.dom.filter(globalThis.document.querySelectorAll('.slides >section >h2'), metaHeader);
+      metaHeaders.forEach(h2 => h2.style.display = 'none');
+      },
+   links() {
+      const links = globalThis.document.querySelectorAll('a.external-site, .external-site a');
+      links.forEach(link => link.target = '_blank');
+      },
    images() {
       const href =   globalThis.document.location.href;
       const folder = href.split('/').slice(0, -1).join('/');
@@ -74,14 +85,14 @@ const revealJsLocal = {
       dna.dom.on('keyup', handleBacktick, { keyFilter: '`' });
       },
    setup() {
-      const title = globalThis.document.getElementById('presentation-title').textContent;
-      globalThis.document.head.querySelector('title').textContent = title;
       const logStyle = 'font-size: 2rem; font-weight: bold; color: teal;';
       console.log('%creveal.js-local v' + revealJsLocal.version, logStyle);
       const fontSize = String(baseFontSizePercent) + '%';
       globalThis.document.querySelector('.reveal .slides').style.fontSize = fontSize;
       revealJsLocal.themes();
       revealJsLocal.background();
+      revealJsLocal.titles();
+      revealJsLocal.links();
       revealJsLocal.images();
       revealJsLocal.textarea();
       revealJsLocal.hiddenSlides();

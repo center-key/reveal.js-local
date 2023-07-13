@@ -113,7 +113,7 @@
       Press <b>"?"</b> for help.
    </p>
    <br><hr><br>
-   <div>
+   <div class=external-site>
       <p>
          Get latest template:<br>
          <a href=https://github.com/center-key/reveal.js-local>reveal.js-local</a>
@@ -266,23 +266,21 @@
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <section>
    <h2>JavaScript</h2>
-   Look below
+   <p>
+      To display JS with syntax highlighting, place the code within:<br>
+      <b>&lt;pre&gt;&lt;code class=language-javascript&gt;</b>
+   </p>
    <div class=down-arrow></div>
    <figure>
       <pre><code class=language-javascript>
-         const help = {
-            selector: '.help-me',
-            show(elem) {
-               const statusBox = document.getElementById('status-box');
-               statusBox.textContent = elem.dataset.message;
-               dna.ui.pulse(statusBox);  //fade in
-               },
-            setup() {
-               dna.dom.onClick(help.show, help.selector);
-               },
+         const fibLookup = [1, 1];  //memoization cache
+         const fibonacci = (n) => {
+            while (fibLookup.length &lt; n)
+               fibLookup.push(fibLookup.at(-1) + fibLookup.at(-2));
+            return fibLookup[n - 1];
             };
 
-         dna.dom.onReady(help.setup);
+         console.log('Fibonacci of 100 is:', fibonacci(100));
       </code></pre>
    </figure>
 </section>
@@ -309,18 +307,19 @@
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <section>
    <h2>Images</h2>
-   <img class=prime data-width=25%
+   <img data-width=20%
       src=https://center-key.github.io/reveal.js-local/assets/js-logo.png alt=logo>
-   <p>Use the <b><code>data-width</code></b>
-      attribute to adjust the image size.</p>
+   <p>
+      Create an <b><code>assets</code></b> folder for your local image files,<br>
+      and use the <b><code>data-width</code></b> attribute to adjust the image size.
+   </p>
    <figure>
       <pre><code class=language-html>
          &lt;!-- Slide --&gt;
          &lt;section&gt;
             &lt;h2&gt;Images&lt;/h2&gt;
-            &lt;img class=prime data-width=25% src=assets/js-logo.png alt=logo&gt;
-            &lt;p&gt;Use the &lt;b&gt;&lt;code&gt;data-width&lt;/code&gt;&lt;/b&gt;
-               attribute to adjust the image size.&lt;/p&gt;
+            &lt;img data-width=20% src=assets/js-logo.png alt=logo&gt;
+            &lt;p&gt;Create an &lt;b&gt;&lt;code&gt;assets&lt;/code&gt;&lt;/b&gt; folder for your local...&lt;/p&gt;
          &lt;/section&gt;
       </code></pre>
    </figure>
@@ -348,7 +347,6 @@
       </code></pre>
    </figure>
 </section>
-
 
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <section>
@@ -383,6 +381,40 @@
          </textarea>
       </div>
    </div>
+</section>
+
+<!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<section>
+   <h2>Group of Vertical Slides</h2>
+   <section>
+      <h2>Vertical Slides</h2>
+      <p>Wrap slides in another <code>&lt;section&gt;</code> tag</p>
+      <figure>
+         <pre><code class=language-html>
+            &lt;!-- Vertical Slides --&gt;
+            &lt;section&gt;
+               &lt;!-- Slide --&gt;
+               &lt;section&gt;
+                  &lt;h2&gt;Top Slide&lt;/h2&gt;
+                  &lt;p&gt;This slide displays like normal.&lt;/p&gt;
+               &lt;/section&gt;
+               &lt;!-- Slide --&gt;
+               &lt;section&gt;
+                  &lt;h2&gt;Bottom Slide&lt;/h2&gt;
+                  &lt;p&gt;Hit the down arrow to show this slide.&lt;/p&gt;
+               &lt;/section&gt;
+            &lt;/section&gt;
+         </code></pre>
+      </figure>
+   </section>
+   <section>
+      <h2>Australia</h2>
+      <p>Is Australia the world's smallest contenent</p>
+      <p>or</p>
+      <p>the world's largest island?</p>
+      <img data-width=35%
+         src=https://upload.wikimedia.org/wikipedia/commons/3/3d/AUS_orthographic.svg alt=map>
+   </section>
 </section>
 
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->

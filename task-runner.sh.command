@@ -84,6 +84,7 @@ runTasks() {
 
 viewInstructions() {
    echo "For development mode:"
+   echo "   npx run-scripts build"
    echo "   open build/presentation-template.html"
    echo "For production mode:"
    echo "   open docs/presentation-template.html"
