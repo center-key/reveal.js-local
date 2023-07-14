@@ -8,23 +8,23 @@
       <meta name=apple-mobile-web-app-title            content="Presentation">
       <meta name=apple-mobile-web-app-capable          content=yes>
       <meta name=apple-mobile-web-app-status-bar-style content=black-translucent>
-      <title>[see variable in presentation settings: title]</title>
+      <title>[See H1 tag in first slide]</title>
       <link rel=icon       href=https://center-key.github.io/reveal.js-local/assets/bookmark.png>
       <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4/css/all.min.css>
       <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/dna-engine@3.0/dist/dna-engine.css>
       <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/dna-engine@3.0/dist/panel-nav.css>
       <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/reveal.js@4.5/dist/reveal.css>
       <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/hljs-enhance@2.0/hljs-enhance.css>
-      <link rel=stylesheet href=https://cdn.jsdelivr.net/gh/center-key/reveal.js-local@0.0/docs/reveal.js-local.css>
+      <link rel=stylesheet href=https://cdn.jsdelivr.net/gh/center-key/reveal.js-local@0.1/docs/reveal.js-local.css>
       <script defer src=https://cdn.jsdelivr.net/npm/reveal.js@4.5/dist/reveal.js></script>
       <script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8/build/highlight.min.js></script>
       <script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8/build/languages/http.min.js></script>
       <script defer src=https://cdn.jsdelivr.net/npm/dna-engine@3.0/dist/dna-engine.min.js></script>
       <script defer src=https://cdn.jsdelivr.net/npm/hljs-enhance@2.0/hljs-enhance.js></script>
-      <script defer src=https://cdn.jsdelivr.net/gh/center-key/reveal.js-local@0.0/docs/reveal.js-local.js></script>
+      <script defer src=https://cdn.jsdelivr.net/gh/center-key/reveal.js-local@0.1/docs/reveal.js-local.js></script>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<!--  reveal.js-local v0.0.1                                                                   -->
+<!--  reveal.js-local v0.1.0                                                                   -->
 <!--  ======================                                                                   -->
 <!--  A single HTML file for showing a reveal.js presentation locally.                         -->
 <!--                                                                                           -->
@@ -52,14 +52,12 @@
 
 <!-- Presentation Settings -->
 <script id=presentation-settings>
-   const title =                   'The Presentation';
-   const subtitle =                'Show your code';
-   const themes =                  { 1: 'black', 2: 'blood', 3: 'dracula', 4: 'league', 5: 'night', 6: 'simple', 7: 'sky', 8: 'solarized', 9: 'white' };
-   const selectedTheme =           5;  //set to desired image from above list, see: https://revealjs.com/themes
-   const baseFontSizePercent =     70;
-   const backgroundTypeToUse =     { color: false, gradient: false, image: true };  //set just one type of background to true
-   const backgroundColor =         'teal';
-   const backgroundGradient =      'linear-gradient(to right, darkslategray, teal 15%, teal 85%, darkslategray)';
+   const themes =              { 1: 'black', 2: 'blood', 3: 'dracula', 4: 'league', 5: 'night', 6: 'simple', 7: 'sky', 8: 'solarized', 9: 'white' };
+   const selectedTheme =       5;  //set to desired image from above list, see: https://revealjs.com/themes
+   const baseFontSizePercent = 70;
+   const backgroundTypeToUse = { color: false, gradient: false, image: true };  //set just one type of background to true
+   const backgroundColor =     'teal';
+   const backgroundGradient =  'linear-gradient(to right, darkslategray, teal 15%, teal 85%, darkslategray)';
    const backgroundImages = {
       1: 'https://center-key.github.io/reveal.js-local/assets/nasa-pluto-crescent.jpg',
       2: 'https://center-key.github.io/reveal.js-local/assets/nasa-pluto-dark.jpg',
@@ -75,14 +73,16 @@
 </script>
 
 <!-- Custom JavaScript -->
-<script id=presentation-custom-js data-on-load=presentationCustomSetup>
+<script id=presentation-custom-js>
    const presentationCustomSetup = () => {
       console.log('Presentation is ready.');
+      // Put custom code here.
       };
 </script>
 
 <!-- Custom Style -->
 <style id=presentation-custom-css>
+   /* Put custom styling here. */
 </style>
 
 </head><body><div class=reveal><div class=slides>
@@ -94,11 +94,11 @@
 
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <section>
-   <h1 id=presentation-title>[see variable in presentation settings: title]</h1>
-   <h2 id=presentation-subtitle>[see variable in presentation-settings: subtitle]</h2>
+   <h1 id=presentation-title>The Presentation</h1>
+   <h2>Show your code</h2>
    <p>
       Your Name<br>
-      name@example.com
+      <span class=display-address data-name=info data-domain=example.com></span>
    </p>
 </section>
 
@@ -111,8 +111,11 @@
    <p>
       And <b>"Esc"</b> to exit.
    </p>
+   <p>
+      Press <b>"?"</b> for help.
+   </p>
    <br><hr><br>
-   <div>
+   <div class=external-site>
       <p>
          Get latest template:<br>
          <a href=https://github.com/center-key/reveal.js-local>reveal.js-local</a>
@@ -152,24 +155,24 @@
 
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <section>
-   <h2>Bullet List</h2>
+   <h2>Building a Bullet List</h2>
    <ul>
-      <li>HTML5</li>
-      <li>CSS3</li>
-      <li>JavaScript</li>
+      <li class=fragment>HTML5</li>
+      <li class=fragment>CSS3</li>
+      <li class=fragment>JavaScript</li>
    </ul>
-   <p>Hover over the HTML to highlight tags.</p>
+   <p class=fragment>Hover over the HTML to highlight tags.</p>
    <figure>
       <pre><code class=language-html>
          &lt;!-- Slide --&gt;
          &lt;section&gt;
             &lt;h2&gt;Bullet List&lt;/h2&gt;
             &lt;ul&gt;
-               &lt;li&gt;HTML5&lt;/li&gt;
-               &lt;li&gt;CSS3&lt;/li&gt;
-               &lt;li&gt;JavaScript&lt;/li&gt;
+               &lt;li class=fragment&gt;HTML5&lt;/li&gt;
+               &lt;li class=fragment&gt;CSS3&lt;/li&gt;
+               &lt;li class=fragment&gt;JavaScript&lt;/li&gt;
             &lt;/ul&gt;
-            &lt;p&gt;Hover over the HTML to highlight tags.&lt;/p&gt;
+            &lt;p class=fragment&gt;Hover over the HTML to highlight tags.&lt;/p&gt;
          &lt;/section&gt;
       </code></pre>
    </figure>
@@ -265,23 +268,21 @@
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <section>
    <h2>JavaScript</h2>
-   Look below
+   <p>
+      To display JS with syntax highlighting, place the code within:<br>
+      <b>&lt;pre&gt;&lt;code class=language-javascript&gt;</b>
+   </p>
    <div class=down-arrow></div>
    <figure>
       <pre><code class=language-javascript>
-         const help = {
-            selector: '.help-me',
-            show(elem) {
-               const statusBox = document.getElementById('status-box');
-               statusBox.textContent = elem.dataset.message;
-               dna.ui.pulse(statusBox);  //fade in
-               },
-            setup() {
-               dna.dom.onClick(help.show, help.selector);
-               },
+         const fibLookup = [1, 1];  //memoization cache
+         const fibonacci = (n) => {
+            while (fibLookup.length &lt; n)
+               fibLookup.push(fibLookup.at(-1) + fibLookup.at(-2));
+            return fibLookup[n - 1];
             };
 
-         dna.dom.onReady(help.setup);
+         console.log('Fibonacci of 100 is:', fibonacci(100));
       </code></pre>
    </figure>
 </section>
@@ -308,18 +309,19 @@
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <section>
    <h2>Images</h2>
-   <img class=prime data-width=25%
+   <img data-width=20%
       src=https://center-key.github.io/reveal.js-local/assets/js-logo.png alt=logo>
-   <p>Use the <b><code>data-width</code></b>
-      attribute to adjust the image size.</p>
+   <p>
+      Create an <b><code>assets</code></b> folder for your local image files,<br>
+      and use the <b><code>data-width</code></b> attribute to adjust the image size.
+   </p>
    <figure>
       <pre><code class=language-html>
          &lt;!-- Slide --&gt;
          &lt;section&gt;
             &lt;h2&gt;Images&lt;/h2&gt;
-            &lt;img class=prime data-width=25% src=assets/js-logo.png alt=logo&gt;
-            &lt;p&gt;Use the &lt;b&gt;&lt;code&gt;data-width&lt;/code&gt;&lt;/b&gt;
-               attribute to adjust the image size.&lt;/p&gt;
+            &lt;img data-width=20% src=assets/js-logo.png alt=logo&gt;
+            &lt;p&gt;Create an &lt;b&gt;&lt;code&gt;assets&lt;/code&gt;&lt;/b&gt; folder for your local...&lt;/p&gt;
          &lt;/section&gt;
       </code></pre>
    </figure>
@@ -347,7 +349,6 @@
       </code></pre>
    </figure>
 </section>
-
 
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <section>
@@ -386,20 +387,85 @@
 
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <section>
+   <h2>Group of Vertical Slides</h2>
+   <section>
+      <h2>Vertical Slides</h2>
+      <p>Wrap slides in another <code>&lt;section&gt;</code> tag.</p>
+      <figure>
+         <pre><code class=language-html>
+            &lt;!-- Vertical Slides --&gt;
+            &lt;section&gt;
+               &lt;!-- Slide --&gt;
+               &lt;section&gt;
+                  &lt;h2&gt;Top Slide&lt;/h2&gt;
+                  &lt;p&gt;This slide displays like normal.&lt;/p&gt;
+               &lt;/section&gt;
+               &lt;!-- Slide --&gt;
+               &lt;section&gt;
+                  &lt;h2&gt;Bottom Slide&lt;/h2&gt;
+                  &lt;p&gt;Hit the down arrow key to show this slide.&lt;/p&gt;
+               &lt;/section&gt;
+            &lt;/section&gt;
+         </code></pre>
+      </figure>
+   </section>
+   <section>
+      <h2>Australia</h2>
+      <p>Is Australia the world's smallest contenent</p>
+      <p>or</p>
+      <p>the world's largest island?</p>
+      <img data-width=35%
+         src=https://upload.wikimedia.org/wikipedia/commons/3/3d/AUS_orthographic.svg alt=map>
+   </section>
+</section>
+
+<!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<section>
+   <h2>Speaker Notes</h2>
+   <p>
+      Press the <b><code>Enter</code></b> key to reveal the slide's speaker notes.
+   </p>
+   <figure>
+      <pre><code class=language-html>
+         &lt;!-- Slide --&gt;
+         &lt;section&gt;
+            &lt;h2&gt;Speaker Notes&lt;/h2&gt;
+            &lt;p&gt;Press the Enter key to reveal the slide's speaker notes.&lt;/p&gt;
+            &lt;aside class=notes&gt;
+               &lt;p&gt;Important extra information in paragraph #1.&lt;/p&gt;
+               &lt;p&gt;Important extra information in paragraph #2.&lt;/p&gt;
+               &lt;p&gt;Important extra information in paragraph #3.&lt;/p&gt;
+            &lt;/aside&gt;
+         &lt;/section&gt;
+      </code></pre>
+   </figure>
+   <aside class=notes>
+      <p>Important extra information in paragraph #1.</p>
+      <p>Important extra information in paragraph #2.</p>
+      <p>Important extra information in paragraph #3.</p>
+   </aside>
+</section>
+
+<!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<section>
    <h2>Hidden Slides</h2>
    <p>
-      Press the backtick (`) key to reveal additional sample slides.
+      Press the backtick (<b><code>`</code></b>) key to reveal additional sample
+      slides that are hidden using:
+   </p>
+   <p>
+      <b><code>&lt;section data-visibility=hidden&gt;</code></b>
    </p>
 </section>
 
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<section class=toggle-on-backtick>
+<section data-visibility=hidden>
    <h2>Framed</h2>
    <img src=https://i.chzbgr.com/full/5248955648/hA52D8A65 class=framed data-width=45% alt=cat>
    <figure>
       <pre><code class=language-html>
          &lt;!-- Slide --&gt;
-         &lt;section class=toggle-on-backtick&gt;
+         &lt;section data-visibility=hidden&gt;
             &lt;h2&gt;Framed&lt;/h2&gt;
             &lt;img src=https://i.chzbgr.com/full/5248955648/hA52D8A65
                class=framed data-width=45% alt=cat&gt;

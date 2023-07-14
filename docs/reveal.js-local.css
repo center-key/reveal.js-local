@@ -1,4 +1,4 @@
-/*! reveal.js-local v0.0.1 ~~ https://github.com/center-key/reveal.js-local ~~ MIT License */
+/*! reveal.js-local v0.1.0 ~~ https://github.com/center-key/reveal.js-local ~~ MIT License */
 
 .reveal .slides * { box-sizing: border-box; }
 .reveal .slides >section { padding-bottom: 50px; }
@@ -42,3 +42,18 @@ figure.hljs-enhance >figcaption             { color:            black; }      /*
 figure.hljs-enhance >figcaption:first-child { background-color: mintcream; }  /* trim */
 pre.hljs-enhance, figure.hljs-enhance >div  { border-color:     mintcream; }  /* trim */
 pre.hljs-enhance >code                      { background-color: black; }      /* background */
+
+/* Speaker notes */
+body >div.notes {
+   position: fixed;
+   bottom: 2px;
+   font-family: system-ui, sans-serif;
+   font-size: 1.6rem;
+   color: white;
+   background-color: rgba(0, 0, 0, 0.7);
+   border: 2px solid deepskyblue;
+   padding: 10px 60px;
+   z-index: 10000;
+   opacity: 0;
+   transition: opacity 1000ms;
+   }
