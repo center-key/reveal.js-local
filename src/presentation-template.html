@@ -76,11 +76,13 @@
 <script id=presentation-custom-js data-on-load=presentationCustomSetup>
    const presentationCustomSetup = () => {
       console.log('Presentation is ready.');
+      // Put custom code here.
       };
 </script>
 
 <!-- Custom Style -->
 <style id=presentation-custom-css>
+   /* Put custom styling here. */
 </style>
 
 </head><body><div class=reveal><div class=slides>
@@ -96,7 +98,7 @@
    <h2>Show your code</h2>
    <p>
       Your Name<br>
-      name@example.com
+      <span class=display-address data-name=info data-domain=example.com></span>
    </p>
 </section>
 
@@ -153,24 +155,24 @@
 
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <section>
-   <h2>Bullet List</h2>
+   <h2>Building a Bullet List</h2>
    <ul>
-      <li>HTML5</li>
-      <li>CSS3</li>
-      <li>JavaScript</li>
+      <li class=fragment>HTML5</li>
+      <li class=fragment>CSS3</li>
+      <li class=fragment>JavaScript</li>
    </ul>
-   <p>Hover over the HTML to highlight tags.</p>
+   <p class=fragment>Hover over the HTML to highlight tags.</p>
    <figure>
       <pre><code class=language-html>
          &lt;!-- Slide --&gt;
          &lt;section&gt;
             &lt;h2&gt;Bullet List&lt;/h2&gt;
             &lt;ul&gt;
-               &lt;li&gt;HTML5&lt;/li&gt;
-               &lt;li&gt;CSS3&lt;/li&gt;
-               &lt;li&gt;JavaScript&lt;/li&gt;
+               &lt;li class=fragment&gt;HTML5&lt;/li&gt;
+               &lt;li class=fragment&gt;CSS3&lt;/li&gt;
+               &lt;li class=fragment&gt;JavaScript&lt;/li&gt;
             &lt;/ul&gt;
-            &lt;p&gt;Hover over the HTML to highlight tags.&lt;/p&gt;
+            &lt;p class=fragment&gt;Hover over the HTML to highlight tags.&lt;/p&gt;
          &lt;/section&gt;
       </code></pre>
    </figure>
@@ -401,7 +403,7 @@
                &lt;!-- Slide --&gt;
                &lt;section&gt;
                   &lt;h2&gt;Bottom Slide&lt;/h2&gt;
-                  &lt;p&gt;Hit the down arrow to show this slide.&lt;/p&gt;
+                  &lt;p&gt;Hit the down arrow key to show this slide.&lt;/p&gt;
                &lt;/section&gt;
             &lt;/section&gt;
          </code></pre>
@@ -421,12 +423,15 @@
 <section>
    <h2>Hidden Slides</h2>
    <p>
-      Press the backtick (`) key to reveal additional sample slides.
+      Press the backtick (`) key to reveal additional sample slides that are hidden using:
+   </p>
+   <p>
+      <b><code>&lt;section data-visibility=hidden&gt;</code></b>
    </p>
 </section>
 
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<section class=toggle-on-backtick>
+<section data-visibility=hidden>
    <h2>Framed</h2>
    <img src=https://i.chzbgr.com/full/5248955648/hA52D8A65 class=framed data-width=45% alt=cat>
    <figure>

@@ -45,6 +45,10 @@ const revealJsLocal = {
    links() {
       const links = globalThis.document.querySelectorAll('a.external-site, .external-site a');
       links.forEach(link => link.target = '_blank');
+      // <span class=display-address data-name=sales data-domain=ibm.com></span>
+      const elems = [...globalThis.document.getElementsByClassName('display-address')];
+      const at = '<span>' + String.fromCharCode(64) + '</span>';
+      elems.forEach(elem => elem.innerHTML = elem.dataset.name + at + elem.dataset.domain);
       },
    images() {
       const href =   globalThis.document.location.href;
@@ -70,18 +74,26 @@ const revealJsLocal = {
       },
    hiddenSlidesStorage: [],
    hiddenSlides() {
-      const handleBacktick = () => {
-         const container =     globalThis.document.querySelector('.slides');
-         const hidableSlides = dna.dom.filterByClass(container.children, 'toggle-on-backtick');
-         const stash =         (slide) => revealJsLocal.hiddenSlidesStorage.push(slide) && slide.remove();
-         if (hidableSlides.length)
-            hidableSlides.forEach(stash);
+      // <section data-visibility=hidden>
+      const container = globalThis.document.querySelector('.slides');
+      const domInsertAt = (elem, index) => {
+         if (index === 0)
+            container.prepend(elem);
          else
-            while (revealJsLocal.hiddenSlidesStorage.length)
-               container.appendChild(revealJsLocal.hiddenSlidesStorage.pop());
+            container.children[index - 1].insertAdjacentElement('afterend', elem);
+         return elem;
+         };
+      const handleBacktick = () => {
+         dna.dom.toggleClass(container, 'unhide-mode');
+         const unhideMode = container.classList.contains('unhide-mode');
+         const show = (slide) => domInsertAt(slide, Number(slide.dataset.slideIndex));
+         const hide = (slide) => slide.remove();
+         revealJsLocal.hiddenSlidesStorage.forEach(unhideMode ? show : hide);
          Reveal.slide();  //refresh progress bar and control arrows
          };
-      globalThis.setTimeout(handleBacktick, 1000);  //allow time for slides to process before hiding
+      const slides = globalThis.document.querySelectorAll('section[data-visibility=hidden]');
+      slides.forEach(slide => slide.dataset.slideIndex = String(dna.dom.index(slide)));
+      revealJsLocal.hiddenSlidesStorage = slides;
       dna.dom.on('keyup', handleBacktick, { keyFilter: '`' });
       },
    setup() {
