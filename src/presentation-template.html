@@ -73,7 +73,7 @@
 </script>
 
 <!-- Custom JavaScript -->
-<script id=presentation-custom-js data-on-load=presentationCustomSetup>
+<script id=presentation-custom-js>
    const presentationCustomSetup = () => {
       console.log('Presentation is ready.');
       // Put custom code here.
@@ -390,7 +390,7 @@
    <h2>Group of Vertical Slides</h2>
    <section>
       <h2>Vertical Slides</h2>
-      <p>Wrap slides in another <code>&lt;section&gt;</code> tag</p>
+      <p>Wrap slides in another <code>&lt;section&gt;</code> tag.</p>
       <figure>
          <pre><code class=language-html>
             &lt;!-- Vertical Slides --&gt;
@@ -421,9 +421,37 @@
 
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <section>
+   <h2>Speaker Notes</h2>
+   <p>
+      Press the <b><code>Enter</code></b> key to reveal the slide's speaker notes.
+   </p>
+   <figure>
+      <pre><code class=language-html>
+         &lt;!-- Slide --&gt;
+         &lt;section&gt;
+            &lt;h2&gt;Speaker Notes&lt;/h2&gt;
+            &lt;p&gt;Press the Enter key to reveal the slide's speaker notes.&lt;/p&gt;
+            &lt;aside class=notes&gt;
+               &lt;p&gt;Important extra information in paragraph #1.&lt;/p&gt;
+               &lt;p&gt;Important extra information in paragraph #2.&lt;/p&gt;
+               &lt;p&gt;Important extra information in paragraph #3.&lt;/p&gt;
+            &lt;/aside&gt;
+         &lt;/section&gt;
+      </code></pre>
+   </figure>
+   <aside class=notes>
+      <p>Important extra information in paragraph #1.</p>
+      <p>Important extra information in paragraph #2.</p>
+      <p>Important extra information in paragraph #3.</p>
+   </aside>
+</section>
+
+<!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<section>
    <h2>Hidden Slides</h2>
    <p>
-      Press the backtick (`) key to reveal additional sample slides that are hidden using:
+      Press the backtick (<b><code>`</code></b>) key to reveal additional sample
+      slides that are hidden using:
    </p>
    <p>
       <b><code>&lt;section data-visibility=hidden&gt;</code></b>
@@ -437,7 +465,7 @@
    <figure>
       <pre><code class=language-html>
          &lt;!-- Slide --&gt;
-         &lt;section class=toggle-on-backtick&gt;
+         &lt;section data-visibility=hidden&gt;
             &lt;h2&gt;Framed&lt;/h2&gt;
             &lt;img src=https://i.chzbgr.com/full/5248955648/hA52D8A65
                class=framed data-width=45% alt=cat&gt;

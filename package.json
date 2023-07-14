@@ -27,8 +27,6 @@
       "browser": true,
       "devel": true,
       "globals": {
-         "title": false,
-         "subtitle": false,
          "themes": false,
          "selectedTheme": false,
          "baseFontSizePercent": false,
@@ -40,6 +38,7 @@
          "syntaxHighlightingTheme": false,
          "autoAdvance": false,
          "autoAdvanceSeconds": false,
+         "presentationCustomSetup": false,
          "dna": false,
          "Reveal": false
       }

@@ -2,17 +2,6 @@
 
 const revealJsLocal = {
    version: '{{pkg.version}}',
-   reveal() {
-      const config = {  //see: https://revealjs.com/config
-         autoSlide:        autoAdvance ? autoAdvanceSeconds * 1000 : 0,  //milliseconds to automatically advance slide (0 = disable)
-         controls:         true,
-         controlsTutorial: true,
-         hash:             false,
-         loop:             false,
-         progress:         true,
-         };
-      Reveal.initialize(config);
-      },
    themes() {
       const addCss = (url) => {
          const link = dna.dom.create('link', { rel: 'stylesheet', type: 'text/css', href: url });
@@ -51,8 +40,7 @@ const revealJsLocal = {
       elems.forEach(elem => elem.innerHTML = elem.dataset.name + at + elem.dataset.domain);
       },
    images() {
-      const href =   globalThis.document.location.href;
-      const folder = href.split('/').slice(0, -1).join('/');
+      const folder = globalThis.window.location.pathname.split('/').slice(0, -1).join('/');
       console.log('Images folder:');
       console.log('%c' + folder + '/assets', 'font-family: monospace;');
       const configureImage = (img) => {
@@ -71,6 +59,27 @@ const revealJsLocal = {
          elem.style.height =   (text.split('\n').length + 1) * 1.4 + 'em';
          };
       globalThis.document.querySelectorAll('textarea').forEach(trim);
+      },
+   speakerNotes() {
+      const removeNotes = () => {
+         const notesPanel = globalThis.document.querySelector('body >div.notes');
+         if (notesPanel)
+            notesPanel.style.opacity = '0';
+         globalThis.window.setTimeout(() => notesPanel?.remove(), 1100);
+         };
+      const handleEnterKey = () => {
+         const notesElem =  Reveal.getCurrentSlide().querySelector('aside.notes');
+         const content =    notesElem?.innerHTML ?? '[No notes available]';
+         const notesPanel = globalThis.document.querySelector('body >div.notes');
+         const show = () => {
+            const elem = dna.dom.create('div', { class: 'notes', html: content });
+            globalThis.document.body.appendChild(elem);
+            globalThis.window.requestAnimationFrame(() => elem.style.opacity = '1');
+            };
+         return notesPanel ? removeNotes() : show();
+         };
+      dna.dom.onEnterKey(handleEnterKey);
+      Reveal.on('slidechanged', removeNotes);
       },
    hiddenSlidesStorage: [],
    hiddenSlides() {
@@ -96,6 +105,17 @@ const revealJsLocal = {
       revealJsLocal.hiddenSlidesStorage = slides;
       dna.dom.on('keyup', handleBacktick, { keyFilter: '`' });
       },
+   reveal() {
+      const config = {  //see: https://revealjs.com/config
+         autoSlide:        autoAdvance ? autoAdvanceSeconds * 1000 : 0,  //milliseconds to automatically advance slide (0 = disable)
+         controls:         true,
+         controlsTutorial: true,
+         hash:             false,
+         loop:             false,
+         progress:         true,
+         };
+      Reveal.initialize(config).then(presentationCustomSetup);
+      },
    setup() {
       const logStyle = 'font-size: 2rem; font-weight: bold; color: teal;';
       console.log('%creveal.js-local v' + revealJsLocal.version, logStyle);
@@ -107,6 +127,7 @@ const revealJsLocal = {
       revealJsLocal.links();
       revealJsLocal.images();
       revealJsLocal.textarea();
+      revealJsLocal.speakerNotes();
       revealJsLocal.hiddenSlides();
       revealJsLocal.reveal();
       },
