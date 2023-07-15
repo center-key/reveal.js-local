@@ -27,7 +27,7 @@ For documentation, see: [reveal.js](https://github.com/hakimel/reveal.js)
 **Extras:**
 1. References a CDN* copy of reveal.js so the presentation doesn't start off over 1 MB
 1. Adds some sample slides to show formatting
-1. Toggles hidden slides by pressng the backtick (`) key
+1. Toggles hidden slides by pressing the backtick (`) key
 1. Includes hover effects for tables and source code to help speaker point to items
 1. Trims code whitespace to render properly even when aligned with surrounding HTML
 

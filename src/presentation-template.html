@@ -14,14 +14,16 @@
       <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/dna-engine@{{pkg.devDependencies.dna-engine|version}}/dist/dna-engine.css>
       <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/dna-engine@{{pkg.devDependencies.dna-engine|version}}/dist/panel-nav.css>
       <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/reveal.js@{{pkg.devDependencies.reveal-js|version}}/dist/reveal.css>
-      <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/hljs-enhance@{{pkg.devDependencies.hljs-enhance|minor-version}}/hljs-enhance.css>
+      <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/hljs-enhance@{{pkg.devDependencies.hljs-enhance|version}}/hljs-enhance.css>
       <link rel=stylesheet href=./reveal.js-local.css>
       <script defer src=https://cdn.jsdelivr.net/npm/reveal.js@{{pkg.devDependencies.reveal-js|version}}/dist/reveal.js></script>
       <script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@{{pkg.devDependencies.highlight-js|version}}/build/highlight.min.js></script>
       <script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@{{pkg.devDependencies.highlight-js|version}}/build/languages/http.min.js></script>
       <script defer src=https://cdn.jsdelivr.net/npm/dna-engine@{{pkg.devDependencies.dna-engine|version}}/dist/dna-engine.min.js></script>
-      <script defer src=https://cdn.jsdelivr.net/npm/hljs-enhance@{{pkg.devDependencies.hljs-enhance|minor-version}}/hljs-enhance.js></script>
+      <script defer src=https://cdn.jsdelivr.net/npm/hljs-enhance@{{pkg.devDependencies.hljs-enhance|version}}/hljs-enhance.js></script>
       <script defer src=./reveal.js-local.js></script>
+      <script src=https://cdn.jsdelivr.net/npm/chart.js@{{pkg.devDependencies.chart-js|version}}/dist/chart.umd.js></script>  <!-- wait for loading -->
+      <script src=https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@{{pkg.devDependencies.chartjs-plugin-datalabels|version}}/dist/chartjs-plugin-datalabels.min.js></script>  <!-- wait for loading -->
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <!--  reveal.js-local v{{pkg.version}}                                                                   -->
@@ -40,7 +42,7 @@
 <!--  Extras:                                                                                  -->
 <!--     * References a CDN copy of reveal.js so the presentation doesn't start off over 1 MB  -->
 <!--     * Adds some sample slides to show formatting                                          -->
-<!--     * Toggles hidden slides by pressng the backtick (`) key                               -->
+<!--     * Toggles hidden slides by pressing the backtick (`) key                              -->
 <!--     * Includes hover effects for tables and source code to help speaker point to items    -->
 <!--     * Trims code whitespace to render properly even when aligned with surrounding HTML    -->
 <!--                                                                                           -->
@@ -70,6 +72,10 @@
    const syntaxHighlightingTheme = 'Atom One Dark';  //see list of themes at: https://highlightjs.org/static/demo
    const autoAdvance =             false;
    const autoAdvanceSeconds =      10;
+   Chart.register(ChartDataLabels);
+   Chart.defaults.font.size =                  20;
+   Chart.defaults.color =                      'white';
+   Chart.defaults.plugins.datalabels.display = false;
 </script>
 
 <!-- Custom JavaScript -->
@@ -166,7 +172,7 @@
       <pre><code class=language-html>
          &lt;!-- Slide --&gt;
          &lt;section&gt;
-            &lt;h2&gt;Bullet List&lt;/h2&gt;
+            &lt;h2&gt;Building a Bullet List&lt;/h2&gt;
             &lt;ul&gt;
                &lt;li class=fragment&gt;HTML5&lt;/li&gt;
                &lt;li class=fragment&gt;CSS3&lt;/li&gt;
@@ -352,6 +358,53 @@
 
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <section>
+   <h2>Chart.js</h2>
+   <figure>
+      <figcaption>Highest Mountains by U.S. State</figcaption>
+      <canvas id=my-chart></canvas>
+   </figure>
+   <script>
+      const peaks = [
+         { name: 'Denali',        state: 'Alaska',     elevation: 6190 },
+         { name: 'Mount Whitney', state: 'California', elevation: 4421 },
+         { name: 'Mount Elbert',  state: 'Colorado',   elevation: 4401 },
+         { name: 'Mount Rainier', state: 'Washington', elevation: 4394 },
+         { name: 'Gannett Peak',  state: 'Wyoming',    elevation: 4209 },
+         { name: 'Mauna Kea',     state: 'Hawaii',     elevation: 4207 },
+         ];
+      const states =     peaks.map(peak => peak.state);
+      const elevations = peaks.map(peak => peak.elevation);
+      const peakLabel = (value, context) =>
+         `${peaks[context.dataIndex].name}\n${value.toLocaleString()} m`;
+      const peaksDataset = {
+         label:           'Elevation (meters)',
+         data:            elevations,
+         backgroundColor: 'teal',
+         datalabels:      {
+            display:   true,
+            color:     'gold',
+            anchor:    'end',
+            align:     'top',
+            textAlign: 'center',
+            formatter: peakLabel,
+            },
+         };
+      const myChart  = {
+         type: 'bar',
+         data: { labels: states, datasets: [peaksDataset] },
+         options: {
+            scales: {
+               x: { ticks: { font: { size: 20 } } },
+               y: { ticks: { font: { size: 25 } }, beginAtZero: true },
+               },
+            },
+         };
+      new Chart(document.getElementById('my-chart'), myChart);
+   </script>
+</section>
+
+<!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<section>
    <h2>Panels</h2>
    <nav class=dna-menu data-style=flat-tabs>
       <span>Turtle</span>
@@ -411,7 +464,7 @@
    </section>
    <section>
       <h2>Australia</h2>
-      <p>Is Australia the world's smallest contenent</p>
+      <p>Is Australia the world's smallest continent</p>
       <p>or</p>
       <p>the world's largest island?</p>
       <img data-width=35%

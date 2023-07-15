@@ -61,6 +61,8 @@
    "devDependencies": {
       "@fortawesome/fontawesome-free": "~6.4",
       "add-dist-header": "~1.1",
+      "chart.js": "~4.3",
+      "chartjs-plugin-datalabels": "~2.2",
       "dna-engine": "~3.0",
       "highlight.js": "~11.8",
       "hljs-enhance": "~2.0",
