@@ -63,5 +63,6 @@ body >div.notes pre.hljs-enhance {
    border: none;
    }
 body >div.notes pre.hljs-enhance code.hljs {
+   font-size: 1.1rem;
    background-color: transparent;
    }
