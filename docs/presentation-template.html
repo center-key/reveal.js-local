@@ -15,16 +15,18 @@
       <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/dna-engine@3.0/dist/panel-nav.css>
       <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/reveal.js@4.5/dist/reveal.css>
       <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/hljs-enhance@2.0/hljs-enhance.css>
-      <link rel=stylesheet href=https://cdn.jsdelivr.net/gh/center-key/reveal.js-local@0.1/docs/reveal.js-local.css>
+      <link rel=stylesheet href=https://cdn.jsdelivr.net/gh/center-key/reveal.js-local@0.2/docs/reveal.js-local.css>
       <script defer src=https://cdn.jsdelivr.net/npm/reveal.js@4.5/dist/reveal.js></script>
       <script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8/build/highlight.min.js></script>
       <script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8/build/languages/http.min.js></script>
       <script defer src=https://cdn.jsdelivr.net/npm/dna-engine@3.0/dist/dna-engine.min.js></script>
       <script defer src=https://cdn.jsdelivr.net/npm/hljs-enhance@2.0/hljs-enhance.js></script>
-      <script defer src=https://cdn.jsdelivr.net/gh/center-key/reveal.js-local@0.1/docs/reveal.js-local.js></script>
+      <script defer src=https://cdn.jsdelivr.net/gh/center-key/reveal.js-local@0.2/docs/reveal.js-local.js></script>
+      <script src=https://cdn.jsdelivr.net/npm/chart.js@4.3/dist/chart.umd.js></script>  <!-- wait for loading -->
+      <script src=https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2/dist/chartjs-plugin-datalabels.min.js></script>  <!-- wait for loading -->
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<!--  reveal.js-local v0.1.0                                                                   -->
+<!--  reveal.js-local v0.2.0                                                                   -->
 <!--  ======================                                                                   -->
 <!--  A single HTML file for showing a reveal.js presentation locally.                         -->
 <!--                                                                                           -->
@@ -40,7 +42,7 @@
 <!--  Extras:                                                                                  -->
 <!--     * References a CDN copy of reveal.js so the presentation doesn't start off over 1 MB  -->
 <!--     * Adds some sample slides to show formatting                                          -->
-<!--     * Toggles hidden slides by pressng the backtick (`) key                               -->
+<!--     * Toggles hidden slides by pressing the backtick (`) key                              -->
 <!--     * Includes hover effects for tables and source code to help speaker point to items    -->
 <!--     * Trims code whitespace to render properly even when aligned with surrounding HTML    -->
 <!--                                                                                           -->
@@ -70,6 +72,10 @@
    const syntaxHighlightingTheme = 'Atom One Dark';  //see list of themes at: https://highlightjs.org/static/demo
    const autoAdvance =             false;
    const autoAdvanceSeconds =      10;
+   Chart.register(ChartDataLabels);
+   Chart.defaults.font.size =                  20;
+   Chart.defaults.color =                      'white';
+   Chart.defaults.plugins.datalabels.display = false;
 </script>
 
 <!-- Custom JavaScript -->
@@ -166,7 +172,7 @@
       <pre><code class=language-html>
          &lt;!-- Slide --&gt;
          &lt;section&gt;
-            &lt;h2&gt;Bullet List&lt;/h2&gt;
+            &lt;h2&gt;Building a Bullet List&lt;/h2&gt;
             &lt;ul&gt;
                &lt;li class=fragment&gt;HTML5&lt;/li&gt;
                &lt;li class=fragment&gt;CSS3&lt;/li&gt;
@@ -350,6 +356,113 @@
    </figure>
 </section>
 
+<section>  <!-- Start: Slide Group -->
+<h2>Chart.js Slides</h2>
+
+<!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<section>
+   <h2>Chart.js</h2>
+   <figure>
+      <figcaption>Highest Mountains by U.S. State</figcaption>
+      <canvas id=my-chart></canvas>
+   </figure>
+   <script>
+      const peaks = [
+         { name: 'Denali',        state: 'Alaska',     elevation: 6190 },
+         { name: 'Mount Whitney', state: 'California', elevation: 4421 },
+         { name: 'Mount Elbert',  state: 'Colorado',   elevation: 4401 },
+         { name: 'Mount Rainier', state: 'Washington', elevation: 4394 },
+         { name: 'Gannett Peak',  state: 'Wyoming',    elevation: 4209 },
+         { name: 'Mauna Kea',     state: 'Hawaii',     elevation: 4207 },
+         ];
+      const states =     peaks.map(peak => peak.state);
+      const elevations = peaks.map(peak => peak.elevation);
+      const peakLabel = (value, context) =>
+         `${peaks[context.dataIndex].name}\n${value.toLocaleString()} m`;
+      const peaksDataset = {
+         label:           'Elevation (meters)',
+         data:            elevations,
+         backgroundColor: 'teal',
+         datalabels: {
+            display:   true,
+            formatter: peakLabel,
+            color:     'gold',
+            anchor:    'end',
+            align:     'top',
+            textAlign: 'center',
+            },
+         };
+      const myChart  = {
+         type: 'bar',
+         data: { labels: states, datasets: [peaksDataset] },
+         options: {
+            scales: {
+               x: { ticks: { font: { size: 20 } } },
+               y: { ticks: { font: { size: 25 } }, beginAtZero: true },
+               },
+            },
+         };
+      new Chart(document.getElementById('my-chart'), myChart);
+   </script>
+</section>
+
+<!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<section>
+   <h2>Chart.js Code</h2>
+   <figure>
+      <pre><code class=language-html style="font-size: 0.7rem;">
+         &lt;!-- Slide --&gt;
+         &lt;section&gt;
+            &lt;h2&gt;Chart.js&lt;/h2&gt;
+            &lt;figure&gt;
+               &lt;figcaption&gt;Highest Mountains by U.S. State&lt;/figcaption&gt;
+               &lt;canvas id=my-chart&gt;&lt;/canvas&gt;
+            &lt;/figure&gt;
+            &lt;script&gt;
+               const peaks = [
+                  { name: &#39;Denali&#39;,        state: &#39;Alaska&#39;,     elevation: 6190 },
+                  { name: &#39;Mount Whitney&#39;, state: &#39;California&#39;, elevation: 4421 },
+                  ...  <!--
+                  { name: &#39;Mount Elbert&#39;,  state: &#39;Colorado&#39;,   elevation: 4401 },
+                  { name: &#39;Mount Rainier&#39;, state: &#39;Washington&#39;, elevation: 4394 },
+                  { name: &#39;Gannett Peak&#39;,  state: &#39;Wyoming&#39;,    elevation: 4209 },
+                  { name: &#39;Mauna Kea&#39;,     state: &#39;Hawaii&#39;,     elevation: 4207 },
+                  -->
+                  ];
+               const states =     peaks.map(peak =&gt; peak.state);
+               const elevations = peaks.map(peak =&gt; peak.elevation);
+               const peakLabel = (value, context) =&gt;
+                  `${peaks[context.dataIndex].name}\n${value.toLocaleString()} m`;
+               const peaksDataset = {
+                  label:           &#39;Elevation (meters)&#39;,
+                  data:            elevations,
+                  backgroundColor: &#39;teal&#39;,
+                  datalabels:      { display: true, formatter: peakLabel, color: &#39;gold&#39;, ... }, <!--
+                     anchor:    &#39;end&#39;,
+                     align:     &#39;top&#39;,
+                     textAlign: &#39;center&#39;,
+                     },
+                     -->
+                  };
+               const myChart  = {
+                  type: &#39;bar&#39;,
+                  data: { labels: states, datasets: [peaksDataset] },
+                  options: {
+                     scales: {
+                        x: { ticks: { font: { size: 20 } } },
+                        y: { ticks: { font: { size: 25 } }, beginAtZero: true },
+                        },
+                     },
+                  };
+               new Chart(document.getElementById(&#39;my-chart&#39;), myChart);
+            &lt;/script&gt;
+         &lt;/section&gt;
+      </code></pre>
+   </figure>
+</section>
+
+</section>  <!-- End: Slide Group -->
+
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <section>
    <h2>Panels</h2>
@@ -411,11 +524,14 @@
    </section>
    <section>
       <h2>Australia</h2>
-      <p>Is Australia the world's smallest contenent</p>
+      <p>Is Australia the world's smallest continent</p>
       <p>or</p>
       <p>the world's largest island?</p>
       <img data-width=35%
          src=https://upload.wikimedia.org/wikipedia/commons/3/3d/AUS_orthographic.svg alt=map>
+   </section>
+   <section>
+      <h2>Yes</h2>
    </section>
 </section>
 
@@ -450,12 +566,32 @@
 <section>
    <h2>Hidden Slides</h2>
    <p>
-      Press the backtick (<b><code>`</code></b>) key to reveal additional sample
-      slides that are hidden using:
+      Press the backtick (<b><code>`</code></b>) key to reveal
+      additional sample slides that are hidden using:
    </p>
    <p>
       <b><code>&lt;section data-visibility=hidden&gt;</code></b>
    </p>
+   <aside class=notes>
+      <pre><code class=language-html>
+         &lt;!-- Slide --&gt;
+         &lt;section&gt;
+            &lt;h2&gt;Hidden Slides&lt;/h2&gt;
+            &lt;p&gt;
+               Press the backtick (&lt;b&gt;&lt;code&gt;`&lt;/code&gt;&lt;/b&gt;) key to reveal
+               additional sample slides that are hidden using:
+            &lt;/p&gt;
+            &lt;p&gt;
+               &lt;b&gt;&lt;code&gt;&amp;lt;section data-visibility=hidden&amp;gt;&lt;/code&gt;&lt;/b&gt;
+            &lt;/p&gt;
+            &lt;aside class=notes&gt;
+               &lt;pre&gt;&lt;code class=language-html&gt;
+                  &amp;lt;!-- Slide --&amp;gt;
+               &lt;/code&gt;&lt;/pre&gt;
+            &lt;/aside&gt;
+         &lt;/section&gt;
+      </code></pre>
+   </aside>
 </section>
 
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->

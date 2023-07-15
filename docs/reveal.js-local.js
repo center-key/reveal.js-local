@@ -1,7 +1,7 @@
-//! reveal.js-local v0.1.0 ~~ https://github.com/center-key/reveal.js-local ~~ MIT License
+//! reveal.js-local v0.2.0 ~~ https://github.com/center-key/reveal.js-local ~~ MIT License
 
 const revealJsLocal = {
-   version: '0.1.0',
+   version: '0.2.0',
    themes() {
       const addCss = (url) => {
          const link = dna.dom.create('link', { rel: 'stylesheet', type: 'text/css', href: url });
