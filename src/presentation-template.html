@@ -356,6 +356,8 @@
    </figure>
 </section>
 
+<section>  <!-- Start: Slide Group -->
+
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <section>
    <h2>Chart.js</h2>
@@ -380,13 +382,13 @@
          label:           'Elevation (meters)',
          data:            elevations,
          backgroundColor: 'teal',
-         datalabels:      {
+         datalabels: {
             display:   true,
+            formatter: peakLabel,
             color:     'gold',
             anchor:    'end',
             align:     'top',
             textAlign: 'center',
-            formatter: peakLabel,
             },
          };
       const myChart  = {
@@ -402,6 +404,63 @@
       new Chart(document.getElementById('my-chart'), myChart);
    </script>
 </section>
+
+<!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<section>
+   <h2>Chart.js Code</h2>
+   <figure>
+      <pre><code class=language-html style="font-size: 0.7rem;">
+         &lt;!-- Slide --&gt;
+         &lt;section&gt;
+            &lt;h2&gt;Chart.js&lt;/h2&gt;
+            &lt;figure&gt;
+               &lt;figcaption&gt;Highest Mountains by U.S. State&lt;/figcaption&gt;
+               &lt;canvas id=my-chart&gt;&lt;/canvas&gt;
+            &lt;/figure&gt;
+            &lt;script&gt;
+               const peaks = [
+                  { name: &#39;Denali&#39;,        state: &#39;Alaska&#39;,     elevation: 6190 },
+                  { name: &#39;Mount Whitney&#39;, state: &#39;California&#39;, elevation: 4421 },
+                  ...  <!--
+                  { name: &#39;Mount Elbert&#39;,  state: &#39;Colorado&#39;,   elevation: 4401 },
+                  { name: &#39;Mount Rainier&#39;, state: &#39;Washington&#39;, elevation: 4394 },
+                  { name: &#39;Gannett Peak&#39;,  state: &#39;Wyoming&#39;,    elevation: 4209 },
+                  { name: &#39;Mauna Kea&#39;,     state: &#39;Hawaii&#39;,     elevation: 4207 },
+                  -->
+                  ];
+               const states =     peaks.map(peak =&gt; peak.state);
+               const elevations = peaks.map(peak =&gt; peak.elevation);
+               const peakLabel = (value, context) =&gt;
+                  `${peaks[context.dataIndex].name}\n${value.toLocaleString()} m`;
+               const peaksDataset = {
+                  label:           &#39;Elevation (meters)&#39;,
+                  data:            elevations,
+                  backgroundColor: &#39;teal&#39;,
+                  datalabels:      { display: true, formatter: peakLabel, color: &#39;gold&#39;, ... }, <!--
+                     anchor:    &#39;end&#39;,
+                     align:     &#39;top&#39;,
+                     textAlign: &#39;center&#39;,
+                     },
+                     -->
+                  };
+               const myChart  = {
+                  type: &#39;bar&#39;,
+                  data: { labels: states, datasets: [peaksDataset] },
+                  options: {
+                     scales: {
+                        x: { ticks: { font: { size: 20 } } },
+                        y: { ticks: { font: { size: 25 } }, beginAtZero: true },
+                        },
+                     },
+                  };
+               new Chart(document.getElementById(&#39;my-chart&#39;), myChart);
+            &lt;/script&gt;
+         &lt;/section&gt;
+      </code></pre>
+   </figure>
+</section>
+
+</section>  <!-- End: Slide Group -->
 
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <section>
@@ -470,6 +529,9 @@
       <img data-width=35%
          src=https://upload.wikimedia.org/wikipedia/commons/3/3d/AUS_orthographic.svg alt=map>
    </section>
+   <section>
+      <h2>Yes</h2>
+   </section>
 </section>
 
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -503,12 +565,32 @@
 <section>
    <h2>Hidden Slides</h2>
    <p>
-      Press the backtick (<b><code>`</code></b>) key to reveal additional sample
-      slides that are hidden using:
+      Press the backtick (<b><code>`</code></b>) key to reveal
+      additional sample slides that are hidden using:
    </p>
    <p>
       <b><code>&lt;section data-visibility=hidden&gt;</code></b>
    </p>
+   <aside class=notes>
+      <pre><code class=language-html>
+         &lt;!-- Slide --&gt;
+         &lt;section&gt;
+            &lt;h2&gt;Hidden Slides&lt;/h2&gt;
+            &lt;p&gt;
+               Press the backtick (&lt;b&gt;&lt;code&gt;`&lt;/code&gt;&lt;/b&gt;) key to reveal
+               additional sample slides that are hidden using:
+            &lt;/p&gt;
+            &lt;p&gt;
+               &lt;b&gt;&lt;code&gt;&amp;lt;section data-visibility=hidden&amp;gt;&lt;/code&gt;&lt;/b&gt;
+            &lt;/p&gt;
+            &lt;aside class=notes&gt;
+               &lt;pre&gt;&lt;code class=language-html&gt;
+                  &amp;lt;!-- Slide --&amp;gt;
+               &lt;/code&gt;&lt;/pre&gt;
+            &lt;/aside&gt;
+         &lt;/section&gt;
+      </code></pre>
+   </aside>
 </section>
 
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->

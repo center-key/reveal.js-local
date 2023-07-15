@@ -47,6 +47,7 @@ pre.hljs-enhance >code                      { background-color: black; }      /*
 body >div.notes {
    position: fixed;
    bottom: 2px;
+   max-height: 80%;
    font-family: system-ui, sans-serif;
    font-size: 1.6rem;
    color: white;
@@ -56,4 +57,11 @@ body >div.notes {
    z-index: 10000;
    opacity: 0;
    transition: opacity 1000ms;
+   overflow: scroll;
+   }
+body >div.notes pre.hljs-enhance {
+   border: none;
+   }
+body >div.notes pre.hljs-enhance code.hljs {
+   background-color: transparent;
    }
