@@ -24,6 +24,7 @@
       <script defer src=./reveal.js-local.js></script>
       <script src=https://cdn.jsdelivr.net/npm/chart.js@{{pkg.devDependencies.chart-js|version}}/dist/chart.umd.js></script>  <!-- wait for loading -->
       <script src=https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@{{pkg.devDependencies.chartjs-plugin-datalabels|version}}/dist/chartjs-plugin-datalabels.min.js></script>  <!-- wait for loading -->
+      <script src=https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@{{pkg.devDependencies.chartjs-plugin-annotation|version}}/dist/chartjs-plugin-annotation.min.js></script>  <!-- wait for loading -->
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <!--  reveal.js-local v{{pkg.version}}                                                                   -->
@@ -73,6 +74,7 @@
    const autoAdvance =             false;
    const autoAdvanceSeconds =      10;
    Chart.register(ChartDataLabels);
+   Chart.register(annotationPlugin);
    Chart.defaults.font.size =                  20;
    Chart.defaults.color =                      'white';
    Chart.defaults.plugins.datalabels.display = false;
@@ -299,6 +301,9 @@
          console.log('Fibonacci of 100 is:', fibonacci(100));
       </code></pre>
    </figure>
+   <aside class=notes>
+      <p><code>Fibonacci of 100 is: 354224848179262000000</code></p>
+   </aside>
 </section>
 
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -372,7 +377,7 @@
    <h2>Chart.js</h2>
    <figure>
       <figcaption>Highest Mountains by U.S. State</figcaption>
-      <canvas id=my-chart></canvas>
+      <canvas id=peaks-chart></canvas>
    </figure>
    <script>
       const peaks = [
@@ -400,7 +405,7 @@
             textAlign: 'center',
             },
          };
-      const myChart  = {
+      const peaksChart = {
          type: 'bar',
          data: { labels: states, datasets: [peaksDataset] },
          options: {
@@ -410,7 +415,7 @@
                },
             },
          };
-      new Chart(document.getElementById('my-chart'), myChart);
+      new Chart(document.getElementById('peaks-chart'), peaksChart);
    </script>
 </section>
 
@@ -424,7 +429,7 @@
             &lt;h2&gt;Chart.js&lt;/h2&gt;
             &lt;figure&gt;
                &lt;figcaption&gt;Highest Mountains by U.S. State&lt;/figcaption&gt;
-               &lt;canvas id=my-chart&gt;&lt;/canvas&gt;
+               &lt;canvas id=peaks-chart&gt;&lt;/canvas&gt;
             &lt;/figure&gt;
             &lt;script&gt;
                const peaks = [
@@ -452,7 +457,7 @@
                      },
                      -->
                   };
-               const myChart  = {
+               const peaksChart = {
                   type: &#39;bar&#39;,
                   data: { labels: states, datasets: [peaksDataset] },
                   options: {
@@ -462,7 +467,7 @@
                         },
                      },
                   };
-               new Chart(document.getElementById(&#39;my-chart&#39;), myChart);
+               new Chart(document.getElementById(&#39;peaks-chart&#39;), peaksChart);
             &lt;/script&gt;
          &lt;/section&gt;
       </code></pre>

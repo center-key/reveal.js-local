@@ -47,27 +47,30 @@
       "clean": [
          "rimraf build"
       ],
+      "lint": [
+         "jshint src"
+      ],
       "build": [
-         "jshint src",
          "replacer src build --pkg",
          "replacer build --ext=.html docs --pkg --find=./reveal.js-local --replacement=https://cdn.jsdelivr.net/gh/center-key/reveal.js-local@{{pkg.version{{pipe}}minor-version}}/docs/reveal.js-local",
-         "add-dist-header 'build/reveal.js-local.*' docs"
+         "add-dist-header build --ext=.css,.js docs"
       ]
    },
    "scripts": {
-      "pretest": "run-scripts clean build",
+      "pretest": "run-scripts clean lint build",
       "test": "html-validator docs"
    },
    "devDependencies": {
       "@fortawesome/fontawesome-free": "~6.4",
-      "add-dist-header": "~1.1",
+      "add-dist-header": "~1.2",
       "chart.js": "~4.3",
+      "chartjs-plugin-annotation": "~3.0",
       "chartjs-plugin-datalabels": "~2.2",
       "dna-engine": "~3.0",
       "highlight.js": "~11.8",
       "hljs-enhance": "~2.0",
       "jshint": "~2.13",
-      "replacer-util": "~1.1",
+      "replacer-util": "~1.2",
       "reveal.js": "~4.5",
       "rimraf": "~5.0",
       "run-scripts-util": "~1.2",
