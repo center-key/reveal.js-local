@@ -1,26 +1,47 @@
 // reveal.js-local -- MIT
 
+const settings = {
+   // jshint ignore:start
+   themes,
+   selectedTheme,
+   baseFontSizePercent,
+   backgroundTypeToUse,
+   backgroundColor,
+   backgroundGradient,
+   backgroundImages,
+   selectedBackgroundImage,
+   syntaxHighlightingTheme,
+   autoAdvance,
+   autoAdvanceSeconds,
+   presentationCustomSetup,  //see: <script id=presentation-custom-setup>
+   // jshint ignore:end
+   };
+
 const revealJsLocal = {
    version: '{{pkg.version}}',
    themes() {
+      const version = {
+         reveal:    '{{pkg.devDependencies.reveal-js|version}}',
+         highlight: '{{pkg.devDependencies.highlight-js|version}}',
+         };
       const addCss = (url) => {
          const link = dna.dom.create('link', { rel: 'stylesheet', type: 'text/css', href: url });
          link.rel =   'stylesheet';
          globalThis.document.head.appendChild(link);
          };
-      const theme =          themes[selectedTheme];
-      const highlightTheme = dna.util.toKebab(syntaxHighlightingTheme);
-      addCss(`https://cdn.jsdelivr.net/npm/reveal.js@4.5/dist/theme/${theme}.css`);
-      addCss(`https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8/build/styles/${highlightTheme}.min.css`);
+      const theme =          settings.themes[settings.selectedTheme];
+      const highlightTheme = dna.util.toKebab(settings.syntaxHighlightingTheme);
+      addCss(`https://cdn.jsdelivr.net/npm/reveal.js@${version.reveal}/dist/theme/${theme}.css`);  //!!!!!! VERSION
+      addCss(`https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@${version.highlight}/build/styles/${highlightTheme}.min.css`);
       },
    background() {
       globalThis.document.body.style.backgroundSize =     'cover';
       globalThis.document.body.style.backgroundPosition = 'center center';
-      const url = backgroundImages[selectedBackgroundImage];
-      if (backgroundTypeToUse.color)
-         globalThis.document.body.style.backgroundColor = backgroundColor;
-      else if (backgroundTypeToUse.gradient)
-         globalThis.document.body.style.backgroundImage = backgroundGradient;
+      const url = settings.backgroundImages[settings.selectedBackgroundImage];
+      if (settings.backgroundTypeToUse.color)
+         globalThis.document.body.style.backgroundColor = settings.backgroundColor;
+      else if (settings.backgroundTypeToUse.gradient)
+         globalThis.document.body.style.backgroundImage = settings.backgroundGradient;
       else
          globalThis.document.body.style.backgroundImage = 'url(' + url + ')';
       },
@@ -34,15 +55,15 @@ const revealJsLocal = {
    links() {
       const links = globalThis.document.querySelectorAll('a.external-site, .external-site a');
       links.forEach(link => link.target = '_blank');
-      // <span class=display-address data-name=sales data-domain=ibm.com></span>
+      // Usage: <span class=display-address data-name=sales data-domain=ibm.com></span>
       const elems = [...globalThis.document.getElementsByClassName('display-address')];
       const at = '<span>' + String.fromCharCode(64) + '</span>';
       elems.forEach(elem => elem.innerHTML = elem.dataset.name + at + elem.dataset.domain);
       },
    images() {
-      const folder = globalThis.window.location.pathname.split('/').slice(0, -1).join('/');
-      console.log('Images folder:');
-      console.log('%c' + folder + '/assets', 'font-family: monospace;');
+      const folder =   globalThis.window.location.pathname.split('/').slice(0, -1).join('/');
+      const pathCss = 'font-family: monospace; font-size: 16px;';
+      console.log('Images folder: %c' + folder + '/assets', pathCss);
       const configureImage = (img) => {
          if (!img.src.includes('//'))
             img.src = folder + img.src;
@@ -107,19 +128,19 @@ const revealJsLocal = {
       },
    reveal() {
       const config = {  //see: https://revealjs.com/config
-         autoSlide:        autoAdvance ? autoAdvanceSeconds * 1000 : 0,  //milliseconds to automatically advance slide (0 = disable)
+         autoSlide:        settings.autoAdvance ? settings.autoAdvanceSeconds * 1000 : 0,  //milliseconds to automatically advance slide (0 = disable)
          controls:         true,
          controlsTutorial: true,
          hash:             false,
          loop:             false,
          progress:         true,
          };
-      Reveal.initialize(config).then(presentationCustomSetup);
+      Reveal.initialize(config).then(settings.presentationCustomSetup);
       },
    setup() {
       const logStyle = 'font-size: 2rem; font-weight: bold; color: teal;';
       console.log('%creveal.js-local v' + revealJsLocal.version, logStyle);
-      const fontSize = String(baseFontSizePercent) + '%';
+      const fontSize = String(settings.baseFontSizePercent) + '%';
       globalThis.document.querySelector('.reveal .slides').style.fontSize = fontSize;
       revealJsLocal.themes();
       revealJsLocal.background();

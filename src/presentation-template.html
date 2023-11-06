@@ -74,14 +74,14 @@
    const autoAdvance =             false;
    const autoAdvanceSeconds =      10;
    Chart.register(ChartDataLabels);
-   Chart.register(annotationPlugin);
+   Chart.register(globalThis['chartjs-plugin-annotation']);
    Chart.defaults.font.size =                  20;
    Chart.defaults.color =                      'white';
    Chart.defaults.plugins.datalabels.display = false;
 </script>
 
 <!-- Custom JavaScript -->
-<script id=presentation-custom-js>
+<script id=presentation-custom-setup>
    const presentationCustomSetup = () => {
       console.log('Presentation is ready.');
       // Put custom code here.
@@ -172,23 +172,24 @@
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <section>
    <h2>Building a Bullet List</h2>
+   <p class=fragment><code><b>class=fragment</b></code></p>
    <ul>
       <li class=fragment>HTML5</li>
       <li class=fragment>CSS3</li>
       <li class=fragment>JavaScript</li>
    </ul>
-   <p class=fragment>Hover over the HTML to highlight tags.</p>
+   <br><br>
    <figure>
       <pre><code class=language-html>
          &lt;!-- Slide --&gt;
          &lt;section&gt;
             &lt;h2&gt;Building a Bullet List&lt;/h2&gt;
+            &lt;p class=fragment&gt;&lt;code&gt;&lt;b&gt;class=fragment&lt;/b&gt;&lt;/code&gt;&lt;/p&gt;
             &lt;ul&gt;
                &lt;li class=fragment&gt;HTML5&lt;/li&gt;
                &lt;li class=fragment&gt;CSS3&lt;/li&gt;
                &lt;li class=fragment&gt;JavaScript&lt;/li&gt;
             &lt;/ul&gt;
-            &lt;p class=fragment&gt;Hover over the HTML to highlight tags.&lt;/p&gt;
          &lt;/section&gt;
       </code></pre>
    </figure>
