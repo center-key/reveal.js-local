@@ -13,20 +13,21 @@
       <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4/css/all.min.css>
       <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/dna-engine@3.0/dist/dna-engine.css>
       <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/dna-engine@3.0/dist/panel-nav.css>
-      <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/reveal.js@4.5/dist/reveal.css>
+      <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/reveal.js@5.0/dist/reveal.css>
       <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/hljs-enhance@2.0/hljs-enhance.css>
-      <link rel=stylesheet href=https://cdn.jsdelivr.net/gh/center-key/reveal.js-local@0.2/docs/reveal.js-local.css>
-      <script defer src=https://cdn.jsdelivr.net/npm/reveal.js@4.5/dist/reveal.js></script>
-      <script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8/build/highlight.min.js></script>
-      <script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8/build/languages/http.min.js></script>
+      <link rel=stylesheet href=https://cdn.jsdelivr.net/gh/center-key/reveal.js-local@0.3/docs/reveal.js-local.css>
+      <script defer src=https://cdn.jsdelivr.net/npm/reveal.js@5.0/dist/reveal.js></script>
+      <script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9/build/highlight.min.js></script>
+      <script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9/build/languages/http.min.js></script>
       <script defer src=https://cdn.jsdelivr.net/npm/dna-engine@3.0/dist/dna-engine.min.js></script>
       <script defer src=https://cdn.jsdelivr.net/npm/hljs-enhance@2.0/hljs-enhance.js></script>
-      <script defer src=https://cdn.jsdelivr.net/gh/center-key/reveal.js-local@0.2/docs/reveal.js-local.js></script>
-      <script src=https://cdn.jsdelivr.net/npm/chart.js@4.3/dist/chart.umd.js></script>  <!-- wait for loading -->
+      <script defer src=https://cdn.jsdelivr.net/gh/center-key/reveal.js-local@0.3/docs/reveal.js-local.js></script>
+      <script src=https://cdn.jsdelivr.net/npm/chart.js@4.4/dist/chart.umd.js></script>  <!-- wait for loading -->
       <script src=https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2/dist/chartjs-plugin-datalabels.min.js></script>  <!-- wait for loading -->
+      <script src=https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0/dist/chartjs-plugin-annotation.min.js></script>  <!-- wait for loading -->
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<!--  reveal.js-local v0.2.0                                                                   -->
+<!--  reveal.js-local v0.3.0                                                                   -->
 <!--  ======================                                                                   -->
 <!--  A single HTML file for showing a reveal.js presentation locally.                         -->
 <!--                                                                                           -->
@@ -73,13 +74,14 @@
    const autoAdvance =             false;
    const autoAdvanceSeconds =      10;
    Chart.register(ChartDataLabels);
+   Chart.register(globalThis['chartjs-plugin-annotation']);
    Chart.defaults.font.size =                  20;
    Chart.defaults.color =                      'white';
    Chart.defaults.plugins.datalabels.display = false;
 </script>
 
 <!-- Custom JavaScript -->
-<script id=presentation-custom-js>
+<script id=presentation-custom-setup>
    const presentationCustomSetup = () => {
       console.log('Presentation is ready.');
       // Put custom code here.
@@ -170,23 +172,24 @@
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <section>
    <h2>Building a Bullet List</h2>
+   <p class=fragment><code><b>class=fragment</b></code></p>
    <ul>
       <li class=fragment>HTML5</li>
       <li class=fragment>CSS3</li>
       <li class=fragment>JavaScript</li>
    </ul>
-   <p class=fragment>Hover over the HTML to highlight tags.</p>
+   <br><br>
    <figure>
       <pre><code class=language-html>
          &lt;!-- Slide --&gt;
          &lt;section&gt;
             &lt;h2&gt;Building a Bullet List&lt;/h2&gt;
+            &lt;p class=fragment&gt;&lt;code&gt;&lt;b&gt;class=fragment&lt;/b&gt;&lt;/code&gt;&lt;/p&gt;
             &lt;ul&gt;
                &lt;li class=fragment&gt;HTML5&lt;/li&gt;
                &lt;li class=fragment&gt;CSS3&lt;/li&gt;
                &lt;li class=fragment&gt;JavaScript&lt;/li&gt;
             &lt;/ul&gt;
-            &lt;p class=fragment&gt;Hover over the HTML to highlight tags.&lt;/p&gt;
          &lt;/section&gt;
       </code></pre>
    </figure>
@@ -299,6 +302,9 @@
          console.log('Fibonacci of 100 is:', fibonacci(100));
       </code></pre>
    </figure>
+   <aside class=notes>
+      <p><code>Fibonacci of 100 is: 354224848179262000000</code></p>
+   </aside>
 </section>
 
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -372,7 +378,7 @@
    <h2>Chart.js</h2>
    <figure>
       <figcaption>Highest Mountains by U.S. State</figcaption>
-      <canvas id=my-chart></canvas>
+      <canvas id=peaks-chart></canvas>
    </figure>
    <script>
       const peaks = [
@@ -400,7 +406,7 @@
             textAlign: 'center',
             },
          };
-      const myChart  = {
+      const peaksChart = {
          type: 'bar',
          data: { labels: states, datasets: [peaksDataset] },
          options: {
@@ -410,7 +416,7 @@
                },
             },
          };
-      new Chart(document.getElementById('my-chart'), myChart);
+      new Chart(document.getElementById('peaks-chart'), peaksChart);
    </script>
 </section>
 
@@ -424,7 +430,7 @@
             &lt;h2&gt;Chart.js&lt;/h2&gt;
             &lt;figure&gt;
                &lt;figcaption&gt;Highest Mountains by U.S. State&lt;/figcaption&gt;
-               &lt;canvas id=my-chart&gt;&lt;/canvas&gt;
+               &lt;canvas id=peaks-chart&gt;&lt;/canvas&gt;
             &lt;/figure&gt;
             &lt;script&gt;
                const peaks = [
@@ -452,7 +458,7 @@
                      },
                      -->
                   };
-               const myChart  = {
+               const peaksChart = {
                   type: &#39;bar&#39;,
                   data: { labels: states, datasets: [peaksDataset] },
                   options: {
@@ -462,7 +468,7 @@
                         },
                      },
                   };
-               new Chart(document.getElementById(&#39;my-chart&#39;), myChart);
+               new Chart(document.getElementById(&#39;peaks-chart&#39;), peaksChart);
             &lt;/script&gt;
          &lt;/section&gt;
       </code></pre>
