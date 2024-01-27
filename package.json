@@ -3,7 +3,8 @@
    "version": "0.3.1",
    "description": "A single HTML file for showing a reveal.js presentation locally",
    "license": "MIT",
-   "main": "docs/presentation-template.html",
+   "type": "module",
+   "browser": "docs/presentation-template.html",
    "style": "docs/presentation-template.css",
    "repository": {
       "type": "git",
