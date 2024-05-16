@@ -1,4 +1,4 @@
-//! reveal.js-local v0.3.1 ~~ https://github.com/center-key/reveal.js-local ~~ MIT License
+//! reveal.js-local v0.3.2 ~~ https://github.com/center-key/reveal.js-local ~~ MIT License
 
 const settings = {
    // jshint ignore:start
@@ -18,7 +18,7 @@ const settings = {
    };
 
 const revealJsLocal = {
-   version: '0.3.1',
+   version: '0.3.2',
    themes() {
       const version = {
          reveal:    '5.1',
