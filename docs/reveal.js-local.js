@@ -21,7 +21,7 @@ const revealJsLocal = {
    version: '0.3.1',
    themes() {
       const version = {
-         reveal:    '5.0',
+         reveal:    '5.1',
          highlight: '11.9',
          };
       const addCss = (url) => {

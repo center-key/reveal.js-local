@@ -18,11 +18,11 @@ const settings = {
    };
 
 const revealJsLocal = {
-   version: '{{pkg.version}}',
+   version: '{{package.version}}',
    themes() {
       const version = {
-         reveal:    '{{pkg.devDependencies.reveal-js|version}}',
-         highlight: '{{pkg.devDependencies.highlight-js|version}}',
+         reveal:    '{{package.devDependencies.reveal-js|version}}',
+         highlight: '{{package.devDependencies.highlight-js|version}}',
          };
       const addCss = (url) => {
          const link = dna.dom.create('link', { rel: 'stylesheet', type: 'text/css', href: url });

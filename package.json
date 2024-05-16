@@ -44,7 +44,7 @@
       ],
       "build": [
          "replacer src build",
-         "replacer build --ext=.html docs --find=./reveal.js-local --replacement=https://cdn.jsdelivr.net/gh/center-key/reveal.js-local@{{pkg.version{{pipe}}minor-version}}/docs/reveal.js-local",
+         "replacer build --ext=.html docs --find=./reveal.js-local --replacement=https://cdn.jsdelivr.net/gh/center-key/reveal.js-local@{{package.version{{pipe}}minor-version}}/docs/reveal.js-local",
          "add-dist-header build --ext=.css,.js docs"
       ]
    },
@@ -54,18 +54,18 @@
    },
    "devDependencies": {
       "@fortawesome/fontawesome-free": "~6.5",
-      "add-dist-header": "~1.3",
+      "add-dist-header": "~1.4",
       "chart.js": "~4.4",
       "chartjs-plugin-annotation": "~3.0",
       "chartjs-plugin-datalabels": "~2.2",
-      "dna-engine": "~3.1",
+      "dna-engine": "~3.2",
       "highlight.js": "~11.9",
       "hljs-enhance": "~2.0",
       "jshint": "~2.13",
-      "replacer-util": "~1.2",
-      "reveal.js": "~5.0",
+      "replacer-util": "~1.3",
+      "reveal.js": "~5.1",
       "rimraf": "~5.0",
       "run-scripts-util": "~1.2",
-      "w3c-html-validator": "~1.6"
+      "w3c-html-validator": "~1.8"
    }
 }

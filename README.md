@@ -4,7 +4,7 @@
 _A single HTML file for showing a reveal.js presentation locally_
 
 [![License:MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/center-key/reveal.js-local/blob/main/LICENSE.txt)
-[![Build](https://github.com/center-key/reveal.js-local/workflows/build/badge.svg)](https://github.com/center-key/reveal.js-local/actions/workflows/run-spec-on-push.yaml)
+[![Build](https://github.com/center-key/reveal.js-local/actions/workflows/run-spec-on-push.yaml/badge.svg)](https://github.com/center-key/reveal.js-local/actions/workflows/run-spec-on-push.yaml)
 
 ## A) Try It
 View the
