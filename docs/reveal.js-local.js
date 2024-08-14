@@ -22,7 +22,7 @@ const revealJsLocal = {
    themes() {
       const version = {
          reveal:    '5.1',
-         highlight: '11.9',
+         highlight: '11.10',
          };
       const addCss = (url) => {
          const link = dna.dom.create('link', { rel: 'stylesheet', type: 'text/css', href: url });
