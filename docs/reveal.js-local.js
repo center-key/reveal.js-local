@@ -21,8 +21,8 @@ const revealJsLocal = {
    version: '0.3.2',
    themes() {
       const version = {
-         reveal:    '5.1',
-         highlight: '11.10',
+         reveal:    '5.2',
+         highlight: '11.11',
          };
       const addCss = (url) => {
          const link = dna.dom.create('link', { rel: 'stylesheet', type: 'text/css', href: url });
