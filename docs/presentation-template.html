@@ -22,7 +22,7 @@
       <script defer src=https://cdn.jsdelivr.net/npm/dna-engine@3.2/dist/dna-engine.min.js></script>
       <script defer src=https://cdn.jsdelivr.net/npm/hljs-enhance@2.0/hljs-enhance.js></script>
       <script defer src=https://cdn.jsdelivr.net/gh/center-key/reveal.js-local@0.3/docs/reveal.js-local.js></script>
-      <script src=https://cdn.jsdelivr.net/npm/chart.js@4.4/dist/chart.umd.js></script>  <!-- wait for loading -->
+      <script src=https://cdn.jsdelivr.net/npm/chart.js@4.5/dist/chart.umd.js></script>  <!-- wait for loading -->
       <script src=https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2/dist/chartjs-plugin-datalabels.min.js></script>  <!-- wait for loading -->
       <script src=https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.1/dist/chartjs-plugin-annotation.min.js></script>  <!-- wait for loading -->
 
@@ -83,7 +83,7 @@
 <!-- Custom JavaScript -->
 <script id=presentation-custom-setup>
    const presentationCustomSetup = () => {
-      console.log('Presentation is ready.');
+      console.info('Presentation is ready.');
       // Put custom code here.
       };
 </script>
@@ -299,7 +299,7 @@
             return fibLookup[n - 1];
             };
 
-         console.log('Fibonacci of 100 is:', fibonacci(100));
+         console.info('Fibonacci of 100 is:', fibonacci(100));
       </code></pre>
    </figure>
    <aside class=notes>

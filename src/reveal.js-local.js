@@ -63,7 +63,7 @@ const revealJsLocal = {
    images() {
       const folder =   globalThis.window.location.pathname.split('/').slice(0, -1).join('/');
       const pathCss = 'font-family: monospace; font-size: 16px;';
-      console.log('Images folder: %c' + folder + '/assets', pathCss);
+      console.info('Images folder: %c' + folder + '/assets', pathCss);
       const configureImage = (img) => {
          if (!img.src.includes('//'))
             img.src = folder + img.src;
@@ -139,7 +139,7 @@ const revealJsLocal = {
       },
    setup() {
       const logStyle = 'font-size: 2rem; font-weight: bold; color: teal;';
-      console.log('%creveal.js-local v' + revealJsLocal.version, logStyle);
+      console.info('%creveal.js-local v' + revealJsLocal.version, logStyle);
       const fontSize = String(settings.baseFontSizePercent) + '%';
       globalThis.document.querySelector('.reveal .slides').style.fontSize = fontSize;
       revealJsLocal.themes();
