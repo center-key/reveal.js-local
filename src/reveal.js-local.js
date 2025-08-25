@@ -86,7 +86,7 @@ const revealJsLocal = {
          const notesPanel = globalThis.document.querySelector('body >div.notes');
          if (notesPanel)
             notesPanel.style.opacity = '0';
-         globalThis.window.setTimeout(() => notesPanel?.remove(), 1100);
+         globalThis.setTimeout(() => notesPanel?.remove(), 1100);
          };
       const handleEnterKey = () => {
          const notesElem =  Reveal.getCurrentSlide().querySelector('aside.notes');

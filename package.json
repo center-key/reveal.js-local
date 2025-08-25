@@ -53,12 +53,12 @@
       "test": "html-validator docs"
    },
    "devDependencies": {
-      "@fortawesome/fontawesome-free": "~6.7",
+      "@fortawesome/fontawesome-free": "~7.0",
       "add-dist-header": "~1.5",
       "chart.js": "~4.5",
       "chartjs-plugin-annotation": "~3.1",
       "chartjs-plugin-datalabels": "~2.2",
-      "dna-engine": "~3.2",
+      "dna-engine": "~3.3",
       "highlight.js": "~11.11",
       "hljs-enhance": "~2.0",
       "jshint": "~2.13",
