@@ -35,6 +35,11 @@
          "Reveal": false
       }
    },
+   "replacerConfig": {
+      "macros": {
+         "cdn-url": "https://cdn.jsdelivr.net/gh/center-key/reveal.js-local@{{package.version|minor-version}}/docs/reveal.js-local"
+      }
+   },
    "runScriptsConfig": {
       "clean": [
          "rimraf build"
@@ -44,7 +49,7 @@
       ],
       "build": [
          "replacer src build",
-         "replacer build --ext=.html docs --find=./reveal.js-local --replacement=https://cdn.jsdelivr.net/gh/center-key/reveal.js-local@{{package.version{{pipe}}minor-version}}/docs/reveal.js-local",
+         "replacer build --ext=.html docs --find=./reveal.js-local --replacement={{macro:cdn-url}}",
          "add-dist-header build --ext=.css,.js docs"
       ]
    },
@@ -64,7 +69,7 @@
       "jshint": "~2.13",
       "replacer-util": "~1.4",
       "reveal.js": "~5.2",
-      "rimraf": "~6.0",
+      "rimraf": "~6.1",
       "run-scripts-util": "~1.3",
       "w3c-html-validator": "~2.0"
    }
