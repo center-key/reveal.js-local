@@ -1,4 +1,4 @@
-//! reveal.js-local v0.3.3 ~~ https://github.com/center-key/reveal.js-local ~~ MIT License
+//! reveal.js-local v0.3.4 ~~ https://github.com/center-key/reveal.js-local ~~ MIT License
 
 const settings = {
    // jshint ignore:start
@@ -18,7 +18,9 @@ const settings = {
    };
 
 const revealJsLocal = {
-   version: '0.3.3',
+
+   version: '0.3.4',
+
    themes() {
       const version = {
          reveal:    '5.2',
@@ -34,17 +36,18 @@ const revealJsLocal = {
       addCss(`https://cdn.jsdelivr.net/npm/reveal.js@${version.reveal}/dist/theme/${theme}.css`);  //!!!!!! VERSION
       addCss(`https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@${version.highlight}/build/styles/${highlightTheme}.min.css`);
       },
+
    background() {
       globalThis.document.body.style.backgroundSize =     'cover';
       globalThis.document.body.style.backgroundPosition = 'center center';
-      const url = settings.backgroundImages[settings.selectedBackgroundImage];
+      const url =   settings.backgroundImages[settings.selectedBackgroundImage];
+      const image = settings.backgroundTypeToUse.gradient ? settings.backgroundGradient : 'url(' + url + ')';
       if (settings.backgroundTypeToUse.color)
          globalThis.document.body.style.backgroundColor = settings.backgroundColor;
-      else if (settings.backgroundTypeToUse.gradient)
-         globalThis.document.body.style.backgroundImage = settings.backgroundGradient;
       else
-         globalThis.document.body.style.backgroundImage = 'url(' + url + ')';
+         globalThis.document.body.style.backgroundImage = image;
       },
+
    titles() {
       const title = globalThis.document.getElementById('presentation-title').textContent;
       globalThis.document.head.querySelector('title').textContent = title;
@@ -52,6 +55,7 @@ const revealJsLocal = {
       const metaHeaders = dna.dom.filter(globalThis.document.querySelectorAll('.slides >section >h2'), metaHeader);
       metaHeaders.forEach(h2 => h2.style.display = 'none');
       },
+
    links() {
       const links = globalThis.document.querySelectorAll('a.external-site, .external-site a');
       links.forEach(link => link.target = '_blank');
@@ -60,6 +64,7 @@ const revealJsLocal = {
       const at = '<span>' + String.fromCharCode(64) + '</span>';
       elems.forEach(elem => elem.innerHTML = elem.dataset.name + at + elem.dataset.domain);
       },
+
    images() {
       const folder =   globalThis.window.location.pathname.split('/').slice(0, -1).join('/');
       const pathCss = 'font-family: monospace; font-size: 16px;';
@@ -72,6 +77,7 @@ const revealJsLocal = {
          };
       globalThis.document.querySelectorAll('.reveal img').forEach(configureImage);
       },
+
    textarea() {
       const trim = (elem) => {
          const leadingSpaces = new RegExp('^' + elem.value.match(/\s*/)[0], 'mg');
@@ -81,6 +87,7 @@ const revealJsLocal = {
          };
       globalThis.document.querySelectorAll('textarea').forEach(trim);
       },
+
    speakerNotes() {
       const removeNotes = () => {
          const notesPanel = globalThis.document.querySelector('body >div.notes');
@@ -102,7 +109,9 @@ const revealJsLocal = {
       dna.dom.onEnterKey(handleEnterKey);
       Reveal.on('slidechanged', removeNotes);
       },
+
    hiddenSlidesStorage: [],
+
    hiddenSlides() {
       // <section data-visibility=hidden>
       const container = globalThis.document.querySelector('.slides');
@@ -126,6 +135,7 @@ const revealJsLocal = {
       revealJsLocal.hiddenSlidesStorage = slides;
       dna.dom.on('keyup', handleBacktick, { keyFilter: '`' });
       },
+
    reveal() {
       const config = {  //see: https://revealjs.com/config
          autoSlide:        settings.autoAdvance ? settings.autoAdvanceSeconds * 1000 : 0,  //milliseconds to automatically advance slide (0 = disable)
@@ -137,6 +147,7 @@ const revealJsLocal = {
          };
       Reveal.initialize(config).then(settings.presentationCustomSetup);
       },
+
    setup() {
       const logStyle = 'font-size: 2rem; font-weight: bold; color: teal;';
       console.info('%creveal.js-local v' + revealJsLocal.version, logStyle);
@@ -152,6 +163,7 @@ const revealJsLocal = {
       revealJsLocal.hiddenSlides();
       revealJsLocal.reveal();
       },
+
    };
 
 dna.dom.onReady(revealJsLocal.setup);

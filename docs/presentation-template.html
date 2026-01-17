@@ -27,7 +27,7 @@
       <script src=https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.1/dist/chartjs-plugin-annotation.min.js></script>  <!-- wait for loading -->
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<!--  reveal.js-local v0.3.3                                                                   -->
+<!--  reveal.js-local v0.3.4                                                                   -->
 <!--  ======================                                                                   -->
 <!--  A single HTML file for showing a reveal.js presentation locally.                         -->
 <!--                                                                                           -->
@@ -68,6 +68,8 @@
       4: 'https://center-key.github.io/reveal.js-local/assets/nasa-space-nebula.jpg',
       5: 'https://center-key.github.io/reveal.js-local/assets/nasa-wise-orion.jpg',
       6: 'https://center-key.github.io/reveal.js-local/assets/nasa-wise-red-galaxy.jpg',
+      7: 'https://center-key.github.io/reveal.js-local/assets/nps-denali-by-tim-rains.jpg',
+      8: 'assets/my-image.jpg',  //add custom background image to local "assets" folder
       };
    const selectedBackgroundImage = 1;  //set to desired image from above list
    const syntaxHighlightingTheme = 'Atom One Dark';  //see list of themes at: https://highlightjs.org/static/demo
@@ -84,21 +86,25 @@
 <script id=presentation-custom-setup>
    const presentationCustomSetup = () => {
       console.info('Presentation is ready.');
-      // Put custom code here.
+      ///////////////////////////
+      // Put custom code here. //
+      ///////////////////////////
       };
 </script>
 
 <!-- Custom Style -->
 <style id=presentation-custom-css>
+   /****************************/
    /* Put custom styling here. */
+   /****************************/
 </style>
 
 </head><body><div class=reveal><div class=slides>
 
-<!-- =========================================================================================== -->
-<!-- === Start of Slides                                                                     === -->
-<!-- === Note: Each <section> tag represents a slide of the presentation.                    === -->
-<!-- =========================================================================================== -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- Start of Slides                                                                             -->
+<!-- Note: Each <section> tag represents a slide of the presentation.                            -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <section>
@@ -134,10 +140,9 @@
          <a href=https://revealjs.com>reveal.js</a>
       </p>
       <p>
-         <a rel=license href=http://creativecommons.org/publicdomain/zero/1.0
-            style="border-bottom: none;" title="Creative Commons (CC0 1.0)">
-            <img src=https://mirrors.creativecommons.org/presskit/icons/cc.svg style="height: 30px;" alt=cc01.0>
-            <img src=https://mirrors.creativecommons.org/presskit/icons/zero.svg style="height: 30px;" alt=cc01.0>
+         <a rel=license href=http://creativecommons.org/publicdomain/zero/1.0 title="Creative Commons (CC0 1.0)">
+            <img src=https://mirrors.creativecommons.org/presskit/icons/cc.svg alt=cc0>
+            <img src=https://mirrors.creativecommons.org/presskit/icons/zero.svg alt=cc0>
          </a>
       </p>
    </div>
@@ -329,8 +334,8 @@
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <section>
    <h2>Images</h2>
-   <img data-width=20%
-      src=https://center-key.github.io/reveal.js-local/assets/js-logo.png alt=logo>
+   <img src=https://center-key.github.io/reveal.js-local/assets/js-logo.png
+      data-width=20% alt=logo>
    <p>
       Create an <b><code>assets</code></b> folder for your local image files,<br>
       and use the <b><code>data-width</code></b> attribute to adjust the image size.
@@ -340,7 +345,7 @@
          &lt;!-- Slide --&gt;
          &lt;section&gt;
             &lt;h2&gt;Images&lt;/h2&gt;
-            &lt;img data-width=20% src=assets/js-logo.png alt=logo&gt;
+            &lt;img src=assets/js-logo.png data-width=20% alt=logo&gt;
             &lt;p&gt;Create an &lt;b&gt;&lt;code&gt;assets&lt;/code&gt;&lt;/b&gt; folder for your local...&lt;/p&gt;
          &lt;/section&gt;
       </code></pre>
@@ -350,8 +355,8 @@
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <section>
    <h2>Google Drawings</h2>
-   <img class=full alt=diagram data-width=80%
-      src="https://docs.google.com/drawings/d/e/2PACX-1vRoq91lrZcm51whaXE6ot3e4tnOstxsD4XcMd-L-WkqZEGBd28g0rPeNpwmZIS16mUjAxJvRcMwA4-m/pub?w=1971&h=641">
+   <img src="https://docs.google.com/drawings/d/e/2PACX-1vRoq91lrZcm51whaXE6ot3e4tnOstxsD4XcMd-L-WkqZEGBd28g0rPeNpwmZIS16mUjAxJvRcMwA4-m/pub?w=1971&h=641"
+      class=full data-width=80% alt=diagram>
    <p>
       Choose <b>File &rArr; Share &rArr;
       Publish to the web &rArr; Link...</b>
@@ -361,8 +366,8 @@
          &lt;!-- Slide --&gt;
          &lt;section&gt;
             &lt;h2&gt;Google Drawings&lt;/h2&gt;
-            &lt;img class=full alt=diagram
-               src=&quot;https://docs.google.com/drawings/d/e/.../pub?w=1971&h=641&quot;&gt;
+            &lt;img src=&quot;https://docs.google.com/drawings/d/e/.../pub?w=1971&h=641&quot;
+               class=full alt=diagram&gt;
             Choose &lt;b&gt;File &amp;rArr; Share &amp;rArr;
             Publish to the web &amp;rArr; Link...&lt;/b&gt;
          &lt;/section&gt;
@@ -377,7 +382,7 @@
 <section>
    <h2>Chart.js</h2>
    <figure>
-      <figcaption>Highest Mountain Peaks by U.S. State</figcaption>
+      <figcaption>Highest Mountain Peak by U.S. State</figcaption>
       <canvas id=peaks-chart></canvas>
    </figure>
    <script>
@@ -429,7 +434,7 @@
          &lt;section&gt;
             &lt;h2&gt;Chart.js&lt;/h2&gt;
             &lt;figure&gt;
-               &lt;figcaption&gt;Highest Mountain Peaks by U.S. State&lt;/figcaption&gt;
+               &lt;figcaption&gt;Highest Mountain Peak by U.S. State&lt;/figcaption&gt;
                &lt;canvas id=peaks-chart&gt;&lt;/canvas&gt;
             &lt;/figure&gt;
             &lt;script&gt;
@@ -490,22 +495,23 @@
    </nav>
    <div class=dna-panels>
       <div>
-         <p><em><em>🐢</em></em></p>
+         <p><em><em class=flip-icon>🐢</em></em></p>
       </div>
       <div>
-         <p><em><em>🦬</em></em></p>
+         <p><em><em class=flip-icon>🦬</em></em></p>
       </div>
       <div>
          <p><em><em>🦉</em></em></p>
       </div>
       <div>
-         <p><em><em>🦙</em></em></p>
+         <p><em><em class=flip-icon>🦙</em></em></p>
       </div>
       <div>
-         <p><em><em>🐘</em></em></p>
+         <p><em><em class=flip-icon>🐘</em></em></p>
       </div>
       <div>
-         <textarea style="font-size: 5em;" spellcheck=false>
+         <textarea spellcheck=false>
+            ABC
             🐢 🦉 🐘
          </textarea>
       </div>
@@ -541,8 +547,8 @@
       <p>Is Australia the world's smallest continent</p>
       <p>or</p>
       <p>the world's largest island?</p>
-      <img data-width=35%
-         src=https://upload.wikimedia.org/wikipedia/commons/3/3d/AUS_orthographic.svg alt=map>
+      <img src=https://upload.wikimedia.org/wikipedia/commons/3/3d/AUS_orthographic.svg
+         data-width=35% alt=map>
    </section>
    <section>
       <h2>Yes</h2>
