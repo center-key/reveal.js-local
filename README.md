@@ -17,6 +17,7 @@ locally and then view and edit it locally.
 From the terminal you can download the file by entering:
 ```bash
 $ curl https://center-key.github.io/reveal.js-local/presentation-template.html --remote-name
+$ mkdir assets  #optional folder to hold local media files
 $ open presentation-template.html
 ```
 

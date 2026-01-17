@@ -68,9 +68,11 @@ releaseInstructions() {
       echo
       echo "   === Tag and publish ==="
       echo "   cd $projectHome"
+      echo "   git config user.name"
       echo "   git tag --annotate $version --message 'Release'"
       echo "   git remote --verbose"
       echo "   git push origin --tags"
+      echo "   npm whoami"
       }
    test "$version" ">" "$released" && nextActionCommitTagPub || nextActionBump
    echo

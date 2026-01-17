@@ -24,9 +24,12 @@
 .reveal .slides img.framed { border: 30px solid dimgray; padding: 5px; }
 .reveal .slides a { border-bottom: 1px dotted; }
 .reveal .slides a:hover { color: gold; border-bottom: 1px dotted; }
-.reveal .slides em { font-size: 3em; }
+.reveal .slides a[rel=license] { border-bottom: none; }
+.reveal .slides a img { height: 30px; }
+.reveal .slides em { display: inline-block; font-size: 3em; }
+.reveal .slides em.flip-icon { transform: scaleX(-1); }
 .reveal .slides nav.dna-menu[data-style=flat-tabs]+.dna-panels { background-color: black; }
-.reveal .slides textarea { display: block; width: 100%; font-size: 1.8rem; font-family: menlo, consolas, monospace; white-space: pre; padding: 20px; overflow: auto; }
+.reveal .slides textarea { display: block; width: 100%; font-size: 3.5rem; font-family: menlo, consolas, monospace; white-space: pre; padding: 20px; overflow: auto; }
 .reveal .slides .dna-panels { padding: 0px !important; }
 .reveal .slides .dna-panels >.dna-panel { padding: 0px; margin: 0px; }
 .reveal .slides .dna-panels >.dna-panel >p { padding: 20px; }
