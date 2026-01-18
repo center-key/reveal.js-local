@@ -11,6 +11,7 @@
 .reveal .slides pre code { max-height: none; font-size: 1.3rem; line-height: 1.3em; font-family: menlo, consolas, monospace; padding: 20px 0px 20px 20px; }
 .reveal .slides pre code >span, .reveal li { transition: outline 400ms; }
 .reveal .slides pre code >span:hover, .reveal li:hover { outline: 3px solid white; }
+.reveal .slides p >code { display: inline-block; font-weight: bold; color: cyan; background-color: black; outline: 3px solid black; padding: 0px 12px; margin: 0px 5px; }
 .reveal .slides table { margin: 0px auto 40px auto; border-collapse: collapse; border-spacing: 0; }
 .reveal .slides table th { font-weight: bold; }
 .reveal .slides table th, .reveal table td { text-align: left; padding: 0.2em 0.5em 0.2em 0.5em; }
