@@ -5,13 +5,14 @@ _A single HTML file for showing a reveal.js presentation locally_
 
 [![License:MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/center-key/reveal.js-local/blob/main/LICENSE.txt)
 [![Build](https://github.com/center-key/reveal.js-local/actions/workflows/run-spec-on-push.yaml/badge.svg)](https://github.com/center-key/reveal.js-local/actions/workflows/run-spec-on-push.yaml)
+[![Publish Website](https://github.com/center-key/reveal.js-local/actions/workflows/publish-website.yaml/badge.svg)](https://github.com/center-key/reveal.js-local/actions/workflows/publish-website.yaml)
 
 ## A) Try It
 View the
 [sample presentation](https://center-key.github.io/reveal.js-local).
 
 ## B) Use It
-Save [`presentation-template.html`](docs/presentation-template.html) (less then 20 KB)
+Save [`presentation-template.html`](dist/presentation-template.html) (less then 20 KB)
 locally and then view and edit it locally.
 
 From the terminal you can download the file by entering:

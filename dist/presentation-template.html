@@ -15,13 +15,13 @@
       <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/dna-engine@3.3/dist/panel-nav.css>
       <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/reveal.js@5.2/dist/reveal.css>
       <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/hljs-enhance@2.0/hljs-enhance.css>
-      <link rel=stylesheet href=https://cdn.jsdelivr.net/gh/center-key/reveal.js-local@0.3/docs/reveal.js-local.css>
+      <link rel=stylesheet href=https://cdn.jsdelivr.net/gh/center-key/reveal.js-local@0.3/dist/reveal.js-local.css>
       <script defer src=https://cdn.jsdelivr.net/npm/reveal.js@5.2/dist/reveal.js></script>
       <script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11/build/highlight.min.js></script>
       <script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11/build/languages/http.min.js></script>
       <script defer src=https://cdn.jsdelivr.net/npm/dna-engine@3.3/dist/dna-engine.min.js></script>
       <script defer src=https://cdn.jsdelivr.net/npm/hljs-enhance@2.0/hljs-enhance.js></script>
-      <script defer src=https://cdn.jsdelivr.net/gh/center-key/reveal.js-local@0.3/docs/reveal.js-local.js></script>
+      <script defer src=https://cdn.jsdelivr.net/gh/center-key/reveal.js-local@0.3/dist/reveal.js-local.js></script>
       <script src=https://cdn.jsdelivr.net/npm/chart.js@4.5/dist/chart.umd.js></script>  <!-- wait for loading -->
       <script src=https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2/dist/chartjs-plugin-datalabels.min.js></script>  <!-- wait for loading -->
       <script src=https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.1/dist/chartjs-plugin-annotation.min.js></script>  <!-- wait for loading -->
@@ -48,7 +48,7 @@
 <!--     * Trims code whitespace to render properly even when aligned with surrounding HTML    -->
 <!--                                                                                           -->
 <!--  To get started:                                                                          -->
-<!--     Save "docs/presentation-template.html" locally and then view and edit it locally.     -->
+<!--     Save "dist/presentation-template.html" locally and then view and edit it locally.     -->
 <!--                                                                                           -->
 <!--  MIT License                                                                              -->
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -175,9 +175,36 @@
 </section>
 
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<section data-background-image=https://center-key.github.io/reveal.js-local/assets/nasa-space-nebula.jpg>
+   <h2>Background Image</h2>
+   <p>
+      Use the <code>data-background-image</code> attribute on
+      the <code>&lt;section&gt;</code> tag to customize the
+      background image for just that slide.
+   </p>
+   <figure>
+      <figcaption>HTML for this Slide</figcaption>
+      <pre><code class=language-html>
+         &lt;!-- Slide --&gt;
+         &lt;section data-background-image=assets/nasa-space-nebula.jpg&gt;
+            &lt;h2&gt;Background Image&lt;/h2&gt;
+            &lt;p&gt;
+               Use the &lt;code&gt;data-background-image&lt;/code&gt; attribute on
+               the &lt;code&gt;&amp;lt;section&amp;gt;&lt;/code&gt; tag to customize the
+               background image for just that slide.
+            &lt;/p&gt;
+         &lt;/section&gt;
+      </code></pre>
+   </figure>
+   <aside class=notes>
+      <p>The image address can be a full image URL or the path to a local file.</p>
+   </aside>
+</section>
+
+<!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <section>
    <h2>Building a Bullet List</h2>
-   <p class=fragment><code><b>class=fragment</b></code></p>
+   <p class=fragment><code>class=fragment</code></p>
    <ul>
       <li class=fragment>HTML5</li>
       <li class=fragment>CSS3</li>
@@ -189,7 +216,7 @@
          &lt;!-- Slide --&gt;
          &lt;section&gt;
             &lt;h2&gt;Building a Bullet List&lt;/h2&gt;
-            &lt;p class=fragment&gt;&lt;code&gt;&lt;b&gt;class=fragment&lt;/b&gt;&lt;/code&gt;&lt;/p&gt;
+            &lt;p class=fragment&gt;&lt;code&gt;class=fragment&lt;/code&gt;&lt;/p&gt;
             &lt;ul&gt;
                &lt;li class=fragment&gt;HTML5&lt;/li&gt;
                &lt;li class=fragment&gt;CSS3&lt;/li&gt;
@@ -245,7 +272,7 @@
       To display HTML code,
       <a href=https://www.convertstring.com/EncodeDecode/HtmlEncode>encode</a>
       the HTML and place into:<br>
-      <b>&lt;pre&gt;&lt;code class=language-html&gt;</b>
+      <code>&lt;pre&gt;&lt;code class=language-html&gt;</code>
    </p>
    <nav class=dna-menu data-style=flat-tabs>
       <span>Encoded HTML</span>
@@ -292,7 +319,7 @@
    <h2>JavaScript</h2>
    <p>
       To display JS with syntax highlighting, place the code within:<br>
-      <b>&lt;pre&gt;&lt;code class=language-javascript&gt;</b>
+      <code>&lt;pre&gt;&lt;code class=language-javascript&gt;</code>
    </p>
    <div class=down-arrow></div>
    <figure>
@@ -338,7 +365,7 @@
       data-width=20% alt=logo>
    <p>
       Create an <b><code>assets</code></b> folder for your local image files,<br>
-      and use the <b><code>data-width</code></b> attribute to adjust the image size.
+      and use the <code>data-width</code> attribute to adjust the image size.
    </p>
    <figure>
       <pre><code class=language-html>
@@ -379,7 +406,7 @@
 <h2>Chart.js Slides</h2>
 
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<section>
+<section data-background-image=https://center-key.github.io/reveal.js-local/assets/nps-denali-by-tim-rains.jpg>
    <h2>Chart.js</h2>
    <figure>
       <figcaption>Highest Mountain Peak by U.S. State</figcaption>
@@ -590,7 +617,7 @@
       additional sample slides that are hidden using:
    </p>
    <p>
-      <b><code>&lt;section data-visibility=hidden&gt;</code></b>
+      <code>&lt;section data-visibility=hidden&gt;</code>
    </p>
    <aside class=notes>
       <pre><code class=language-html>
@@ -602,7 +629,7 @@
                additional sample slides that are hidden using:
             &lt;/p&gt;
             &lt;p&gt;
-               &lt;b&gt;&lt;code&gt;&amp;lt;section data-visibility=hidden&amp;gt;&lt;/code&gt;&lt;/b&gt;
+               &lt;code&gt;&amp;lt;section data-visibility=hidden&amp;gt;&lt;/code&gt;
             &lt;/p&gt;
             &lt;aside class=notes&gt;
                &lt;pre&gt;&lt;code class=language-html&gt;

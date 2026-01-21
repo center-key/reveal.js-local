@@ -4,8 +4,11 @@
    "description": "A single HTML file for showing a reveal.js presentation locally",
    "license": "MIT",
    "type": "module",
-   "browser": "docs/presentation-template.html",
-   "style": "docs/presentation-template.css",
+   "browser": "dist/presentation-template.html",
+   "style": "dist/reveal.js-local.css",
+   "files": [
+      "dist"
+   ],
    "repository": {
       "type": "git",
       "url": "git+https://github.com/center-key/reveal.js-local.git"
@@ -37,12 +40,12 @@
    },
    "replacerConfig": {
       "macros": {
-         "cdn-url": "https://cdn.jsdelivr.net/gh/center-key/reveal.js-local@{{package.version|minor-version}}/docs/reveal.js-local"
+         "cdn-url": "https://cdn.jsdelivr.net/gh/center-key/reveal.js-local@{{package.version|minor-version}}/dist/reveal.js-local"
       }
    },
    "runScriptsConfig": {
       "clean": [
-         "rimraf build docs"
+         "rimraf build docs dist"
       ],
       "lint": [
          "jshint src"
@@ -55,10 +58,15 @@
          "copy-folder build/assets docs/assets",
          "replacer build --ext=.html docs --find=./reveal.js-local --replacement={{macro:cdn-url}}",
          "add-dist-header build --ext=.css,.js docs"
+      ],
+      "dist": [
+         "copy-file docs/reveal.js-local.css        --folder dist",
+         "copy-file docs/reveal.js-local.js         --folder dist",
+         "copy-file docs/presentation-template.html --folder dist"
       ]
    },
    "scripts": {
-      "pretest": "run-scripts clean lint build publish",
+      "pretest": "run-scripts clean lint build publish dist",
       "test": "html-validator docs"
    },
    "devDependencies": {
@@ -67,6 +75,7 @@
       "chart.js": "~4.5",
       "chartjs-plugin-annotation": "~3.1",
       "chartjs-plugin-datalabels": "~2.2",
+      "copy-file-util": "~1.3",
       "copy-folder-util": "~1.2",
       "dna-engine": "~3.3",
       "highlight.js": "~11.11",
