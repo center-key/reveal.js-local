@@ -4,14 +4,14 @@
 .reveal .slides >section { padding-bottom: 50px; }
 .reveal .slides >section h1 { font-size: 4.0em; }
 .reveal .slides >section h1+h2 { font-family: system-ui, sans-serif; font-weight: lighter; letter-spacing: 0.1em; }
-.reveal .slides >section >p { padding: 0px 10px; outline: 3px solid transparent; transition: outline 400ms; }
+.reveal .slides >section >p { line-height: 1.6em; padding: 0px 10px; outline: 3px solid transparent; transition: outline 400ms; }
 .reveal .slides >section >p:hover { outline: 3px solid gold; }
 .reveal .slides figure figcaption { font-size: 1.5rem; }
 .reveal .slides pre { width: auto; margin: 0px; box-shadow: none; }
 .reveal .slides pre code { max-height: none; font-size: 1.3rem; line-height: 1.3em; font-family: menlo, consolas, monospace; padding: 20px 0px 20px 20px; }
 .reveal .slides pre code >span, .reveal li { transition: outline 400ms; }
 .reveal .slides pre code >span:hover, .reveal li:hover { outline: 3px solid white; }
-.reveal .slides p >code { display: inline-block; font-weight: bold; color: cyan; background-color: black; outline: 3px solid black; padding: 0px 12px; margin: 0px 5px; }
+.reveal .slides p >code { display: inline-block; font-weight: bold; color: cyan; background-color: black; border: 2px solid cyan;; padding: 0px 14px; margin: 0px 5px; }
 .reveal .slides table { margin: 0px auto 40px auto; border-collapse: collapse; border-spacing: 0; }
 .reveal .slides table th { font-weight: bold; }
 .reveal .slides table th, .reveal table td { text-align: left; padding: 0.2em 0.5em 0.2em 0.5em; }
