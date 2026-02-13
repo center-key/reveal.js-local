@@ -1,6 +1,6 @@
 {
    "name": "reveal.js-local",
-   "version": "1.0.0",
+   "version": "1.0.1",
    "description": "A single HTML file for showing a reveal.js presentation locally",
    "license": "MIT",
    "type": "module",
@@ -70,7 +70,7 @@
       "test": "html-validator docs"
    },
    "devDependencies": {
-      "@fortawesome/fontawesome-free": "~7.1",
+      "@fortawesome/fontawesome-free": "~7.2",
       "add-dist-header": "~1.6",
       "chart.js": "~4.5",
       "chartjs-plugin-annotation": "~3.1",
