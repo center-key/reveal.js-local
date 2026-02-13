@@ -453,7 +453,7 @@
 </section>
 
 <!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<section>
+<section data-background-image=https://center-key.github.io/reveal.js-local/assets/nps-denali-by-tim-rains.jpg>
    <h2>Chart.js Code</h2>
    <figure>
       <pre><code class=language-html style="font-size: 0.7rem;">
@@ -468,12 +468,7 @@
                const peaks = [
                   { name: &#39;Denali&#39;,        state: &#39;Alaska&#39;,     elevation: 6190 },
                   { name: &#39;Mount Whitney&#39;, state: &#39;California&#39;, elevation: 4421 },
-                  ...  <!--
-                  { name: &#39;Mount Elbert&#39;,  state: &#39;Colorado&#39;,   elevation: 4401 },
-                  { name: &#39;Mount Rainier&#39;, state: &#39;Washington&#39;, elevation: 4394 },
-                  { name: &#39;Gannett Peak&#39;,  state: &#39;Wyoming&#39;,    elevation: 4209 },
-                  { name: &#39;Mauna Kea&#39;,     state: &#39;Hawaii&#39;,     elevation: 4207 },
-                  -->
+                  ...
                   ];
                const states =     peaks.map(peak =&gt; peak.state);
                const elevations = peaks.map(peak =&gt; peak.elevation);
@@ -483,12 +478,7 @@
                   label:           &#39;Elevation (meters)&#39;,
                   data:            elevations,
                   backgroundColor: &#39;teal&#39;,
-                  datalabels:      { display: true, formatter: peakLabel, color: &#39;goldenrod&#39;, ... }, <!--
-                     anchor:    &#39;end&#39;,
-                     align:     &#39;top&#39;,
-                     textAlign: &#39;center&#39;,
-                     },
-                     -->
+                  datalabels:      { display: true, formatter: peakLabel, color: &#39;goldenrod&#39;, ... },
                   };
                const peaksChart = {
                   type: &#39;bar&#39;,
@@ -501,6 +491,169 @@
                      },
                   };
                new Chart(document.getElementById(&#39;peaks-chart&#39;), peaksChart);
+            &lt;/script&gt;
+         &lt;/section&gt;
+      </code></pre>
+   </figure>
+</section>
+
+<!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<section data-background-color=black>
+   <h2>Chart.js Time Series</h2>
+   <figure>
+      <figcaption>The Slow Takeover and Subversion of the United Nations</figcaption>
+      <canvas id=united-nations-chart></canvas>
+   </figure>
+   <script>
+      const unMembershipAll = [
+         { year: 1945, admissions: 51, members:  51 },
+         { year: 1946, admissions:  4, members:  55 },
+         { year: 1947, admissions:  2, members:  57 },
+         { year: 1948, admissions:  1, members:  58 },
+         { year: 1949, admissions:  1, members:  59 },
+         { year: 1950, admissions:  1, members:  60 },
+         { year: 1951, admissions:  0, members:  60 },
+         { year: 1952, admissions:  0, members:  60 },
+         { year: 1953, admissions:  0, members:  60 },
+         { year: 1954, admissions:  0, members:  60 },
+         { year: 1955, admissions: 16, members:  76 },
+         { year: 1956, admissions:  4, members:  80 },
+         { year: 1957, admissions:  2, members:  82 },
+         { year: 1958, admissions:  1, members:  82 },
+         { year: 1959, admissions:  0, members:  82 },
+         { year: 1960, admissions: 17, members:  99 },
+         { year: 1961, admissions:  4, members: 104 },
+         { year: 1962, admissions:  6, members: 110 },
+         { year: 1963, admissions:  3, members: 113 },
+         { year: 1964, admissions:  3, members: 115 },
+         { year: 1965, admissions:  3, members: 117 },
+         { year: 1966, admissions:  4, members: 122 },
+         { year: 1967, admissions:  1, members: 123 },
+         { year: 1968, admissions:  3, members: 126 },
+         { year: 1969, admissions:  0, members: 126 },
+         { year: 1970, admissions:  1, members: 127 },
+         { year: 1971, admissions:  5, members: 132 },
+         { year: 1972, admissions:  0, members: 132 },
+         { year: 1973, admissions:  3, members: 135 },
+         { year: 1974, admissions:  3, members: 138 },
+         { year: 1975, admissions:  6, members: 144 },
+         { year: 1976, admissions:  3, members: 147 },
+         { year: 1977, admissions:  2, members: 149 },
+         { year: 1978, admissions:  2, members: 151 },
+         { year: 1979, admissions:  1, members: 152 },
+         { year: 1980, admissions:  2, members: 154 },
+         { year: 1981, admissions:  3, members: 157 },
+         { year: 1982, admissions:  0, members: 157 },
+         { year: 1983, admissions:  1, members: 158 },
+         { year: 1984, admissions:  1, members: 159 },
+         { year: 1985, admissions:  0, members: 159 },
+         { year: 1986, admissions:  0, members: 159 },
+         { year: 1987, admissions:  0, members: 159 },
+         { year: 1988, admissions:  0, members: 159 },
+         { year: 1989, admissions:  0, members: 159 },
+         { year: 1990, admissions:  2, members: 159 },
+         { year: 1991, admissions:  7, members: 166 },
+         { year: 1992, admissions: 13, members: 179 },
+         { year: 1993, admissions:  6, members: 184 },
+         { year: 1994, admissions:  1, members: 185 },
+         { year: 1995, admissions:  0, members: 185 },
+         { year: 1996, admissions:  0, members: 185 },
+         { year: 1997, admissions:  0, members: 185 },
+         { year: 1998, admissions:  0, members: 185 },
+         { year: 1999, admissions:  3, members: 188 },
+         { year: 2000, admissions:  2, members: 189 },
+         { year: 2001, admissions:  0, members: 189 },
+         { year: 2002, admissions:  2, members: 191 },
+         { year: 2003, admissions:  0, members: 191 },
+         { year: 2004, admissions:  0, members: 191 },
+         { year: 2005, admissions:  0, members: 191 },
+         { year: 2006, admissions:  1, members: 192 },
+         { year: 2007, admissions:  0, members: 192 },
+         { year: 2008, admissions:  0, members: 192 },
+         { year: 2009, admissions:  0, members: 192 },
+         { year: 2010, admissions:  0, members: 192 },
+         { year: 2011, admissions:  1, members: 193 },
+         { year: 2012, admissions:  0, members: 193 },
+         { year: 2013, admissions:  0, members: 193 },
+         { year: 2014, admissions:  0, members: 193 },
+         { year: 2015, admissions:  0, members: 193 },
+         { year: 2016, admissions:  0, members: 193 },
+         { year: 2017, admissions:  0, members: 193 },
+         { year: 2018, admissions:  0, members: 193 },
+         { year: 2019, admissions:  0, members: 193 },
+         { year: 2020, admissions:  0, members: 193 },
+         ];
+      const unMembership = unMembershipAll.slice(0, 2010 - 1945);
+      const gap = '\u00A0 \u00A0 \u00A0 \u00A0';
+      const unChartLabels = unMembership.map(membership => membership.year);
+      const membersDataset = {
+         type:            'line',
+         label:           'Number of U.N. Member States' + gap,
+         data:            unMembership.map(membership => membership.members),
+         borderWidth:     5,
+         borderColor:     'deepskyblue',
+         backgroundColor: 'deepskyblue',
+         };
+      const admissionsDataset = {
+         type:            'bar',
+         label:           'U.N. Member States Admitted',
+         data:            unMembership.map(membership => membership.admissions),
+         borderWidth:     5,
+         borderColor:     'darkorange',
+         backgroundColor: 'darkorange',
+         };
+      const unChart = {
+         data: { labels: unChartLabels, datasets: [membersDataset, admissionsDataset] },
+         options: {
+            scales: {
+               x: { ticks: { maxTicksLimit: 7 } },
+               y: { ticks: { maxTicksLimit: 5 } },
+               },
+            },
+         };
+      new Chart(document.getElementById('united-nations-chart'), unChart);
+   </script>
+</section>
+
+<!-- Slide - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<section data-background-color=black>
+   <h2>Chart.js Time Series Code</h2>
+   <figure>
+      <pre><code class=language-html style="font-size: 0.7rem;">
+         &lt;!-- Slide --&gt;
+         &lt;section data-background-color=black&gt;
+            &lt;h2&gt;Chart.js Time Series&lt;/h2&gt;
+            &lt;figure&gt;
+               &lt;figcaption&gt;The Slow Takeover and Subversion of the United Nations&lt;/figcaption&gt;
+               &lt;canvas id=united-nations-chart&gt;&lt;/canvas&gt;
+            &lt;/figure&gt;
+            &lt;script&gt;
+               const unMembership = [
+                  { year: 1945, admissions: 51, members:  51 },
+                  ...
+                  { year: 2009, admissions:  0, members: 192 },
+                  ];
+               const unChartLabels = unMembership.map(membership =&gt; membership.year);
+               const membersDataset = {
+                  type:            &#39;line&#39;,
+                  label:           &#39;Number of U.N. Member States&#39;,
+                  data:            unMembership.map(membership =&gt; membership.members),
+                  borderWidth:     5,
+                  borderColor:     &#39;deepskyblue&#39;,
+                  backgroundColor: &#39;deepskyblue&#39;,
+                  };
+               const admissionsDataset = {
+                  type:            &#39;bar&#39;,
+                  label:           &#39;U.N. Member States Admitted&#39;,
+                  data:            unMembership.map(membership =&gt; membership.admissions),
+                  borderWidth:     5,
+                  borderColor:     &#39;darkorange&#39;,
+                  backgroundColor: &#39;darkorange&#39;,
+                  };
+               const unChart = {
+                  data: { labels: unChartLabels, datasets: [membersDataset, admissionsDataset] },
+                  };
+               new Chart(document.getElementById(&#39;united-nations-chart&#39;), unChart);
             &lt;/script&gt;
          &lt;/section&gt;
       </code></pre>
