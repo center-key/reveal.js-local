@@ -1,6 +1,6 @@
 {
    "name": "reveal.js-local",
-   "version": "1.0.1",
+   "version": "1.0.2",
    "description": "A single HTML file for showing a reveal.js presentation locally",
    "license": "MIT",
    "type": "module",
