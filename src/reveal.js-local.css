@@ -6,7 +6,7 @@
 .reveal .slides >section h1+h2 { font-family: system-ui, sans-serif; font-weight: lighter; letter-spacing: 0.1em; }
 .reveal .slides >section >p { line-height: 1.6em; padding: 0px 10px; outline: 3px solid transparent; transition: outline 400ms; }
 .reveal .slides >section >p:hover { outline: 3px solid gold; }
-.reveal .slides figure figcaption { font-size: 1.5rem; }
+.reveal .slides figure figcaption { font-size: 1.7rem; }
 .reveal .slides pre { width: auto; margin: 0px; box-shadow: none; }
 .reveal .slides pre code { max-height: none; font-size: 1.3rem; line-height: 1.3em; font-family: menlo, consolas, monospace; padding: 20px 0px 20px 20px; }
 .reveal .slides pre code >span, .reveal li { transition: outline 400ms; }
