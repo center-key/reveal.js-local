@@ -67,11 +67,13 @@
    },
    "scripts": {
       "pretest": "run-scripts clean lint build publish dist",
-      "test": "html-validator docs"
+      "test": "mocha spec",
+      "posttest": "html-validator docs"
    },
    "devDependencies": {
       "@fortawesome/fontawesome-free": "~7.2",
       "add-dist-header": "~1.6",
+      "assert-deep-strict-equal": "~1.2",
       "chart.js": "~4.5",
       "chartjs-plugin-annotation": "~3.1",
       "chartjs-plugin-datalabels": "~2.2",
@@ -81,6 +83,7 @@
       "highlight.js": "~11.11",
       "hljs-enhance": "~2.1",
       "jshint": "~2.13",
+      "mocha": "~11.7",
       "replacer-util": "~1.6",
       "reveal.js": "~6.0",
       "rimraf": "~6.1",

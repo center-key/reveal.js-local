@@ -32,7 +32,7 @@ const revealJsLocal = {
          globalThis.document.head.appendChild(link);
          };
       const theme =          settings.themes[settings.selectedTheme];
-      const highlightTheme = dna.util.toKebab(settings.syntaxHighlightingTheme);
+      const highlightTheme = dna.str.toKebab(settings.syntaxHighlightingTheme);
       addCss(`https://cdn.jsdelivr.net/npm/reveal.js@${version.reveal}/dist/theme/${theme}.css`);  //!!!!!! VERSION
       addCss(`https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@${version.highlight}/build/styles/${highlightTheme}.min.css`);
       },
@@ -59,7 +59,8 @@ const revealJsLocal = {
    links() {
       const links = globalThis.document.querySelectorAll('a.external-site, .external-site a');
       links.forEach(link => link.target = '_blank');
-      // Usage: <span class=display-address data-name=sales data-domain=ibm.com></span>
+      // Example:
+      //    <span class=display-address data-name=sales data-domain=ibm.com></span>
       const elems = [...globalThis.document.getElementsByClassName('display-address')];
       const at = '<span>' + String.fromCharCode(64) + '</span>';
       elems.forEach(elem => elem.innerHTML = elem.dataset.name + at + elem.dataset.domain);
